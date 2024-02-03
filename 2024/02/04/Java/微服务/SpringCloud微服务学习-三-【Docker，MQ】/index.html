@@ -1,0 +1,653 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="何平安" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="何平安" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="何平安" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://example.com/2024/02/04/Java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0-%E4%B8%89-%E3%80%90Docker%EF%BC%8CMQ%E3%80%91/">
+
+
+
+  <title>
+SpringCloud微服务学习(三)【Docker，MQ】 - 微服务 - Java |
+练竹园 = 何平安 = 世界很大，代码连接世界</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">SpringCloud微服务学习(三)【Docker，MQ】
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-02-04 03:56:35">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-02-04T03:56:35+08:00">2024-02-04</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">练竹园</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://picdm.sunbangyan.cn/2024/02/04/b37fcc362fba9c732eb4e4a4d5103ed0.jpeg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/oEZ1zKNX.jpg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/se1ylCIc.jpg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/UBWtnixc.jpg"></li>
+          <li class="item" data-background-image="https://s11.ax1x.com/2024/02/04/pFlm4wd.jpg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/I1e3e5ui.webp"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/java/" itemprop="item" rel="index" title="In Java"><span itemprop="name">Java</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/java/service/" itemprop="item" rel="index" title="In 微服务"><span itemprop="name">微服务</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/04/Java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0-%E4%B8%89-%E3%80%90Docker%EF%BC%8CMQ%E3%80%91/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/a.jpg">
+    <meta itemprop="name" content="Hepingan">
+    <meta itemprop="description" content="世界很大，代码连接世界, 欢迎来到何平安的个人博客~欢迎您的浏览">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="何平安">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="初识Docker"><a href="#初识Docker" class="headerlink" title="初识Docker"></a>初识Docker</h2><p>项目部署的问题：<br>大型项目组件较多，运行环境也较为复杂，部署时会碰到一些问题:<br>这些服务会依赖于各种各样的应用，Node.js、Redis、RabbitMQ、MySQL等等，每一个服务的应用它们需要的依赖和函数库有差异，也有可能版本不同，所以依赖关系复杂，容易出现兼容性问题。<br>·依赖关系复杂，容易出现兼容性问题<br>·开发、测试、生产环境有差异<br><strong>Docker与虚拟机的差异：</strong></p>
+<p>虚拟机(virtual machine)是在操作系统中模拟硬件设备，然后运行另一个操作系统，比如在Windows 系统里面运行Ubuntu系统，这样就可以运行任意的Ubuntu应用了。</p>
+<p><img data-src="https://img2023.cnblogs.com/blog/3018339/202310/3018339-20231003004355986-1232962131.png" alt="img"></p>
+<p>Docker和虚拟机的差异:<br>· docker是一个系统进程；虚拟机是在操作系统中的操作系统；<br>· docker体积小、启动速度快、性能好；虚拟机体积大、启动速度慢、性能一般。</p>
+<h3 id="镜像和容器"><a href="#镜像和容器" class="headerlink" title="镜像和容器"></a>镜像和容器</h3><p>镜像就是像照镜子一样。我们一般说的镜像是指给系统作个ghost镜像。这样可以在很短时间，很方便的还原出一个完整的系统来。镜像可以说是一种文件,比如iso,gho都属于镜像文件,镜像文件可以直接刻录到光盘中,也可以用虚拟光驱打开。</p>
+<p>镜像(lmage) : Docker将应用程序及其所需的依赖、函数库、环境、配置等文件打包在一起，称为镜像。<br>容器(Container)︰镜像中的应用程序运行后形成的进程就是容器，只是Docker会给容器做隔离，对外不可见。<br>容器想往MySQL存数据，只能先复制一份到自己的容器，在自己的容器中操作，这样就污染不了这个镜像，起到隔离的作用。将来基于镜像再创建一个容器，也是全新的里面都是空的。<br>镜像是只读的，所以跨域交给别人放心大胆的使用，也不会被感染。</p>
+<p>DockerHub: DockerHub是一个Docker镜像的托管平台。这样的平台称为Docker Registry。（就跟github一样，github是代码的托管）<br>国内也有类似于DockerHub 的公开服务，比如网易云镜像服务、阿里云镜像库等。</p>
+<h3 id="Docker架构"><a href="#Docker架构" class="headerlink" title="Docker架构"></a>Docker架构</h3><p>Docker是一个CS架构的程序，由两部分组成:</p>
+<ul>
+<li>服务端(server): Docker守护进程，负责处理Docker指令，管理镜像、容器等</li>
+<li>客户端(client):通过命令或RestAPI向Docker服务端发送指令。可以在本地或远程向服务端发送指令。</li>
+</ul>
+<p><img data-src="https://img2023.cnblogs.com/blog/3018339/202310/3018339-20231003005556342-1077013038.png" alt="img"></p>
+<h2 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h2><p>没有Centos 7的先去安装：<span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLmFsaXl1bi5jb20vY2VudG9zLzcvaXNvcy94ODZfNjQv">centos-7-isos-x86_64安装包下载_开源镜像站-阿里云 (aliyun.com)</span>选择这个下载：<img data-src="https://img2023.cnblogs.com/blog/3018339/202310/3018339-20231003011348510-489348507.png" alt="img"></p>
+<p>等下要开虚拟机来安装Docker，或者你自己有服务器也可以在服务器上安装。</p>
+<p>本地虚拟机安装Docker教程参考：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUxNTQ1NjkwL2FydGljbGUvZGV0YWlscy8xMjMyMzgzNjA=">超详细的CentOS7的下载安装配置教程_centos7下载_秃头披风侠.的博客-CSDN博客 </span> ；；<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0JUaGlua2VyL2FydGljbGUvZGV0YWlscy8xMjMzNTg2OTc=">Docker 安装 (完整详细版)_docker安装-CSDN博客</span></p>
+<p>我就在自己的服务器安装了</p>
+<p>我使用的是阿里云的服务器，我在远程连接控制面板登录后就可以根据下面的操作安装Docker了。</p>
+<p><strong>卸载（可选）</strong></p>
+<p>如果之前安装过旧版本的Docker，可以使用下面命令卸载（建议都执行一遍）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-selinux \</span><br><span class="line">                  docker-engine-selinux \</span><br><span class="line">                  docker-engine \</span><br><span class="line">                  docker-ce</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><p>首先需要大家虚拟机联网，安装yum工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils \</span><br><span class="line">           device-mapper-persistent-data \</span><br><span class="line">           lvm2 --skip-broken</span><br></pre></td></tr></table></figure>
+
+<p>然后更新本地镜像源：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 设置docker镜像源</span><br><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">    </span><br><span class="line">sed -i &#x27;s/download.docker.com/mirrors.aliyun.com\/docker-ce/g&#x27; /etc/yum.repos.d/docker-ce.repo</span><br><span class="line"></span><br><span class="line">yum makecache fast</span><br></pre></td></tr></table></figure>
+
+<p>然后输入命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y docker-ce</span><br></pre></td></tr></table></figure>
+
+<p>docker-ce为社区免费版本。稍等片刻，docker即可安装成功。</p>
+<p><strong>启动docker</strong></p>
+<p>Docker应用需要用到各种端口，逐一去修改防火墙设置。非常麻烦，因此建议大家直接关闭防火墙！</p>
+<p>启动docker前，一定要关闭防火墙后！！</p>
+<p>启动docker前，一定要关闭防火墙后！！</p>
+<p>启动docker前，一定要关闭防火墙后！！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 关闭</span><br><span class="line">systemctl stop firewalld</span><br><span class="line"># 禁止开机启动防火墙</span><br><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure>
+
+<p>通过命令启动docker：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker  # 启动docker服务</span><br><span class="line"></span><br><span class="line">systemctl stop docker  # 停止docker服务</span><br><span class="line"></span><br><span class="line">systemctl restart docker  # 重启docker服务</span><br></pre></td></tr></table></figure>
+
+<p>然后输入命令，可以查看docker版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker -v</span><br></pre></td></tr></table></figure>
+
+<p><strong>配置阿里云的镜像加速：</strong></p>
+<p>针对Docker客户端版本大于 1.10.0 的用户</p>
+<p>您可以通过修改daemon配置文件&#x2F;etc&#x2F;docker&#x2F;daemon.json来使用加速器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://52xn11h1.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<p> <strong>测试配置MYSQL</strong>：</p>
+<p>启动 Docker后可以试试先来部署Mysql玩玩：在终端命令行继续输入：</p>
+<p>docker run -d –name mysql -p 3306:3306 -e TZ&#x3D;Asia&#x2F;Shanghai -e MYSQL_ROOT_PASSWORD&#x3D;123 mysql</p>
+<p>然后等待它下载安装，然后再打开一个Mysql的服务将主机改成虚拟机的ip地址并连接就可以看到成果。</p>
+<p>解析下刚刚的指令：</p>
+<p>docker run:创建并运行一个容器</p>
+<p>-d是让容器在后台运行</p>
+<p>–name mysql:给容器起个名字，必须唯一</p>
+<p>-p 3306:3306：设置端口映射</p>
+<p>-e KEY&#x3D;VALUE：设置环境变量</p>
+<p>mysql：指定运行的镜像名字</p>
+<h2 id="Docker镜像命令"><a href="#Docker镜像命令" class="headerlink" title="Docker镜像命令"></a>Docker镜像命令</h2><p><strong>Docker基本操作：</strong></p>
+<ul>
+<li>镜像操作</li>
+<li>容器操作</li>
+<li>数据卷(容器数据管理)</li>
+</ul>
+<p><strong>镜像相关命令</strong></p>
+<ul>
+<li>镜像名称一般分两部分组成:[repository]:[tag]<br>tag：是版本</li>
+<li>在没有指定tag时，默认是latest，代表最新版本的镜像</li>
+</ul>
+<p><img data-src="https://img2023.cnblogs.com/blog/3018339/202310/3018339-20231003160930013-248277018.png" alt="img"></p>
+<p>一些命令操作：</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img data-src="https://img2023.cnblogs.com/blog/3018339/202310/3018339-20231009171659559-1758026986.png" alt="img"></h2><h3 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h3><p><img data-src="https://img2023.cnblogs.com/blog/3018339/202310/3018339-20231009173522011-422241716.png" alt="img"></p>
+<p><img data-src="https://img2023.cnblogs.com/blog/3018339/202310/3018339-20231009173739443-60224227.png" alt="img"></p>
+<p><img data-src="https://img2023.cnblogs.com/blog/3018339/202310/3018339-20231009173924390-2027665306.png" alt="img"></p>
+<p><strong>测试nginx的数据卷部署</strong></p>
+<p>先把以前部署的 nginx删除（万一安装了）：docker rm -f nginx</p>
+<p>然后再输入docker run -d –name nginx -p 80:80 -v html:&#x2F;user&#x2F;share&#x2F;nginx&#x2F;html nginx</p>
+<p>这里的-v就是配置nginx的html数据卷的位置</p>
+<h2 id="DockerCompose安装"><a href="#DockerCompose安装" class="headerlink" title="DockerCompose安装"></a>DockerCompose安装</h2><p>Linux下需要通过命令下载：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<p>修改文件权限：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 修改权限</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<p><strong>Base自动补全命令：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 补全命令</span><br><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
+
+<p>如果这里出现错误，需要修改自己的hosts文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;199.232.68.133 raw.githubusercontent.com&quot; &gt;&gt; /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<h2 id="Docker镜像仓库"><a href="#Docker镜像仓库" class="headerlink" title="Docker镜像仓库"></a>Docker镜像仓库</h2><p>搭建镜像仓库可以基于Docker官方提供的DockerRegistry来实现。</p>
+<p>官网地址：<span class="exturl" data-url="aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9fL3JlZ2lzdHJ5">https://hub.docker.com/_/registry</span></p>
+<p><strong>简化版镜像仓库</strong></p>
+<p>Docker官方的Docker Registry是一个基础版本的Docker镜像仓库，具备仓库管理的完整功能，但是没有图形化界面。</p>
+<p>搭建方式比较简单，命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --restart=always \</span><br><span class="line">    --name registry \</span><br><span class="line">    -p 5000:5000 \</span><br><span class="line">    -v registry-data:/var/lib/registry \</span><br><span class="line">    registry</span><br></pre></td></tr></table></figure>
+
+<p>命令中挂载了一个数据卷registry-data到容器内的&#x2F;var&#x2F;lib&#x2F;registry 目录，这是私有镜像库存放数据的目录。</p>
+<p>访问<span class="exturl" data-url="aHR0cDovL3lvdXJpcDo1MDAwL3YyL19jYXRhbG9n">http://YourIp:5000/v2/_catalog</span> 可以查看当前私有镜像服务中包含的镜像</p>
+<p><strong>带有图形化界面版本</strong></p>
+<p>使用DockerCompose部署带有图象界面的DockerRegistry，命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3.0&#x27;</span><br><span class="line">services:</span><br><span class="line">  registry:</span><br><span class="line">    image: registry</span><br><span class="line">    volumes:</span><br><span class="line">      - ./registry-data:/var/lib/registry</span><br><span class="line">  ui:</span><br><span class="line">    image: joxit/docker-registry-ui:static</span><br><span class="line">    ports:</span><br><span class="line">      - 8080:80</span><br><span class="line">    environment:</span><br><span class="line">      - REGISTRY_TITLE=传智教育私有仓库</span><br><span class="line">      - REGISTRY_URL=http://registry:5000</span><br><span class="line">    depends_on:</span><br><span class="line">      - registry</span><br></pre></td></tr></table></figure>
+
+<p><strong>配置Docker信任地址</strong></p>
+<p>我们的私服采用的是http协议，默认不被Docker信任，所以需要做一个配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 打开要修改的文件</span><br><span class="line">vi /etc/docker/daemon.json</span><br><span class="line"># 添加内容：</span><br><span class="line">&quot;insecure-registries&quot;:[&quot;http://192.168.150.101:8080&quot;]</span><br><span class="line"># 重加载</span><br><span class="line">systemctl daemon-reload</span><br><span class="line"># 重启docker</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h1 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h1><h2 id="安装和认识"><a href="#安装和认识" class="headerlink" title="安装和认识"></a>安装和认识</h2><p>Docker中安装RabbitMQ 3.8.34</p>
+<p>步骤1：拉取RabbitMQ 3.8.34的镜像文件</p>
+<p>-—–</p>
+<p>docker pull rabbitmq:3.8.34-management</p>
+<p>-—–</p>
+<p>步骤2：使用Docker创建RabbitMQ容器</p>
+<p>-—–</p>
+<p>mkdir &#x2F;data&#x2F;rabbitmq</p>
+<p>-—–</p>
+<p>docker run -p 15672:15672 -p 5672:5672 –name rabbitmq -v &#x2F;data&#x2F;rabbitmq:&#x2F;var&#x2F;lib&#x2F;rabbitmq -d rabbitmq:3.8.34-management</p>
+<p>-—–</p>
+<p>说明：</p>
+<p>参数<code>-p 15672:15672 -p 5672:5672</code>表示将Docker容器的15672和5672端口映射到宿主机的15672和5672端口。</p>
+<p>参数<code>--name rabbitmq</code>表示给容器起个名字叫rabbitmq，方便管理。</p>
+<p>参数<code>-v /data/rabbitmq:/var/lib/rabbitmq</code>表示将宿主机的&#x2F;data&#x2F;rabbitmq目录挂载到容器的&#x2F;var&#x2F;lib&#x2F;rabbitmq目录上，这样可以实现数据持久化。</p>
+<p>说明：</p>
+<p>步骤3：设置RabbitMQ开机自启</p>
+<p>-—–</p>
+<p>docker update –restart&#x3D;always rabbitmq</p>
+<p>-—–</p>
+<p> 然后docker ps查看下容器内有没有，就可以打开对应端口（这里是15672，另外一个5672后面说），rabbitmq默认有个用户，账号和密码均为guest.登进去界面：</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202401/3018339-20240122015516126-890191137.png" alt="img"></p>
+<h3 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h3><p>在Queues（队列里）找到Add a new Queue新建一个队列，随便取个名字其它的先默认。这样新建两个队列，再在Exchangs（交换机）里找到amq.fanout进去，在publish message里的Payload随便输点东西然后push，会报错提示无路由，因为mq是从用户–&gt;交换机–&gt;队列的顺序走的，该交换机和队列没有绑定，所以就在BINDING这里先绑定刚刚的hello.quesues1，然后再发送就成功了，在queues里也可以看到绑定的关系。</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-02-04 04:24:52" itemprop="dateModified" datetime="2024-02-04T04:24:52+08:00">2024-02-04</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/we.png" alt="Hepingan WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/qq2.png" alt="Hepingan Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Hepingan PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Hepingan <i class="ic i-at"><em>@</em></i>何平安
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2024/02/04/Java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0-%E4%B8%89-%E3%80%90Docker%EF%BC%8CMQ%E3%80%91/" title="SpringCloud微服务学习(三)【Docker，MQ】">http://example.com/2024/02/04/Java/微服务/SpringCloud微服务学习-三-【Docker，MQ】/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/02/04/Java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%90Feign-Gateway%E3%80%91/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;picdm.sunbangyan.cn&#x2F;2024&#x2F;02&#x2F;04&#x2F;641422acbb61718b3b3fa67c910c1a64.jpeg" title="SpringCloud微服务学习笔记（二）【Feign,Gateway】">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> 微服务</span>
+  <h3>SpringCloud微服务学习笔记（二）【Feign,Gateway】</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/02/04/%E8%AF%B4%E8%AF%B4nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8CKong%E7%BD%91%E5%85%B3/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picss.sunbangyan.cn&#x2F;2024&#x2F;02&#x2F;04&#x2F;faf2a366c22728f1462c3f4d4a08d542.jpeg" title="说说nginx反向代理和Kong网关">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>说说nginx反向代理和Kong网关</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker"><span class="toc-number">1.</span> <span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E8%AF%86Docker"><span class="toc-number">1.1.</span> <span class="toc-text">初识Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E5%92%8C%E5%AE%B9%E5%99%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">镜像和容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker%E6%9E%B6%E6%9E%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">Docker架构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">Docker安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85docker"><span class="toc-number">1.2.1.</span> <span class="toc-text">安装docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker%E9%95%9C%E5%83%8F%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.</span> <span class="toc-text">Docker镜像命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="toc-number">1.4.1.</span> <span class="toc-text">数据卷</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DockerCompose%E5%AE%89%E8%A3%85"><span class="toc-number">1.5.</span> <span class="toc-text">DockerCompose安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="toc-number">1.6.</span> <span class="toc-text">Docker镜像仓库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RabbitMQ"><span class="toc-number">2.</span> <span class="toc-text">RabbitMQ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E8%AE%A4%E8%AF%86"><span class="toc-number">2.1.</span> <span class="toc-text">安装和认识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">2.1.1.</span> <span class="toc-text">快速入门</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2024/02/04/Java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E3%80%90%E4%BB%8B%E7%BB%8D-Eureka-Ribbon-Nacos%E3%80%91/" rel="bookmark" title="SpringCloud微服务学习笔记（一）【介绍,Eureka,Ribbon,Nacos】">SpringCloud微服务学习笔记（一）【介绍,Eureka,Ribbon,Nacos】</a></li><li><a href="/2024/02/04/Java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%90Feign-Gateway%E3%80%91/" rel="bookmark" title="SpringCloud微服务学习笔记（二）【Feign,Gateway】">SpringCloud微服务学习笔记（二）【Feign,Gateway】</a></li><li class="active"><a href="/2024/02/04/Java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0-%E4%B8%89-%E3%80%90Docker%EF%BC%8CMQ%E3%80%91/" rel="bookmark" title="SpringCloud微服务学习(三)【Docker，MQ】">SpringCloud微服务学习(三)【Docker，MQ】</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Hepingan"
+      data-src="/images/a.jpg">
+  <p class="name" itemprop="name">Hepingan</p>
+  <div class="description" itemprop="description">欢迎来到何平安的个人博客~欢迎您的浏览</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">42</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">8</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlcGluZ2FuMTE=" title="https:&#x2F;&#x2F;github.com&#x2F;hepingan11"><i class="ic i-github"></i></span>
+      <span class="exturl item google" data-url="aHR0cHM6Ly9wbHVzLmdvb2dsZS5jb20v" title="https:&#x2F;&#x2F;plus.google.com&#x2F;"><i class="ic i-google"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTM0MzI3MDEyNA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;343270124"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjE2NDE2NDM2NTY2QHFxLmNvbQ==" title="mailto:16416436566@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/02/04/Java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%90Feign-Gateway%E3%80%91/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/02/04/%E8%AF%B4%E8%AF%B4nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8CKong%E7%BD%91%E5%85%B3/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="In Python">Python</a>
+</div>
+
+    <span><a href="/2024/02/04/Python/%E6%9C%89C%E5%92%8CJava%E7%9A%84%E5%BA%95%E5%AD%90%E5%A6%82%E4%BD%95%E9%80%9F%E9%80%9APython%E8%AF%AD%E6%B3%95/" title="有C和Java的底子如何速通Python语法">有C和Java的底子如何速通Python语法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/03/html-css%E5%9F%BA%E7%A1%80/" title="html,css基础">html,css基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/%E9%80%9A%E8%BF%87Maven%E5%B0%86%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8OSS/" title="通过Maven将文件上传到阿里云对象存储OSS">通过Maven将文件上传到阿里云对象存储OSS</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="MySQL数据库学习（二）">MySQL数据库学习（二）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/" title="In 学成在线">学成在线</a>
+</div>
+
+    <span><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%80%E3%80%91-%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="企业级微服务大项目实战《学成在线》【一】(项目环境搭建)">企业级微服务大项目实战《学成在线》【一】(项目环境搭建)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/java/" title="In Java">Java</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/java/javase/" title="In Java基础">Java基础</a>
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%E5%9F%BA%E7%A1%80/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%AE%80%E5%8E%86%E4%B8%8A%E5%86%99%E4%B8%8A%E7%B2%BE%E9%80%9AJava%EF%BC%88%E7%AC%94%E8%AE%B0%E4%B8%80%EF%BC%89/" title="如何在简历上写上精通Java（笔记一）">如何在简历上写上精通Java（笔记一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86-AOP%E8%AE%B0%E5%BD%95%E6%8A%80%E6%9C%AF/" title="事务管理+AOP记录技术">事务管理+AOP记录技术</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/" title="In 学成在线">学成在线</a>
+</div>
+
+    <span><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%BA%8C%E3%80%91-%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3%E6%8E%A5%E5%8F%A3/" title="企业级微服务大项目实战《学成在线》【二】(课程相关接口)">企业级微服务大项目实战《学成在线》【二】(课程相关接口)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/mystory/" title="In 我的传奇">我的传奇</a>
+</div>
+
+    <span><a href="/2024/02/03/%E6%88%91%E7%9A%84%E4%BC%A0%E5%A5%87/%E6%88%91%E7%9A%84%E6%95%85%E4%BA%8B%EF%BC%88%E5%A4%A7%E4%B8%80%E4%B8%8A%EF%BC%89/" title="我的故事（大一上）">我的故事（大一上）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Axios%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E5%AE%9E%E4%BE%8B/" title="Axios前后端交互实例">Axios前后端交互实例</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hepingan @ 练竹园</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/02/04/Java/微服务/SpringCloud微服务学习-三-【Docker，MQ】/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

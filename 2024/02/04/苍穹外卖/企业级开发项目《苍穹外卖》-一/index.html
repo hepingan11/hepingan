@@ -1,0 +1,602 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="何平安" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="何平安" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="何平安" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://example.com/2024/02/04/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E3%80%8B-%E4%B8%80/">
+
+
+
+  <title>
+企业级开发项目《苍穹外卖》(一) - 苍穹外卖 |
+练竹园 = 何平安 = 世界很大，代码连接世界</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">企业级开发项目《苍穹外卖》(一)
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-02-04 03:45:40">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-02-04T03:45:40+08:00">2024-02-04</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">练竹园</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://picss.sunbangyan.cn/2024/02/04/1e86d9b5ab6a0f3c06aae5296f66dd67.jpeg"></li>
+          <li class="item" data-background-image="https://picdl.sunbangyan.cn/2024/02/04/9b1502552d0f9e3389645068570f950b.jpeg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2023/10/04/7nh1HUTd.png"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/rsbTT6M3.jpg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/oIJGpXii.jpg"></li>
+          <li class="item" data-background-image="https://picst.sunbangyan.cn/2024/02/04/b50bdaf25d53a7c1806e709634078b5c.jpeg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/" itemprop="item" rel="index" title="In 苍穹外卖"><span itemprop="name">苍穹外卖</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/04/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E3%80%8B-%E4%B8%80/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/a.jpg">
+    <meta itemprop="name" content="Hepingan">
+    <meta itemprop="description" content="世界很大，代码连接世界, 欢迎来到何平安的个人博客~欢迎您的浏览">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="何平安">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>我不要当骑手，我要当老板~！</p>
+<h2 id="—环境搭建—"><a href="#—环境搭建—" class="headerlink" title="—环境搭建—"></a><strong>—环境搭建—</strong></h2><p>先下载黑马的资料文件，里面day1的前端代码文件文件夹将其复制到一个全英文路径的地方，然后运行里面的<strong>nginx.exe</strong>，浏览器输入localhost如果有苍穹外卖的界面说明就成功了。</p>
+<p>IDEA打开后端代码文件里面的sky-take-out，里面已经搭建好了三个模块及各个模块的内容。</p>
+<p><strong>git环境搭建</strong></p>
+<p>创建git仓库：VCS栏里找到创建git仓库，路径就选择sky-take-out，没有下载git的话就去先下载：<span class="exturl" data-url="aHR0cHM6Ly9yZWdpc3RyeS5ucG1taXJyb3IuY29tLy0vYmluYXJ5L2dpdC1mb3Itd2luZG93cy92Mi40MC4wLndpbmRvd3MuMS9HaXQtMi40MC4wLTY0LWJpdC5leGU=">https://registry.npmmirror.com/-/binary/git-for-windows/v2.40.0.windows.1/Git-2.40.0-64-bit.exe</span></p>
+<p>我的博客的下一文章就有git的详细教学</p>
+<p> 安装教程：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211a2VzL2FydGljbGUvZGV0YWlscy8xMTU2OTM4MzM=">Git 详细安装教程（详解 Git 安装过程的每一个步骤）_git安装_mukes的博客-CSDN博客</span>或<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC81OTc0NDcyNTU=">git的安装与配置（详细） - 知乎 (zhihu.com)</span>,</p>
+<p> IDEA配置git教程：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lUamF2YXhpYW9iYWkvYXJ0aWNsZS9kZXRhaWxzLzEyMjMyNjA0Ng==">IDEA配置git详细步骤_idea git config_字节小龙的博客-CSDN博客</span>，github加速器推荐选择网易的UU加速器,或者用国内的gitee（码云）</p>
+<p> 然后点击提交(ctrl+k)，选中全部文件然后下面写注释苍穹外卖，提交即可。这是提交到本地git仓库</p>
+<p> 创建远程gitee仓库：<span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20v">工作台 - Gitee.com</span>，先创建一个账号然后点击创建仓库(<span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vcHJvamVjdHMvbmV3">新建仓库 - Gitee.com</span>),名字就是sky-take-out吧，定义为私有。然后再复制，回到IDEA,找到git里面的推送（一个箭头符号），点击左边下划线部分，输入刚刚复制的url，然后点击仍然推送。</p>
+<p><strong>数据环境搭建</strong></p>
+<p> 数据库文件下载：<span class="exturl" data-url="aHR0cHM6Ly9waWN0dXJlLWhlcGluZ2FuLm9zcy1jbi1oYW5nemhvdS5hbGl5dW5jcy5jb20vc2t5LnNxbCVFRiVCQyU4QyVFNSU4NiU4RCVFNSU5QyVBOHJlc291cmNlcyVFOSU4NyU4QyVFOSU5RCVBMiVFOSU4NSU4RCVFNyVCRCVBRSVFNiU5NiU4NyVFNCVCQiVCNiVFOSU4NyU4QyVFOSU5RCVBMiVFOSU4NSU4RCVFNyVCRCVBRSVFNSU5MiU4QyVFNiU5NSVCMCVFNiU4RCVBRSVFNSVCQSU5MyVFNSVBRiU4NiVFNyVBMCU4MSVFNyVBRCU4OSVFNCVCRiVBMSVFNiU4MSVBRiVFMyU4MCU4Mg==">https://picture-hepingan.oss-cn-hangzhou.aliyuncs.com/sky.sql，再在resources里面配置文件里面配置和数据库密码等信息。</span></p>
+<p><strong>前后端联调</strong></p>
+<p> 运行Maven生命周期的compile，然后再运行server模块里面的运行类。打开localhost网址（默认端口号为80），数据库里面有个管理的账号：admin，密码123456，输入并登录。可以先去调试下EmpControllerImpl熟悉下项目。</p>
+<p><strong>Nginx反向代理</strong></p>
+<p>将前端发送的动态请求由nignx转发到后端服务器。好处：提高访问速度，进行负载均衡，保证后端安全。</p>
+<p><img data-src="https://img2023.cnblogs.com/blog/3018339/202308/3018339-20230829191422133-356554957.png" alt="img"></p>
+<p>nginx负载均衡策略：</p>
+<p><img data-src="https://img2023.cnblogs.com/blog/3018339/202308/3018339-20230829192042293-1158764306.png" alt="img"></p>
+<p> nignx.conf里面有个可以配置服务器的权重（但是得有两台以上的服务器）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream webservers&#123;</span><br><span class="line">      server <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8080</span> weight=<span class="number">90</span> ;</span><br><span class="line">      #server <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8088</span> weight=<span class="number">10</span> ;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>登录系统的完善</strong></p>
+<p>为了增加安全性，使用md5进行加密处理，把一个明文加密处理，但是不能反向回解，所以是单向的。比如将admin的密码123456进行加密就是：e10adc3949ba59abbe56e057f20f883e，将其复制到employee数据库里的password，然后再在EmployeeServiceImpl里的&#x2F;&#x2F;TODD 注释下将password变量进行加密：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password =DigestUtils.md5DigestAsHex(password.getBytes());</span><br></pre></td></tr></table></figure>
+
+<p><strong>导入接口文档</strong></p>
+<p>使用前后端分离的方式开发。找到资料里面的两个json格式接口文件，再在YAPI官网（<span class="exturl" data-url="aHR0cHM6Ly95YXBpLnByby8lRUYlQkMlODklRTklODclOEMlRTUlQUYlQkMlRTUlODUlQTUlRTglQkYlOTklRTQlQjglQUElRTQlQjglQTQlRTQlQjglQUElRTYlOEUlQTUlRTUlOEYlQTMlRUYlQkMlOEMlRTglQTYlODElRTUlODglODYlRTUlODglQUIlRTYlOTYlQjAlRTUlQkIlQkElRTQlQjglQTQlRTQlQjglQUElRTklQTElQjklRTclOUIlQUUlRUYlQkMlOEMlRTUlODYlOEQlRTUlOUMlQTglRTklQTElQjklRTclOUIlQUUlRTklODclOEMlRTklOUQlQTIlRTclOUElODQlRTYlOTUlQjAlRTYlOEQlQUUlRTclQUUlQTElRTclOTAlODYlRTklODclOEMlRTklODAlODklRTYlOEIlQTlqc29uJUU2JUEwJUJDJUU1JUJDJThGJUU1JUI4JUE2JUU1JTg1JUE1JUUzJTgwJTgy">https://yapi.pro/）里导入这个两个接口，要分别新建两个项目，再在项目里面的数据管理里选择json格式带入。</span></p>
+<p><img data-src="https://img2023.cnblogs.com/blog/3018339/202308/3018339-20230829195818199-1546088218.png" alt="img"></p>
+<p><strong>Swagger</strong></p>
+<p>Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务(<span class="exturl" data-url="aHR0cHM6Ly9zd2FnZ2VyLmlvLyklRTMlODAlODI=">https://swagger.io/)。</span> 它的主要作用是：</p>
+<ol>
+<li><p>使得前后端分离开发更加方便，有利于团队协作</p>
+</li>
+<li><p>接口的文档在线自动生成，降低后端开发人员编写接口文档的负担</p>
+</li>
+<li><p>功能测试</p>
+<p>Spring已经将Swagger纳入自身的标准，建立了Spring-swagger项目，现在叫Springfox。通过在项目中引入Springfox ，即可非常简单快捷的使用Swagger。</p>
+</li>
+</ol>
+<p>直接使用Knife4j（为Java MVC框架集成Swagger生成Api文档的增强解决方案），里面封装了Swagger的，在pom.xml里导入它的依赖：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.xiaoymin&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;knife4j-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">3.0</span><span class="number">.2</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>再在WebMvcConfiguration.java里添加</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置静态资源映射</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> registry</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> &#123;</span><br><span class="line">        registry.addResourceHandler(<span class="string">&quot;/doc.html&quot;</span>).addResourceLocations(<span class="string">&quot;classpath:/META-INF/resources/&quot;</span>);</span><br><span class="line">        registry.addResourceHandler(<span class="string">&quot;/webjars/**&quot;</span>).addResourceLocations(<span class="string">&quot;classpath:/META-INF/resources/webjars/&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过knife4j生成接口文档</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Docket <span class="title function_">docket</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">ApiInfo</span> <span class="variable">apiInfo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ApiInfoBuilder</span>()</span><br><span class="line">                .title(<span class="string">&quot;苍穹外卖项目接口文档&quot;</span>)</span><br><span class="line">                .version(<span class="string">&quot;2.0&quot;</span>)</span><br><span class="line">                .description(<span class="string">&quot;苍穹外卖项目接口文档&quot;</span>)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="type">Docket</span> <span class="variable">docket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Docket</span>(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo)</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.sky.controller&quot;</span>))</span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">        <span class="keyword">return</span> docket;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>里面已经自动编写好了的。</p>
+<p>就是添加点注释的意思:@Api添加在控制类上，@ApiOperation，@ApiModel，@ApiModelProperty；</p>
+<p>编写Swager注解后就可以在接口文档里看到添加的接口。</p>
+<h2 id="—功能开发—"><a href="#—功能开发—" class="headerlink" title="—功能开发—"></a>—功能开发—</h2><h3 id="新增员工"><a href="#新增员工" class="headerlink" title="新增员工"></a>新增员工</h3><p>在YApi里面查看新增员工的接口：</p>
+<p> <img data-src="https://img2023.cnblogs.com/blog/3018339/202309/3018339-20230908170525491-1501688491.png" alt="img"></p>
+<p>Server模块里面的Controller层下的EmployeeController类里面编写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;新增员工&quot;)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Result <span class="title function_">save</span><span class="params">(<span class="meta">@RequestBody</span> EmployeeDTO employeeDTO)</span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;新增员工：&#123;&#125;&quot;</span>,employeeDTO);</span><br><span class="line">        employeeService.save(employeeDTO);</span><br><span class="line">        <span class="keyword">return</span> Result.success();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 然后再点报错的save自动添加到server层，然后在Impl里面实现接口方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(EmployeeDTO employeeDTO)</span> &#123;</span><br><span class="line">        Employee employee=<span class="keyword">new</span> <span class="title class_">Employee</span>();</span><br><span class="line"><span class="comment">//        对象属性拷贝</span></span><br><span class="line">        BeanUtils.copyProperties(employeeDTO,employee);</span><br><span class="line">        <span class="comment">//设置账号的状态，默认正常状态1表示正常，0表示锁定</span></span><br><span class="line">        employee.setStatus(StatusConstant.ENABLE);</span><br><span class="line"><span class="comment">//        设置默认密码</span></span><br><span class="line">        employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));</span><br><span class="line"><span class="comment">//        设置时间</span></span><br><span class="line">        employee.setUpdateTime(LocalDateTime.now());</span><br><span class="line">        employee.setCreateTime(LocalDateTime.now());</span><br><span class="line"><span class="comment">//        设置记录人和修改人的id</span></span><br><span class="line"><span class="comment">//        TODO 后期修改</span></span><br><span class="line">        employee.setCreateUser(<span class="number">10L</span>);</span><br><span class="line">        employee.setUpdateUser(<span class="number">10L</span>);</span><br><span class="line"></span><br><span class="line">        employeeMapper.insert(employee);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> EmployeeMapper：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Insert(&quot;insert into employee (name, username, password, phone, sex, id_number, create_time, update_time, create_user, update_user,status) &quot; +</span></span><br><span class="line"><span class="meta">            &quot;values(#&#123;name&#125;,#&#123;username&#125;,#&#123;password&#125;,#&#123;phone&#125;,#&#123;sex&#125;,#&#123;idNumber&#125;,#&#123;createTime&#125;,#&#123;updateTime&#125;,#&#123;createUser&#125;,#&#123;updateUser&#125;,#&#123;status&#125;)&quot;)</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(Employee employee)</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试连接</strong></p>
+<p>打开<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDgwL2RvYy5odG1sIy9kZWZhdWx0L2VtcGxveWVlLWNvbnRyb2xsZXIvc2F2ZVVzaW5nUE9TVA==">苍穹外卖项目接口文档</span>，先去员工登录接口测试拿到一个JWT令牌，然后再在文档管理的全局参数配置里添加名为token的值为JWT令牌的参数，然后再去测试添加员工的接口。记得输入规定的内容，比如idNumber就为18位身份证号。phone为11位。如果报401就是令牌过期了，记得重新申请！</p>
+<p><strong>代码补充</strong></p>
+<p>如果添加一个相同的员工名字就会报500的错误，这时就需要给用户返回错误信息，在GobleExceptionHandler类中添加下面代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="keyword">public</span> Result <span class="title function_">exceptionHandler</span><span class="params">(SQLIntegrityConstraintViolationException ex)</span>&#123;</span><br><span class="line"><span class="comment">//        Duplicate entry &#x27;hpan&#x27; for key &#x27;employee.idx_username&#x27;</span></span><br><span class="line">        String message=ex.getMessage();</span><br><span class="line">        <span class="keyword">if</span>(message.contains(<span class="string">&quot;Duplicate entry&quot;</span>))&#123;</span><br><span class="line">            String[] split=message.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            String username=split[<span class="number">2</span>];</span><br><span class="line">            String msg=username+ <span class="string">&quot;已存在&quot;</span>;</span><br><span class="line">            <span class="keyword">return</span> Result.error(msg);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> Result.error(MessageConstant.UNKNOWN_ERROR);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后测试接口文档就会报：</p>
+<p><img data-src="https://img2023.cnblogs.com/blog/3018339/202309/3018339-20230909004015276-2129659358.png" alt="img"></p>
+<p>完善操作人的ID：就是save里面的10L，使用Thread.currentThread().getId()获取当前线程的ID，输出后每次请求的ID都不一样，这样可以验证每次操作的线程都不一样，在JWT令牌添加模块里面使用BaseContext.setCurrentId(empId)将ID存储到一个空间里去，然后再将10L替换成BaseContext.getCurrentId()取出来。</p>
+<h3 id="员工分页查询"><a href="#员工分页查询" class="headerlink" title="员工分页查询"></a>员工分页查询</h3><p>老样子Controller层–&gt;Service层–&gt;Mapper层</p>
+<p>Controller层：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/page&quot;)</span></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;分页查询&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result&lt;PageResult&gt; <span class="title function_">page</span><span class="params">(EmployeePageQueryDTO employeePageQueryDTO)</span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;分页查询:&#123;&#125;&quot;</span>,employeePageQueryDTO);</span><br><span class="line">        PageResult pageResult=employeeService.page(employeePageQueryDTO);</span><br><span class="line">        <span class="keyword">return</span> Result.success(pageResult);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>pom.xml文件里面添加分页查询的依赖，源文件已经配置好了。</p>
+<p>再在ServiceImpl里面编写：PageHelper.startPage(employeePageQueryDTO.getPage(),employeePageQueryDTO.getPageSize());</p>
+<p>由于SQL语句比较复杂要用到模糊查询，所以就在xml里面编写：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;pageQuery&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.sky.entity.Employee&quot;</span>&gt;</span></span><br><span class="line">        select * from sky_take_out.employee</span><br><span class="line">        <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;name != null and name != &#x27;&#x27;&quot;</span>&gt;</span></span><br><span class="line">                name like concat(&#x27;%&#x27;, #&#123;name&#125;, &#x27;%&#x27;)</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line">        order by create_time desc</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="编辑，根据ID查询员工"><a href="#编辑，根据ID查询员工" class="headerlink" title="编辑，根据ID查询员工"></a>编辑，根据ID查询员工</h3><p>补充启动警用员工(也顺便弄出编辑员工的模块)：P0ST的Controller–&gt;update的SQL：（根据ID来操作）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">&quot;update&quot;</span>&gt;</span></span><br><span class="line">        update sky_take_out.employee</span><br><span class="line">        <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;name !=null&quot;</span>&gt;</span></span><br><span class="line">                name=#&#123;name&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;username !=null&quot;</span>&gt;</span></span><br><span class="line">                username=#&#123;username&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;password !=null&quot;</span>&gt;</span></span><br><span class="line">                password=#&#123;password&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;phone !=null&quot;</span>&gt;</span></span><br><span class="line">                phone=#&#123;phone&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;sex !=null&quot;</span>&gt;</span></span><br><span class="line">                sex=#&#123;sex&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;idNumber !=null&quot;</span>&gt;</span></span><br><span class="line">                idNumber=#&#123;idNumber&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;updateTime !=null&quot;</span>&gt;</span></span><br><span class="line">                updateTime=#&#123;updateTime&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;updateUser !=null&quot;</span>&gt;</span></span><br><span class="line">                updateUser=#&#123;updateUser&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;status !=null&quot;</span>&gt;</span></span><br><span class="line">                status=#&#123;status&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">        where id =#&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>根据id查询员工和编辑员工：</p>
+<p>还是根据接口文档来编写，不多说，直接上代码：</p>
+<p>编辑员工信息的ServiceImpl:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(EmployeeDTO employeeDTO)</span> &#123;</span><br><span class="line">        Employee employee=<span class="keyword">new</span> <span class="title class_">Employee</span>();</span><br><span class="line">        BeanUtils.copyProperties(employeeDTO,employee);</span><br><span class="line">        <span class="comment">//设置时间</span></span><br><span class="line">        employee.setUpdateTime(LocalDateTime.now());</span><br><span class="line">        employee.setUpdateUser(BaseContext.getCurrentId());</span><br><span class="line">        employeeMapper.update(employee);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 这里是直接调用刚刚启动禁用员工的SQL语句</p>
+<p>根据ID查询的ServiceImpl层：加一个密码加密的ｓｅｔ方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Employee <span class="title function_">getById</span><span class="params">(Long id)</span> &#123;</span><br><span class="line">        Employee employee=employeeMapper.getById(id);</span><br><span class="line">        employee.setPassword(<span class="string">&quot;******&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> employee;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 最后再导入分类管理的代码，在资料ｄａｙ２里面的分类管理模块代码，由于跟员工管理的代码差不多，就直接Ｍａｐｐｅｒ的导ｍａｐｐｅｒ，ｓｅｒｖｉｃｅ的入ｓｅｒｖｉｃｅ，ｃｏｎｔｒｏｌｌｅｒ的导入ｃｏｎｔｒｏｌｌｅｒ．不用编写了。</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-02-04 04:11:46" itemprop="dateModified" datetime="2024-02-04T04:11:46+08:00">2024-02-04</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/we.png" alt="Hepingan WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/qq2.png" alt="Hepingan Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Hepingan PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Hepingan <i class="ic i-at"><em>@</em></i>何平安
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2024/02/04/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E3%80%8B-%E4%B8%80/" title="企业级开发项目《苍穹外卖》(一)">http://example.com/2024/02/04/苍穹外卖/企业级开发项目《苍穹外卖》-一/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/02/04/Java/Java%E5%9F%BA%E7%A1%80/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%AE%80%E5%8E%86%E4%B8%8A%E5%86%99%E4%B8%8A%E7%B2%BE%E9%80%9AJava%EF%BC%88%E7%AC%94%E8%AE%B0%E4%B8%80%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img2.imgtp.com&#x2F;2024&#x2F;02&#x2F;04&#x2F;GraBbJCq.jpg" title="如何在简历上写上精通Java（笔记一）">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Java基础</span>
+  <h3>如何在简历上写上精通Java（笔记一）</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/02/04/Java/Java%E5%9F%BA%E7%A1%80/%E7%B2%BE%E9%80%9AJava%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picdm.sunbangyan.cn&#x2F;2024&#x2F;02&#x2F;04&#x2F;b37fcc362fba9c732eb4e4a4d5103ed0.jpeg" title="精通Java学习之路（二）">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>精通Java学习之路（二）</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%94%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E2%80%94"><span class="toc-number">1.</span> <span class="toc-text">—环境搭建—</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%94%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91%E2%80%94"><span class="toc-number">2.</span> <span class="toc-text">—功能开发—</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E5%91%98%E5%B7%A5"><span class="toc-number">2.1.</span> <span class="toc-text">新增员工</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%98%E5%B7%A5%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.2.</span> <span class="toc-text">员工分页查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%EF%BC%8C%E6%A0%B9%E6%8D%AEID%E6%9F%A5%E8%AF%A2%E5%91%98%E5%B7%A5"><span class="toc-number">2.3.</span> <span class="toc-text">编辑，根据ID查询员工</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li class="active"><a href="/2024/02/04/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E3%80%8B-%E4%B8%80/" rel="bookmark" title="企业级开发项目《苍穹外卖》(一)">企业级开发项目《苍穹外卖》(一)</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Hepingan"
+      data-src="/images/a.jpg">
+  <p class="name" itemprop="name">Hepingan</p>
+  <div class="description" itemprop="description">欢迎来到何平安的个人博客~欢迎您的浏览</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">42</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">8</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlcGluZ2FuMTE=" title="https:&#x2F;&#x2F;github.com&#x2F;hepingan11"><i class="ic i-github"></i></span>
+      <span class="exturl item google" data-url="aHR0cHM6Ly9wbHVzLmdvb2dsZS5jb20v" title="https:&#x2F;&#x2F;plus.google.com&#x2F;"><i class="ic i-google"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTM0MzI3MDEyNA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;343270124"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjE2NDE2NDM2NTY2QHFxLmNvbQ==" title="mailto:16416436566@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/02/04/Java/Java%E5%9F%BA%E7%A1%80/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%AE%80%E5%8E%86%E4%B8%8A%E5%86%99%E4%B8%8A%E7%B2%BE%E9%80%9AJava%EF%BC%88%E7%AC%94%E8%AE%B0%E4%B8%80%EF%BC%89/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/02/04/Java/Java%E5%9F%BA%E7%A1%80/%E7%B2%BE%E9%80%9AJava%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="微信小程序开发学习笔记">微信小程序开发学习笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/03/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%94%AF%E6%8C%81%E6%88%91/" title="【置顶】介绍与支持我">【置顶】介绍与支持我</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Axios%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E5%AE%9E%E4%BE%8B/" title="Axios前后端交互实例">Axios前后端交互实例</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/03/swing%E7%95%8C%E9%9D%A2UI/" title="swing界面UI">swing界面UI</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Python/Python%E8%B0%83%E7%94%A8ChatGPT%E6%8E%A5%E5%8F%A3-2023/" title="Python调用ChatGPT接口(2023)">Python调用ChatGPT接口(2023)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/mystory/" title="In 我的传奇">我的传奇</a>
+</div>
+
+    <span><a href="/2024/02/03/%E6%88%91%E7%9A%84%E4%BC%A0%E5%A5%87/%E6%88%91%E7%9A%84%E6%95%85%E4%BA%8B%EF%BC%88%E5%A4%A7%E4%B8%80%E4%B8%8B%EF%BC%89/" title="我的故事（大一下）">我的故事（大一下）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E4%BD%BF%E7%94%A8OneDrive%E5%9C%A8%E7%BD%91%E7%AB%99%E5%9C%A8%E7%BA%BF%E6%92%AD%E6%94%BE%E9%9F%B3%E8%A7%86%E9%A2%91/" title="使用OneDrive在网站在线播放音视频">使用OneDrive在网站在线播放音视频</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E3%80%8B%EF%BC%88%E4%BA%8C%EF%BC%89/" title="企业级开发项目《苍穹外卖》（二）">企业级开发项目《苍穹外卖》（二）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/Javaweb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%91%EF%BC%88%E5%9B%9B%EF%BC%89/" title="Javaweb学习笔记【项目实战】（四）">Javaweb学习笔记【项目实战】（四）</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hepingan @ 练竹园</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/02/04/苍穹外卖/企业级开发项目《苍穹外卖》-一/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

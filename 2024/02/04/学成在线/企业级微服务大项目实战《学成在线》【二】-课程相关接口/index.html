@@ -1,0 +1,694 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="何平安" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="何平安" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="何平安" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://example.com/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%BA%8C%E3%80%91-%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3%E6%8E%A5%E5%8F%A3/">
+
+
+
+  <title>
+企业级微服务大项目实战《学成在线》【二】(课程相关接口) - 学成在线 |
+练竹园 = 何平安 = 世界很大，代码连接世界</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">企业级微服务大项目实战《学成在线》【二】(课程相关接口)
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-02-04 03:58:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-02-04T03:58:20+08:00">2024-02-04</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">练竹园</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://picdm.sunbangyan.cn/2024/02/04/641422acbb61718b3b3fa67c910c1a64.jpeg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/oW9n6dBf.jpg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/I1e3e5ui.webp"></li>
+          <li class="item" data-background-image="https://s11.ax1x.com/2024/02/04/pFlm5TA.jpg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/UBWtnixc.jpg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/aqpk7vZD.webp"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/" itemprop="item" rel="index" title="In 学成在线"><span itemprop="name">学成在线</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%BA%8C%E3%80%91-%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3%E6%8E%A5%E5%8F%A3/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/a.jpg">
+    <meta itemprop="name" content="Hepingan">
+    <meta itemprop="description" content="世界很大，代码连接世界, 欢迎来到何平安的个人博客~欢迎您的浏览">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="何平安">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><strong>下面正式开始开发！</strong></p>
+<p><strong>对了我的笔记肯定不会把全部代码都打上去，我会挑一些技术点进行阐述。</strong></p>
+<p><strong>补充下为啥要叫DTO，PO啥的：</strong></p>
+<p><strong>DTO</strong>:前端给后端传递的数据</p>
+<p><strong>VO</strong>:后端给前端传递的数据</p>
+<p><strong>DO</strong>:数据库表结构</p>
+<p><strong>PO</strong>:数据库表结构到JAVA的映射类</p>
+<h1 id="课程信息"><a href="#课程信息" class="headerlink" title="课程信息"></a><strong>课程信息</strong></h1><h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a><strong>查询</strong></h2><p>开发习惯从底层开始，所以就从DAO层（mapper层）开始写，再写service。</p>
+<p>先在content-service写个测试类，配置和包看黑马的去。介绍下以前学过的分页查询插件courseBaseMapper,实质上就是在sql语句上加上limit等语句，可以看下测试类的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CourseBaseMapperTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    CourseBaseMapper courseBaseMapper;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testCourse</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">CourseBase</span> <span class="variable">courseBase</span> <span class="operator">=</span> courseBaseMapper.selectById(<span class="number">18</span>);</span><br><span class="line">        Assertions.assertNotNull(courseBase);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ctrl点击selectById就可以看到这个插件的底层实现原理。然后是分页查询的全部代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testCourse</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">CourseBase</span> <span class="variable">courseBase</span> <span class="operator">=</span> courseBaseMapper.selectById(<span class="number">18</span>);</span><br><span class="line">        Assertions.assertNotNull(courseBase);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//分页查询</span></span><br><span class="line"></span><br><span class="line">        <span class="type">PageParams</span> <span class="variable">pageParams</span> <span class="operator">=</span><span class="keyword">new</span> <span class="title class_">PageParams</span>();</span><br><span class="line">        pageParams.setPageNo(<span class="number">1L</span>);</span><br><span class="line">        pageParams.setPageSize(<span class="number">10L</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">QueryCourseParamsDto</span> <span class="variable">courseParamsDto</span> <span class="operator">=</span><span class="keyword">new</span> <span class="title class_">QueryCourseParamsDto</span>();</span><br><span class="line">        courseParamsDto.setCourseName(<span class="string">&quot;java&quot;</span>);</span><br><span class="line">        LambdaQueryWrapper&lt;CourseBase&gt; queryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//在sql中拼接course_base.name like &#x27;%值%&#x27;</span></span><br><span class="line">        queryWrapper.like(StringUtils.isNotEmpty(courseParamsDto.getCourseName()),CourseBase::getName,courseParamsDto.getCourseName());</span><br><span class="line">        <span class="comment">//根据课程审核状态查询</span></span><br><span class="line">        queryWrapper.eq(StringUtils.isNotEmpty(courseParamsDto.getAuditStatus()),CourseBase::getAuditStatus,courseParamsDto.getAuditStatus());</span><br><span class="line"></span><br><span class="line">        Page&lt;CourseBase&gt; page = <span class="keyword">new</span> <span class="title class_">Page</span>&lt;&gt;(<span class="number">1</span>,<span class="number">10</span>);</span><br><span class="line">        Page&lt;CourseBase&gt; pageResult = courseBaseMapper.selectPage(page, queryWrapper);</span><br><span class="line">        PageResult&lt;CourseBase&gt; tPageResult = <span class="keyword">new</span> <span class="title class_">PageResult</span>&lt;&gt;(pageResult.getRecords(),pageResult.getTotal(),pageParams.getPageNo(),pageParams.getPageSize());</span><br><span class="line">        System.out.println(tPageResult);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行出来拿到断点有结果就成了：</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202401/3018339-20240124052950614-469568137.png" alt="img"></p>
+<p> 大概流程就是利用LambdaQueryWrapper那个插件然后一直利用参数查询所需要的结果，一步一步装填数据，最终以PageResult的形式返回就行。</p>
+<p>然后说一下根据课程状态进行查询，在实际开发中一般会以代码来代替课程状态的中文，也是为了方便修改和规范，所以有个xc2.0_system的dictionary的数据库表就拿来表示对应关系：</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202401/3018339-20240124182055306-1832049081.png" alt="img"></p>
+<p> 直接在刚刚的代码下加一个条件：courseParamsDto.setAuditStatus(“202004”);</p>
+<p>接下来就来测试接口，在默认文件里api模块下有个Controller类里面接口是写好的，然后就可以运行ContentApplication的springboot启动项，然后浏览器输入localhost:63040&#x2F;content&#x2F;swagger-ui.html,然后测试一下有数据就成功。还有个HttpClient插件接口测试，可以去下载搜一下，postman也可以。像我的就比较推荐httpclient直接就在idea里测试：<img data-src="https://img2024.cnblogs.com/blog/3018339/202401/3018339-20240125011128042-1654034248.png" alt="img"></p>
+<p>它还可以设置环境，在api-test下创建一个env.json文件，里面编写：</p>
+<p>{<br> “dev”: {<br>  “access_token”: “”,<br>  “gateway_host”: “localhost:63010”,<br>  “content_host”: “localhost:63040”,<br>  “system_host”: “localhost:63110”,<br>  “media_host”: “localhost:63050”,<br>  “search_host”: “localhost:63080”,<br>  “auth_host”: “localhost:63070”,<br>  “checkcode_host”: “localhost:63075”,<br>  “learning_host”: “localhost:63020”<br> }<br>}</p>
+<p>然后再在http里将localhost:63040换成NaN</p>
+<h2 id="前后端联调"><a href="#前后端联调" class="headerlink" title="前后端联调"></a>前后端联调</h2><p>解压打开前端文件这里用idea打开，然后去设置里配置npm和node的位置，打开根目录下的package.json ,运行serve的（idea它有），或者右键package.json选择查看npm脚本找到serve运行。对了如果运行失败，大概率是你的node版本与该项目的node文件版本不一致，两种办法，一是卸载项目里的node_moudels,再cnpm install安装自己版本的node文件，二是你自己更换node版本，这里是16.17.0，但是我用了第一种方法发现运行是没问题，但是一直报错，可能版本不同有些语法也不同吧哈哈哈，还是用第二种吧。</p>
+<p>这里推荐另一个插件nvm，可以管理node的版本：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNzQ1MzcxL2FydGljbGUvZGV0YWlscy8xMDkwMzk0MTQ=">windows下node更换版本（简单操作）_node版本更改-CSDN博客</span>，有了它想切换哪个版本就切换。推荐我这样做，算是第三种方法吧qwq</p>
+<p>将资料的system文件导入java项目中，复制api的resourse到service并修改下数据库的连接地址。</p>
+<h3 id="解决跨域问题"><a href="#解决跨域问题" class="headerlink" title="解决跨域问题"></a>解决跨域问题</h3><p>在浏览器通过<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4NjAxLyVFNSU5QyVCMCVFNSU5RCU4MCVFOCVBRSVCRiVFOSU5NyVBRSVFNSU4OSU4RCVFNyVBQiVBRiVFNSVCNyVBNSVFNyVBOCU4QiVFMyU4MCU4Mg==">http://localhost:8601/地址访问前端工程。</span></p>
+<p>chrome浏览器报错如下：</p>
+<p>Access to XMLHttpRequest at ‘<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo2MzExMC9zeXN0ZW0vZGljdGlvbmFyeS9hbGw=">http://localhost:63110/system/dictionary/all</span>‘ from origin ‘<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4NjAxLw==">http://localhost:8601</span>‘ has been blocked by CORS policy: No ‘Access-Control-Allow-Origin’ header is present on the requested resource.</p>
+<p>firefox浏览器报错如下：</p>
+<p>已拦截跨源请求：同源策略禁止读取位于 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo2MzExMC9zeXN0ZW0vZGljdGlvbmFyeS9hbGw=">http://localhost:63110/system/dictionary/all</span> 的远程资源。（原因：CORS 头缺少 ‘Access-Control-Allow-Origin’）。状态码：200。</p>
+<p>提示：从<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4NjAxLw==">http://localhost:8601</span>访问<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo2MzExMC9zeXN0ZW0vZGljdGlvbmFyeS9hbGwlRTglQTIlQUJDT1JT">http://localhost:63110/system/dictionary/all被CORS</span> policy阻止，因为没有Access-Control-Allow-Origin 头信息。CORS全称是 cross origin resource share 表示跨域资源共享。</p>
+<p>出这个提示的原因是基于浏览器的同源策略，去判断是否跨域请求，同源策略是浏览器的一种安全机制，从一个地址请求另一个地址，如果协议、主机、端口三者全部一致则不属于跨域，否则有一个不一致就是跨域请求。</p>
+<p>比如：</p>
+<p>从<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4NjAxLw==">http://localhost:8601</span> 到  <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4NjAyLw==">http://localhost:8602</span> 由于端口不同，是跨域。</p>
+<p>从<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMTAxLjEwOjg2MDEv">http://192.168.101.10:8601</span> 到  <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMTAxLjExOjg2MDEv">http://192.168.101.11:8601</span> 由于主机不同，是跨域。</p>
+<p>从<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMTAxLjEwOjg2MDEv">http://192.168.101.10:8601</span> 到  <span class="exturl" data-url="aHR0cHM6Ly8xOTIuMTY4LjEwMS4xMTo4NjAxLw==">https://192.168.101.10:8601</span> 由于协议不同，是跨域。</p>
+<p>注意：服务器之间不存在跨域请求。</p>
+<p>浏览器判断是跨域请求会在请求头上添加origin，表示这个请求来源哪里。</p>
+<p>比如：</p>
+<p>GET &#x2F; HTTP&#x2F;1.1 Origin: <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4NjAxLw==">http://localhost:8601</span></p>
+<p>服务器收到请求判断这个Origin是否允许跨域，如果允许则在响应头中说明允许该来源的跨域请求，如下：</p>
+<p>Access-Control-Allow-Origin：<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4NjAxLw==">http://localhost:8601</span></p>
+<p>如果允许任何域名来源的跨域请求，则响应如下：</p>
+<p>Access-Control-Allow-Origin：*</p>
+<p>解决跨域的方法：</p>
+<p>1、JSONP</p>
+<p>通过script标签的src属性进行跨域请求，如果服务端要响应内容则首先读取请求参数callback的值，callback是一个回调函数的名称，服务端读取callback的值后将响应内容通过调用callback函数的方式告诉请求方。如下图：</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202401/3018339-20240125023039132-1335727729.png" alt="img">2、添加响应头</p>
+<p>服务端在响应头添加 Access-Control-Allow-Origin：*</p>
+<p>3、通过nginx代理跨域</p>
+<p>由于服务端之间没有跨域，浏览器通过nginx去访问跨域地址。</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202401/3018339-20240125023051826-1778141590.png" alt="img"></p>
+<p>1）浏览器先访问<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMTAxLjEwOjg2MDEv">http://192.168.101.10:8601</span> nginx提供的地址，进入页面</p>
+<p>2）此页面要跨域访问<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMTAxLjExOjg2MDEv">http://192.168.101.11:8601</span> ，不能直接跨域访问<span class="exturl" data-url="aHR0cDovL3d3dy5iYWlkdS5jb206ODYwMS8=">http://www.baidu.com:8601</span> ，而是访问nginx的一个同源地址，比如：<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMTAxLjExOjg2MDEvYXBp">http://192.168.101.11:8601/api</span> ，通过<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMTAxLjExOjg2MDEvYXBp">http://192.168.101.11:8601/api</span> 的代理去访问<span class="exturl" data-url="aHR0cDovL3d3dy5iYWlkdS5jb206ODYwMS8=">http://www.baidu.com:8601</span>。</p>
+<p>这样就实现了跨域访问。</p>
+<p>浏览器到<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMTAxLjExOjg2MDEvYXBp">http://192.168.101.11:8601/api</span> 没有跨域</p>
+<p>nginx到<span class="exturl" data-url="aHR0cDovL3d3dy5iYWlkdS5jb206ODYwMS8=">http://www.baidu.com:8601</span>通过服务端通信，没有跨域。</p>
+<p>我们准备使用方案2解决跨域问题。在内容管理的api工程config包下编写GlobalCorsConfig.java，</p>
+<p>或直接从课程资料&#x2F;项目工程下拷贝，</p>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xuecheng.system.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.CorsConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.UrlBasedCorsConfigurationSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.filter.CorsFilter;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 跨域过虑器</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr.M</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2022/9/7 11:04</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="meta">@Configuration</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GlobalCorsConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 允许跨域调用的过滤器</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="keyword">public</span> CorsFilter <span class="title function_">corsFilter</span><span class="params">()</span> &#123;</span><br><span class="line">   <span class="type">CorsConfiguration</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CorsConfiguration</span>();</span><br><span class="line">   <span class="comment">//允许白名单域名进行跨域调用</span></span><br><span class="line">   config.addAllowedOrigin(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">   <span class="comment">//允许跨越发送cookie</span></span><br><span class="line">   config.setAllowCredentials(<span class="literal">true</span>);</span><br><span class="line">   <span class="comment">//放行全部原始头信息</span></span><br><span class="line">   config.addAllowedHeader(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">   <span class="comment">//允许所有请求方法跨域调用</span></span><br><span class="line">   config.addAllowedMethod(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">   <span class="type">UrlBasedCorsConfigurationSource</span> <span class="variable">source</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UrlBasedCorsConfigurationSource</span>();</span><br><span class="line">   source.registerCorsConfiguration(<span class="string">&quot;/**&quot;</span>, config);</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">CorsFilter</span>(source);</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>此配置类实现了跨域过虑器，在响应头添加Access-Control-Allow-Origin。</p>
+<p>重启系统管理服务，前端工程可以正常进入<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4NjAxLw==">http://localhost:8601</span>，观察浏览器记录，成功解决跨域。</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202401/3018339-20240125023207746-1212895316.png" alt="img"></p>
+<h2 id="课程分类查询"><a href="#课程分类查询" class="headerlink" title="课程分类查询"></a>课程分类查询</h2><p>先来看看树状查询的sql语句例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> one.id one_id,</span><br><span class="line">       one.label one_lable,</span><br><span class="line">       two.id two_id,</span><br><span class="line">       two.label two_lable</span><br><span class="line"><span class="keyword">from</span> course_category <span class="keyword">one</span></span><br><span class="line">    <span class="keyword">inner</span> <span class="keyword">join</span> course_category two <span class="keyword">on</span> two.parentid <span class="operator">=</span> one.id</span><br><span class="line"><span class="keyword">where</span> one.parentid <span class="operator">=</span><span class="string">&#x27;1&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>树状数据结构的样子就是数据结构里的树：parentid就是它的父节点</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202401/3018339-20240127023524759-43047546.png" alt="img"></p>
+<p>为什么选择在mysql中递归而不在java中递归：因为Java每递归一次就要连接一次数据库，性能不好。</p>
+<p>还是根据接口文档给的json参数来写接口，不然传参都不知道传啥。</p>
+<p>这是mapper的sql语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&lt;</span><span class="keyword">select</span> id<span class="operator">=</span>&quot;selectTreeNodes&quot; resultType<span class="operator">=</span>&quot;com.xuecheng.content.model.dto.CourseCategoryTreeDto&quot; parameterType<span class="operator">=</span>&quot;string&quot;<span class="operator">&gt;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="keyword">recursive</span> t1 <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span>  course_category p <span class="keyword">where</span>  id<span class="operator">=</span> #&#123;id&#125;</span><br><span class="line">        <span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line">        <span class="keyword">select</span> t.<span class="operator">*</span> <span class="keyword">from</span> course_category t <span class="keyword">inner</span> <span class="keyword">join</span> t1 <span class="keyword">on</span> t1.id <span class="operator">=</span> t.parentid</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">select</span> <span class="operator">*</span>  <span class="keyword">from</span> t1 <span class="keyword">order</span> <span class="keyword">by</span> t1.id, t1.orderby</span><br><span class="line"></span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">select</span><span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>主要就是写写sql，这里比较难，其它的都是那三层架构。，然后是最难的service将查的数据整理并返回：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CourseCategoryServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">CourseCategoryService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    CourseCategoryMapper courseCategoryMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;CourseCategoryTreeDto&gt; <span class="title function_">queryTreeNodes</span><span class="params">(String id)</span> &#123;</span><br><span class="line">        <span class="comment">// 递归查询分类信息</span></span><br><span class="line">        List&lt;CourseCategoryTreeDto&gt; treeNodes = courseCategoryMapper.selectTreeNodes(id);</span><br><span class="line">        <span class="comment">//将list转map,以备使用,排除根节点</span></span><br><span class="line">        Map&lt;String, CourseCategoryTreeDto&gt; mapTemp = treeNodes.stream().filter(item-&gt;!id.equals(item.getId())).collect(Collectors.toMap(key -&gt; key.getId(), value -&gt; value, (key1, key2) -&gt; key2));</span><br><span class="line">        <span class="comment">//最终返回的list</span></span><br><span class="line">        List&lt;CourseCategoryTreeDto&gt; categoryTreeDtos = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//依次遍历每个元素,排除根节点</span></span><br><span class="line">        treeNodes.stream().filter(item-&gt;!id.equals(item.getId())).forEach(item-&gt;&#123;</span><br><span class="line">            <span class="keyword">if</span>(item.getParentid().equals(id))&#123;</span><br><span class="line">                categoryTreeDtos.add(item);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//找到当前节点的父节点</span></span><br><span class="line">            <span class="type">CourseCategoryTreeDto</span> <span class="variable">courseCategoryTreeDto</span> <span class="operator">=</span> mapTemp.get(item.getParentid());</span><br><span class="line">            <span class="keyword">if</span>(courseCategoryTreeDto!=<span class="literal">null</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(courseCategoryTreeDto.getChildrenTreeNodes() ==<span class="literal">null</span>)&#123;</span><br><span class="line">                    courseCategoryTreeDto.setChildrenTreeNodes(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;CourseCategoryTreeDto&gt;());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//下边开始往ChildrenTreeNodes属性中放子节点</span></span><br><span class="line">                courseCategoryTreeDto.getChildrenTreeNodes().add(item);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> categoryTreeDtos;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>逻辑性比较强，大概流程就是遍历每个节点，如果有父节点则添加到父节点的list去，有一步的if是判断它的子节点是否为空，为空则创建一个该节点的孩子节点的list，因为默认childrenNodes为null，比如1-1走的流程就是先走过滤器，然后添加到1的子节点上，1-1-1则是看到它的父节点1-1的childrennodes为空先创建一个list，然后再添加到该list下。</p>
+<h2 id="新增课程"><a href="#新增课程" class="headerlink" title="新增课程"></a>新增课程</h2><p>来看看service层的接口吧：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加课程</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> companyId</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dto</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> CourseBaseInfoDto <span class="title function_">createCourseBase</span><span class="params">(Long companyId,AddCourseDto dto)</span> &#123;</span><br><span class="line">        <span class="comment">/*1.参数合法性校验*/</span></span><br><span class="line">        <span class="comment">//合法性校验</span></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(dto.getName())) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;课程名称为空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(dto.getMt())) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;课程分类为空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(dto.getSt())) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;课程分类为空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(dto.getGrade())) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;课程等级为空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(dto.getTeachmode())) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;教育模式为空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(dto.getUsers())) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;适应人群为空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(dto.getCharge())) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;收费规则为空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*2.数据封装调用mapper持久化数据*/</span></span><br><span class="line">        <span class="type">CourseBase</span> <span class="variable">insertCourseBase</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CourseBase</span>();</span><br><span class="line">        <span class="comment">//数据拷贝</span></span><br><span class="line">        BeanUtils.copyProperties(dto,insertCourseBase);</span><br><span class="line">        <span class="comment">//设置默认审核状态</span></span><br><span class="line">        insertCourseBase.setAuditStatus(<span class="string">&quot;202002&quot;</span>);</span><br><span class="line">        <span class="comment">//设置默认发布状态</span></span><br><span class="line">        insertCourseBase.setStatus(<span class="string">&quot;203001&quot;</span>);</span><br><span class="line">        <span class="comment">//机构id</span></span><br><span class="line">        insertCourseBase.setCompanyId(companyId);</span><br><span class="line">        <span class="comment">//添加时间</span></span><br><span class="line">        insertCourseBase.setCreateDate(LocalDateTime.now());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//插入课程基本信息表</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">insert</span> <span class="operator">=</span> courseBaseMapper.insert(insertCourseBase);</span><br><span class="line">        <span class="keyword">if</span>(insert&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;新增课程基本信息失败&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//todo:向课程营销表保存课程营销信息course_market</span></span><br><span class="line">        <span class="type">CourseMarket</span> <span class="variable">courseMarket</span> <span class="operator">=</span><span class="keyword">new</span> <span class="title class_">CourseMarket</span>();</span><br><span class="line">        <span class="comment">//将页面输入的数据拷贝到courseMarket</span></span><br><span class="line">        BeanUtils.copyProperties(dto,courseMarket);</span><br><span class="line">        <span class="comment">//课程id</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">courseId</span> <span class="operator">=</span> insertCourseBase.getId();</span><br><span class="line">        courseMarket.setId(courseId);</span><br><span class="line">        <span class="comment">//保存营销信息</span></span><br><span class="line">        saveCourseMarket(courseMarket);</span><br><span class="line">        <span class="comment">//todo:查询课程基本信息及营销信息并返回</span></span><br><span class="line">        <span class="comment">//从数据库查出来</span></span><br><span class="line">        <span class="type">CourseBaseInfoDto</span> <span class="variable">courseBaseInfo</span> <span class="operator">=</span> getCourseBaseInfo(courseId);</span><br><span class="line">        <span class="keyword">return</span> courseBaseInfo;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//单独写一个方法保存营销信息</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">saveCourseMarket</span><span class="params">(CourseMarket courseMarket)</span>&#123;</span><br><span class="line">        <span class="comment">//参数的合法性校验</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">charge</span> <span class="operator">=</span> courseMarket.getCharge();</span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(charge))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;收费规则不能为空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;201001&quot;</span>.equals(charge)) <span class="comment">//如果为收费课程,扣费规则不能为空</span></span><br><span class="line">            <span class="keyword">if</span>(courseMarket.getPrice() == <span class="literal">null</span> || courseMarket.getPrice().floatValue() &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;收费课程价格为空&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">Long</span> <span class="variable">id</span> <span class="operator">=</span>courseMarket.getId();</span><br><span class="line">        <span class="type">CourseMarket</span> <span class="variable">courseMarket1</span> <span class="operator">=</span>courseMarketMapper.selectById(id);</span><br><span class="line">        <span class="keyword">if</span> (courseMarket1 == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//插入数据库</span></span><br><span class="line">            courseMarketMapper.insert(courseMarket);</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            BeanUtils.copyProperties(courseMarket,courseMarket1);</span><br><span class="line">            courseMarket1.setId(courseMarket.getId());</span><br><span class="line">            <span class="comment">//更新</span></span><br><span class="line">            courseMarketMapper.updateById(courseMarket1);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> CourseBaseInfoDto <span class="title function_">getCourseBaseInfo</span><span class="params">(<span class="type">long</span> courseId)</span>&#123;</span><br><span class="line">        <span class="comment">/*查询课程*/</span></span><br><span class="line">        <span class="type">CourseBase</span> <span class="variable">courseBase</span> <span class="operator">=</span> courseBaseMapper.selectById(courseId);</span><br><span class="line">        <span class="keyword">if</span>(courseBase==<span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">/*查询课程营销信息*/</span></span><br><span class="line">        <span class="type">CourseMarket</span> <span class="variable">courseMarket</span> <span class="operator">=</span> courseMarketMapper.selectById(courseId);</span><br><span class="line">        <span class="comment">/*创建返回的dto*/</span></span><br><span class="line">        <span class="type">CourseBaseInfoDto</span> <span class="variable">courseBaseInfoDto</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CourseBaseInfoDto</span>();</span><br><span class="line">        BeanUtils.copyProperties(courseBase,courseBaseInfoDto);</span><br><span class="line">        <span class="keyword">if</span>(courseMarket!=<span class="literal">null</span>)</span><br><span class="line">            BeanUtils.copyProperties(courseMarket,courseBaseInfoDto);</span><br><span class="line">        <span class="type">CourseCategory</span> <span class="variable">courseCategoryMt</span> <span class="operator">=</span> courseCategoryMapper.selectById(courseBaseInfoDto.getMt());</span><br><span class="line">        <span class="type">CourseCategory</span> <span class="variable">courseCategorySt</span> <span class="operator">=</span> courseCategoryMapper.selectById(courseBaseInfoDto.getSt());</span><br><span class="line">        courseBaseInfoDto.setMtName(courseCategoryMt.getName());</span><br><span class="line">        courseBaseInfoDto.setStName(courseCategorySt.getName());</span><br><span class="line">        <span class="keyword">return</span> courseBaseInfoDto;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>步骤就是先排除有没有必填信息没填，然后再是添加默认信息，以及营销表的检验和插入，最后将插入的课程的基本信息和营销信息并返回,测试参数（记得设置运行环境~）：</p>
+<p>### 课程新增<br>POST &#x2F;content&#x2F;course<br>Content-Type: application&#x2F;json</p>
+<p>{<br>“charge”: “201000”,<br>“price”: 0,<br>“originalPrice”:0,<br>“qq”: “22333”,<br>“wechat”: “223344”,<br>“phone”: “13333333”,<br>“validDays”: 365,<br>“mt”: “1-1”,<br>“st”: “1-1-1”,<br>“name”: “斤斤计较急急急急急急急急急急急急急急急”,<br>“pic”: “”,<br>“teachmode”: “200002”,<br>“users”: “初级人员”,<br>“tags”: “”,<br>“grade”: “204001”,<br>“description”: “怕怕怕怕怕怕怕怕怕怕怕怕怕怕”,<br>“objectives”: “”<br>}</p>
+<p>调试成功的截图：</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202401/3018339-20240128064024496-386238490.png" alt="img"></p>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>全局异常处理器</p>
+<p>从 Spring 3.0 - Spring 3.2 版本之间，对 Spring 架构和 SpringMVC 的Controller 的异常捕获提供了相应的异常处理。</p>
+<ul>
+<li><p>@ExceptionHandler</p>
+<p>Spring3.0提供的标识在方法上或类上的注解，用来表明方法的处理异常类型。</p>
+</li>
+<li><p>@ControllerAdvice</p>
+<p>Spring3.2提供的新注解，从名字上可以看出大体意思是控制器增强， 在项目中来增强SpringMVC中的Controller。通常和**<code>@ExceptionHandler</code>** 结合使用，来处理SpringMVC的异常信息。</p>
+</li>
+<li><p>@ResponseStatus</p>
+<p>Spring3.0提供的标识在方法上或类上的注解，用状态代码和应返回的原因标记方法或异常类。 调用处理程序方法时，状态代码将应用于HTTP响应。</p>
+</li>
+</ul>
+<p>通过上面的两个注解便可实现微服务端全局异常处理，具体代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">package com.xuecheng.base.exception;</span><br><span class="line"></span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.http.HttpStatus;</span><br><span class="line">import org.springframework.web.bind.annotation.ControllerAdvice;</span><br><span class="line">import org.springframework.web.bind.annotation.ExceptionHandler;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseStatus;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author woldier</span><br><span class="line"> * @version 1.0</span><br><span class="line"> * @description 全局异常处理器</span><br><span class="line"> * @date 2023/3/6 15:18</span><br><span class="line"> **/</span><br><span class="line">@ControllerAdvice</span><br><span class="line">@Slf4j</span><br><span class="line">public class GlobalExceptionHandler &#123;</span><br><span class="line">    /**</span><br><span class="line">    * @description XueChengPlusException.class 异常处理，提取异常信息并且返回</span><br><span class="line">    * @param e</span><br><span class="line">    * @return com.xuecheng.base.exception.RestErrorResponse</span><br><span class="line">    * @author: woldier</span><br><span class="line">    * @date: 2023/3/6 15:22</span><br><span class="line">    */</span><br><span class="line">    @ExceptionHandler(XueChengPlusException.class)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR, reason = &quot;业务模块抛出异常&quot;)</span><br><span class="line">    public RestErrorResponse doXueChengPlusException(XueChengPlusException e)&#123;</span><br><span class="line">        return new RestErrorResponse(e.getErrMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">    * @description Exception 异常处理，此异常为未知异常</span><br><span class="line">    * @param e</span><br><span class="line">    * @return com.xuecheng.base.exception.RestErrorResponse</span><br><span class="line">    * @author: woldier</span><br><span class="line">    * @date: 2023/3/6 15:27</span><br><span class="line">    */</span><br><span class="line">    @ExceptionHandler(Exception.class)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR, reason = &quot;服务器未知异常&quot;)</span><br><span class="line">    public RestErrorResponse doXueChengPlusException(Exception e)&#123;</span><br><span class="line">        log.error(e.getMessage());</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        return new RestErrorResponse(CommonError.UNKOWN_ERROR.getErrMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改课程"><a href="#修改课程" class="headerlink" title="修改课程"></a>修改课程</h2><p>介绍下EditCourseDto这个Dto：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> woldier</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 修改课程基本信息所要使用的请求参数dto</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2023/3/6 19:33</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@ApiModel(value = &quot;EditCourseDto&quot;, description = &quot;修改课程基本信息&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EditCourseDto</span> <span class="keyword">extends</span> <span class="title class_">AddCourseDto</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull(groups = &#123;ValidationGroups.Update.class&#125;,message = &quot;修改课程时id不能为空&quot;)</span></span><br><span class="line">    <span class="meta">@ApiModelProperty(value = &quot;课程名称&quot;, required = true)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>继承了AddCourseDto的所有信息并且加了个id属性，大概意思就是修改课程时它的属性跟添加课程时的属性一样不能为空，并且加了个修改课程的id。</p>
+<p>service层：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> CourseBaseInfoDto <span class="title function_">updateCourseBase</span><span class="params">(Long companyId, EditCourseDto editCourseDto)</span> <span class="keyword">throws</span> XueChengPlusException &#123;</span><br><span class="line">        <span class="comment">//先查数据库</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">id</span> <span class="operator">=</span>editCourseDto.getId();</span><br><span class="line">        <span class="type">CourseBase</span> <span class="variable">courseBase</span> <span class="operator">=</span>courseBaseMapper.selectById(id);</span><br><span class="line">        <span class="comment">//为空抛异常</span></span><br><span class="line">        <span class="keyword">if</span> (courseBase==<span class="literal">null</span>)&#123;</span><br><span class="line">            XueChengPlusException.cast(<span class="string">&quot;课程不存在&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//检查组织人id是否一样</span></span><br><span class="line">        <span class="keyword">if</span>(!courseBase.getCompanyId().equals(companyId))</span><br><span class="line">            XueChengPlusException.cast(<span class="string">&quot;companyID不一致&quot;</span>);</span><br><span class="line">        <span class="comment">/*更新courseBase信息*/</span></span><br><span class="line">        <span class="comment">/*拷贝*/</span></span><br><span class="line">        BeanUtils.copyProperties(editCourseDto,courseBase);</span><br><span class="line">        courseBase.setChangeDate(LocalDateTime.now());</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span>courseBaseMapper.updateById(courseBase);</span><br><span class="line">        <span class="keyword">if</span> (i&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">            XueChengPlusException.cast(<span class="string">&quot;更新失败&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*更新营销信息*/</span></span><br><span class="line"><span class="comment">//        CourseMarket courseMarket =new CourseMarket();</span></span><br><span class="line"><span class="comment">//        BeanUtils.copyProperties(editCourseDto,courseMarket);</span></span><br><span class="line"><span class="comment">//        courseMarket.setOriginalPrice(editCourseDto.getOriginalPrice().floatValue());</span></span><br><span class="line"><span class="comment">//        courseMarket.setPrice(editCourseDto.getPrice().floatValue());</span></span><br><span class="line"><span class="comment">//        checkCharge(courseMarket.getPrice(),editCourseDto.getCharge());</span></span><br><span class="line"><span class="comment">//        courseMarketService.saveOrUpdate(courseMarket);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*查询封装返回*/</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> getCourseBaseInfo(editCourseDto.getId());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>很好理解，就是检验companyId和一些属性后再修改。</p>
+<h1 id="课程计划"><a href="#课程计划" class="headerlink" title="课程计划"></a>课程计划</h1><h2 id="查询-1"><a href="#查询-1" class="headerlink" title="查询"></a>查询</h2><p>对于录播课程，可以先看看播放列表，它有层级关系，第几章第几节啥的，还有对应视频或文档的信息。</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202401/3018339-20240129224635084-1888465707.png" alt="img"></p>
+<p>可以运行下下面的sql查看对应关系就知道大概关系了：</p>
+<p>select one.id one_id,<br>one.pname one_pname,<br>two.id two_id,<br>two.pname two_pname,<br>tm.media_fileName,<br>tm.media_id<br>from teachplan one<br>inner join teachplan two on two.parentid&#x3D;one.id<br>left join teachplan_media tm on two.id &#x3D; tm.teachplan_id</p>
+<p>where one.parentid&#x3D;0 and one.course_id&#x3D;117<br>order by one.id, two.id;</p>
+<p>就Dao层比较麻烦要一一写，其它的都不难：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 课程分类树型结构查询映射结果 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;treeNodeResultMap&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.xuecheng.content.model.dto.TeachplanDto&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 一级数据映射 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">&quot;one_id&quot;</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;one_pname&quot;</span> <span class="attr">property</span>=<span class="string">&quot;pname&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;one_parentid&quot;</span> <span class="attr">property</span>=<span class="string">&quot;parentid&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;one_grade&quot;</span> <span class="attr">property</span>=<span class="string">&quot;grade&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;one_mediaType&quot;</span> <span class="attr">property</span>=<span class="string">&quot;mediaType&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;one_stratTime&quot;</span> <span class="attr">property</span>=<span class="string">&quot;stratTime&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;one_endTime&quot;</span> <span class="attr">property</span>=<span class="string">&quot;endTime&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;one_orderby&quot;</span> <span class="attr">property</span>=<span class="string">&quot;orderby&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;one_courseId&quot;</span> <span class="attr">property</span>=<span class="string">&quot;courseId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;one_coursePubId&quot;</span> <span class="attr">property</span>=<span class="string">&quot;coursePubId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 一级中包含多个二级数据 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">&quot;teachPlanTreeNodes&quot;</span> <span class="attr">ofType</span>=<span class="string">&quot;com.xuecheng.content.model.dto.TeachplanDto&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 二级数据映射 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">&quot;two_id&quot;</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_pname&quot;</span> <span class="attr">property</span>=<span class="string">&quot;pname&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_parentid&quot;</span> <span class="attr">property</span>=<span class="string">&quot;parentid&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_grade&quot;</span> <span class="attr">property</span>=<span class="string">&quot;grade&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_mediaType&quot;</span> <span class="attr">property</span>=<span class="string">&quot;mediaType&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_stratTime&quot;</span> <span class="attr">property</span>=<span class="string">&quot;stratTime&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_endTime&quot;</span> <span class="attr">property</span>=<span class="string">&quot;endTime&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_orderby&quot;</span> <span class="attr">property</span>=<span class="string">&quot;orderby&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_courseId&quot;</span> <span class="attr">property</span>=<span class="string">&quot;courseId&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_coursePubId&quot;</span> <span class="attr">property</span>=<span class="string">&quot;coursePubId&quot;</span>/&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--    每一个二级课程计划对应一个媒资信息        --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;teachplanMedia&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.xuecheng.content.model.po.TeachplanMedia&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;teachplanMeidaId&quot;</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;mediaFilename&quot;</span> <span class="attr">property</span>=<span class="string">&quot;mediaFilename&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;mediaId&quot;</span> <span class="attr">property</span>=<span class="string">&quot;mediaId&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_id&quot;</span> <span class="attr">property</span>=<span class="string">&quot;teachplanId&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_courseId&quot;</span> <span class="attr">property</span>=<span class="string">&quot;courseId&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;two_coursePubId&quot;</span> <span class="attr">property</span>=<span class="string">&quot;coursePubId&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectTreeNodes&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;treeNodeResultMap&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;long&quot;</span>&gt;</span></span><br><span class="line">        SELECT one.id            one_id,</span><br><span class="line">               one.pname         one_pname,</span><br><span class="line">               one.parentid      one_parentid,</span><br><span class="line">               one.grade         one_grade,</span><br><span class="line">               one.media_type    one_mediaType,</span><br><span class="line">               one.start_time    one_startTime,</span><br><span class="line">               one.end_time      one_endTime,</span><br><span class="line">               one.orderby       one_orderby,</span><br><span class="line">               one.course_id     one_courseId,</span><br><span class="line">               one.course_pub_id one_coursePubId,</span><br><span class="line">               two.id            two_id,</span><br><span class="line">               two.pname         two_pname,</span><br><span class="line">               two.parentid      two_parentid,</span><br><span class="line">               two.grade         two_grade,</span><br><span class="line">               two.media_type    two_mediaType,</span><br><span class="line">               two.start_time    two_stratTime,</span><br><span class="line">               two.end_time      two_endTime,</span><br><span class="line">               two.orderby       two_orderby,</span><br><span class="line">               two.course_id     two_courseId,</span><br><span class="line">               two.course_pub_id two_coursePubId,</span><br><span class="line">               m1.media_fileName mediaFilename,</span><br><span class="line">               m1.id             teachplanMeidaId,</span><br><span class="line">               m1.media_id       mediaId</span><br><span class="line">        FROM teachplan one</span><br><span class="line">                 LEFT JOIN teachplan two ON one.id = two.parentid</span><br><span class="line">                 LEFT JOIN teachplan_media m1 on two.id = m1.teachplan_id</span><br><span class="line">        WHERE one.grade=&quot;1&quot; AND one.course_id = #&#123;courseId&#125;</span><br><span class="line">        ORDER BY one.orderby, two.orderby</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="新增-修改"><a href="#新增-修改" class="headerlink" title="新增&#x2F;修改"></a>新增&#x2F;修改</h2><p>补充下关于LambdaQueryWrapper的用法：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FsencxOTkwL2FydGljbGUvZGV0YWlscy8xMTY5OTY0MjI=">MyBatis-Plus LambdaQueryWrapper使用说明_mybatisplus lambdaquerywrapper-CSDN博客</span></p>
+<p><strong>数据模型</strong></p>
+<p>1、新增第一级课程计划</p>
+<p>名称默认为：新章名称 [点击修改]</p>
+<p>grade：1</p>
+<p>orderby: 所属课程中同级别下排在最后</p>
+<p>2、新增第二级课程计划</p>
+<p>名称默认为：新小节名称 [点击修改]</p>
+<p>grade：2</p>
+<p>orderby: 所属课程计划中排在最后</p>
+<p>3、修改第一级、第二级课程计划的名称，修改第二级课程计划是否免费</p>
+<p>service:自己看吧何平安懒得写了，有注释的看得懂</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加更新课程计划</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dto</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">saveOrUpdateTeachPlan</span><span class="params">(SaveTeachplanDto dto)</span> &#123;</span><br><span class="line">        <span class="comment">//判断是更新或者添加节点</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">teachplanId</span> <span class="operator">=</span>dto.getId();</span><br><span class="line">        <span class="keyword">if</span> (teachplanId == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//新增</span></span><br><span class="line">            <span class="type">TeachplanDto</span> <span class="variable">teachplanDto</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TeachplanDto</span>();</span><br><span class="line">            BeanUtils.copyProperties(dto,teachplanDto);</span><br><span class="line">            <span class="comment">//确定排序字段,找到它的同级节点个数，排序字段个数加1 select count(1) from teachplan where course_id =17 and parentid = 268</span></span><br><span class="line">            <span class="type">Long</span> <span class="variable">parentid</span> <span class="operator">=</span> dto.getParentid();</span><br><span class="line">            <span class="type">Long</span> <span class="variable">courseid</span> <span class="operator">=</span> dto.getCourseId();</span><br><span class="line">            LambdaQueryWrapper&lt;Teachplan&gt; teachplanLambdaQueryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">            LambdaQueryWrapper&lt;Teachplan&gt; eq = teachplanLambdaQueryWrapper.eq(Teachplan::getCourseId, courseid).eq(Teachplan::getParentid, parentid);</span><br><span class="line">            <span class="type">Integer</span> <span class="variable">count</span> <span class="operator">=</span> teachplanMapper.selectCount(eq);</span><br><span class="line">            teachplanDto.setOrderby(count+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            teachplanMapper.insert(teachplanDto);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//更新</span></span><br><span class="line">            <span class="type">Teachplan</span> <span class="variable">teachplan</span> <span class="operator">=</span> teachplanMapper.selectById(teachplanId);</span><br><span class="line">            BeanUtils.copyProperties(dto,teachplan);</span><br><span class="line">            teachplanMapper.updateById(teachplan);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除课程计划"><a href="#删除课程计划" class="headerlink" title="删除课程计划"></a>删除课程计划</h2><p>service流程:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* 1.查询数据库中课程计划</span><br><span class="line">* 查看是否存在不存在抛出异常</span><br><span class="line">* 2.获取课程计划的等级</span><br><span class="line">* 若为章则递归删除其子节点</span><br><span class="line">* 若为节,直接删除,查询是否有媒体信息,有则删除</span><br></pre></td></tr></table></figure>
+
+<p>service总代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Teachplan</span> <span class="variable">teachplan</span> <span class="operator">=</span> teachplanMapper.selectById(id);</span><br><span class="line">        <span class="keyword">if</span> (teachplan == <span class="literal">null</span>)&#123;</span><br><span class="line">            XueChengPlusException.cast(<span class="string">&quot;课程不存在&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">grade</span> <span class="operator">=</span> teachplan.getGrade();</span><br><span class="line">        <span class="keyword">if</span> (grade == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="built_in">this</span>.deleteGrade2(id);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            List&lt;TeachplanDto&gt; teachplanDtos =teachplanMapper.selectTreeNodes(id);</span><br><span class="line">            List&lt;TeachplanDto&gt; teachPlanTreeNodes = teachplanDtos.stream().filter(e -&gt; e.getId().equals(teachplan.getId())).collect(Collectors.toList()).get(<span class="number">0</span>).getTeachPlanTreeNodes();</span><br><span class="line">            teachplanMapper.deleteById(id);</span><br><span class="line">            teachPlanTreeNodes.forEach(e-&gt;<span class="built_in">this</span>.deleteGrade2(e.getId()));</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="上下移动课程计划"><a href="#上下移动课程计划" class="headerlink" title="上下移动课程计划"></a>上下移动课程计划</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 移动课程计划</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> moveWay</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> XueChengPlusException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">(Long id, Boolean moveWay)</span> <span class="keyword">throws</span> XueChengPlusException &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        1.根据id查询,若查询为空抛出异常</span></span><br><span class="line"><span class="comment">        2.根据查询得到的courseId以及grade查询到所有的计划根据moveDown选择Asc还是Desc 为True选择Desc</span></span><br><span class="line"><span class="comment">        3.通过filter进行流过滤,过滤条件是元素的order大于/小于本order ,moveDown为True时是大于,为False小于</span></span><br><span class="line"><span class="comment">        4.检查filter后收集的list是否为空empty说明无法移动抛出异常,不为空取出list尾部元素两者交换order然后更新</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">/*1.根据id查询,若查询为空抛出异常*/</span></span><br><span class="line">        <span class="type">Teachplan</span> <span class="variable">teachplan</span> <span class="operator">=</span> teachplanMapper.selectById(id);</span><br><span class="line">        <span class="keyword">if</span> (teachplan == <span class="literal">null</span>) XueChengPlusException.cast(<span class="string">&quot;课程计划不存在&quot;</span>);</span><br><span class="line">        <span class="comment">/*2.根据查询得到的courseId以及grade查询到所有的计划根据moveDown选择Asc还是Desc 为True选择Desc*/</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">courseId</span> <span class="operator">=</span> teachplan.getCourseId();</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">grade</span> <span class="operator">=</span> teachplan.getGrade();</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">orderby</span> <span class="operator">=</span> teachplan.getOrderby();</span><br><span class="line">        LambdaQueryWrapper&lt;Teachplan&gt; lambdaQueryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        lambdaQueryWrapper</span><br><span class="line">                .eq(Teachplan::getCourseId, courseId)</span><br><span class="line">                .eq(Teachplan::getGrade, grade);</span><br><span class="line">        <span class="keyword">if</span> (moveWay)</span><br><span class="line">            lambdaQueryWrapper.orderByDesc(Teachplan::getOrderby);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            lambdaQueryWrapper.orderByAsc(Teachplan::getOrderby);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*通过filter进行流过滤,过滤条件是元素的order大于/小于本order ,moveDown为True时是大于,为False小于 */</span></span><br><span class="line">        List&lt;Teachplan&gt; teachplanList = teachplanMapper.selectList(lambdaQueryWrapper);</span><br><span class="line">        List&lt;Teachplan&gt; teachplanList1 = teachplanList.stream().filter(e -&gt; moveWay ? e.getOrderby() &gt; orderby : e.getOrderby() &lt; orderby).collect(Collectors.toList());</span><br><span class="line">        <span class="comment">/*检查filter后收集的list是否为空empty说明无法移动抛出异常,不为空取出list尾部元素两者交换order然后更新*/</span></span><br><span class="line">        <span class="keyword">if</span> (teachplanList1.isEmpty()) XueChengPlusException.cast(<span class="string">&quot;无法完成该操作&quot;</span>);</span><br><span class="line">        <span class="type">Teachplan</span> <span class="variable">teachplan1</span> <span class="operator">=</span> teachplanList1.get(teachplanList1.size()-<span class="number">1</span>);</span><br><span class="line">        teachplan.setOrderby(teachplan1.getOrderby());</span><br><span class="line">        teachplan1.setOrderby(orderby);</span><br><span class="line">        teachplanMapper.updateById(teachplan);</span><br><span class="line">        teachplanMapper.updateById(teachplan1);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="教师管理"><a href="#教师管理" class="headerlink" title="教师管理"></a>教师管理</h2><p>进入教师设置页面后可以点击修改教师信息,或者点击新增教师信息</p>
+<p>这两个业务共用一个接口,通过查看是否传入id来进行区分</p>
+<ul>
+<li>修改时如下</li>
+</ul>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308094018791.png" alt="image-20230308094018791"></p>
+<ul>
+<li>新增时如下</li>
+</ul>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308093951166.png" alt="image-20230308093951166"></p>
+<ol>
+<li>课程教师信息删除</li>
+</ol>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308103041679.png" alt="image-20230308103041679"></p>
+<p><strong>service层：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xuecheng.content.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;</span><br><span class="line"><span class="keyword">import</span> com.xuecheng.base.exception.XueChengPlusException;</span><br><span class="line"><span class="keyword">import</span> com.xuecheng.content.mapper.CourseBaseMapper;</span><br><span class="line"><span class="keyword">import</span> com.xuecheng.content.mapper.CourseTeacherMapper;</span><br><span class="line"><span class="keyword">import</span> com.xuecheng.content.model.dto.TeacherSaveOrUpdateDto;</span><br><span class="line"><span class="keyword">import</span> com.xuecheng.content.model.po.CourseTeacher;</span><br><span class="line"><span class="keyword">import</span> com.xuecheng.content.service.CourseTeacherService;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.BeanUtils;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CourseTeacherServiceImpl</span> <span class="keyword">extends</span> <span class="title class_">ServiceImpl</span>&lt;CourseTeacherMapper, CourseTeacher&gt; <span class="keyword">implements</span> <span class="title class_">CourseTeacherService</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    CourseBaseMapper courseBaseMapper;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据课程id查询教师</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> courseId 课程id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> XueChengPlusException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;CourseTeacher&gt; <span class="title function_">listTeacherByCourseId</span><span class="params">(Long courseId)</span> <span class="keyword">throws</span> XueChengPlusException &#123;</span><br><span class="line">        <span class="keyword">if</span> (courseId == <span class="literal">null</span> || courseId&lt;<span class="number">0</span>)&#123;</span><br><span class="line">            XueChengPlusException.cast(<span class="string">&quot;课程id不存在&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        LambdaQueryWrapper&lt;CourseTeacher&gt; lambdaQueryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        lambdaQueryWrapper.eq(CourseTeacher::getCourseId,courseId);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//根据课程id查询课程教师信息</span></span><br><span class="line">        List&lt;CourseTeacher&gt; courseTeacherList = <span class="built_in">this</span>.list(lambdaQueryWrapper);</span><br><span class="line">        <span class="keyword">if</span>(courseTeacherList.isEmpty()) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> courseTeacherList;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增/修改教师</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dto</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">saveOrUpdateTeacher</span><span class="params">(TeacherSaveOrUpdateDto dto)</span> <span class="keyword">throws</span> XueChengPlusException &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        1. 判断dto中是否有id</span></span><br><span class="line"><span class="comment">        2. 有表明是修改,先查询数据看,看对应id是否存在,不存在保存,存在则更新</span></span><br><span class="line"><span class="comment">        3. 无表明是新增,直接update</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">id</span> <span class="operator">=</span>dto.getId();</span><br><span class="line">        <span class="type">Long</span> <span class="variable">courseId</span> <span class="operator">=</span>dto.getCourseId();</span><br><span class="line">        <span class="comment">//创建数据库对象</span></span><br><span class="line">        <span class="type">CourseTeacher</span> <span class="variable">courseTeacher</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CourseTeacher</span>();</span><br><span class="line">        BeanUtils.copyProperties(dto,courseTeacher);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (id != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//修改</span></span><br><span class="line">            LambdaQueryWrapper&lt;CourseTeacher&gt; lambdaQueryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">            lambdaQueryWrapper.eq(CourseTeacher::getCourseId,courseId);</span><br><span class="line">            <span class="type">CourseTeacher</span> <span class="variable">one</span> <span class="operator">=</span> <span class="built_in">this</span>.getOne(lambdaQueryWrapper);</span><br><span class="line">            <span class="keyword">if</span> (one == <span class="literal">null</span>)&#123;</span><br><span class="line">                XueChengPlusException.cast(<span class="string">&quot;教师不存在&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">this</span>.updateById(courseTeacher);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//新增</span></span><br><span class="line">            <span class="keyword">if</span> (courseBaseMapper.selectById(courseId)==<span class="literal">null</span>)</span><br><span class="line">                XueChengPlusException.cast(<span class="string">&quot;课程不存在&quot;</span>);</span><br><span class="line">            courseTeacher.setCreateDate(LocalDateTime.now());</span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">this</span>.save(courseTeacher)) XueChengPlusException.cast(<span class="string">&quot;新增失败&quot;</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除教师id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> courseId 课程id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id       id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> XueChengPlusException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteTeacher</span><span class="params">(Long courseId, Long id)</span> <span class="keyword">throws</span> XueChengPlusException &#123;</span><br><span class="line">        <span class="keyword">if</span> (courseId == <span class="literal">null</span> || id == <span class="literal">null</span>)</span><br><span class="line">            XueChengPlusException.cast(<span class="string">&quot;id或者课程id为空&quot;</span>);</span><br><span class="line">        <span class="comment">/*查询课程id是否存在于数据库*/</span></span><br><span class="line">        <span class="keyword">if</span> (courseBaseMapper.selectById(id) == <span class="literal">null</span>)</span><br><span class="line">            XueChengPlusException.cast(<span class="string">&quot;课程id不合法&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        LambdaQueryWrapper&lt;CourseTeacher&gt; lambdaQueryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        lambdaQueryWrapper.eq(CourseTeacher::getCourseId,courseId);</span><br><span class="line">        lambdaQueryWrapper.eq(CourseTeacher::getId,id);</span><br><span class="line">        <span class="type">CourseTeacher</span> <span class="variable">one</span> <span class="operator">=</span> <span class="built_in">this</span>.getOne(lambdaQueryWrapper);</span><br><span class="line">        <span class="keyword">if</span> (one == <span class="literal">null</span>)</span><br><span class="line">            XueChengPlusException.cast(<span class="string">&quot;教师不存在&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.removeById(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除课程"><a href="#删除课程" class="headerlink" title="删除课程"></a>删除课程</h2><p>在课程管理界面,点击删除按钮删除课程</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308122407546.png" alt="image-20230308122407546"></p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308122434405.png" alt="image-20230308122434405"></p>
+<p>service层：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除课程</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteCourseById</span><span class="params">(Long id)</span> <span class="keyword">throws</span> XueChengPlusException &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        0.验证此课程id是否合法</span></span><br><span class="line"><span class="comment">        1.根据id删除课程教师信息</span></span><br><span class="line"><span class="comment">        2.根据courseId删除课程计划信息</span></span><br><span class="line"><span class="comment">        2.1查询课程计划信息</span></span><br><span class="line"><span class="comment">        2.2调用删除章目录的服务</span></span><br><span class="line"><span class="comment">        3.删除课程营销信息和课程基本信息</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">/*获取课程基本信息*/</span></span><br><span class="line">        <span class="type">CourseBase</span> <span class="variable">courseBase</span> <span class="operator">=</span> courseBaseMapper.selectById(id);</span><br><span class="line">        <span class="type">CourseMarket</span> <span class="variable">courseMarket</span> <span class="operator">=</span><span class="keyword">new</span> <span class="title class_">CourseMarket</span>();</span><br><span class="line">        BeanUtils.copyProperties(courseBase, courseMarket);</span><br><span class="line">        <span class="keyword">if</span> (courseBase == <span class="literal">null</span>)&#123;</span><br><span class="line">            XueChengPlusException.cast(<span class="string">&quot;id不合法&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除课程教师</span></span><br><span class="line">        List&lt;CourseTeacher&gt; list = courseTeacherService.listTeacherByCourseId(id);</span><br><span class="line">        <span class="keyword">if</span> (list != <span class="literal">null</span>&amp;&amp;!list.isEmpty())&#123;</span><br><span class="line">            <span class="comment">/*list非空说明有教师数据,通过主键remove*/</span></span><br><span class="line">            list.forEach(e-&gt; &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    courseTeacherService.deleteTeacher(id, e.getId());</span><br><span class="line">                &#125; <span class="keyword">catch</span> (XueChengPlusException ex) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(ex);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*根据courseId删除课程计划信息*/</span></span><br><span class="line">        <span class="comment">//查询课程计划信息</span></span><br><span class="line">        List&lt;TeachplanDto&gt; teachplanList = teachPlanService.findTeachplanList(id);</span><br><span class="line">        <span class="keyword">if</span> (teachplanList != <span class="literal">null</span> &amp;&amp; !teachplanList.isEmpty())&#123;</span><br><span class="line">            teachplanList.forEach(e-&gt;&#123;</span><br><span class="line">                <span class="comment">/*获取二级节点*/</span></span><br><span class="line">                List&lt;TeachplanDto&gt; teachPlanTreeNodes = e.getTeachPlanTreeNodes();</span><br><span class="line">                <span class="comment">/*若二级节点不空,遍历删除*/</span></span><br><span class="line">                <span class="keyword">if</span> (teachPlanTreeNodes != <span class="literal">null</span> &amp;&amp; !teachPlanTreeNodes.isEmpty())&#123;</span><br><span class="line">                    teachPlanTreeNodes.forEach(kid-&gt;teachPlanService.deleteGrade2(kid.getId()));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    teachPlanService.deleteTeachPlan(e.getId());</span><br><span class="line">                &#125; <span class="keyword">catch</span> (XueChengPlusException ex) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(ex);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*删除课程营销信息和课程基本信息*/</span></span><br><span class="line">        LambdaQueryWrapper&lt;CourseMarket&gt; courseMarketLambdaQueryWrapper=<span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        courseMarketLambdaQueryWrapper.eq(CourseMarket::getId,id);</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;201001&quot;</span>.equals(courseMarket.getCharge()))&#123;</span><br><span class="line">            courseMarketMapper.deleteById(id);</span><br><span class="line">        &#125;</span><br><span class="line">        courseBaseMapper.deleteById(id);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Nacos远程服务器搭建"><a href="#Nacos远程服务器搭建" class="headerlink" title="Nacos远程服务器搭建"></a>Nacos远程服务器搭建</h1><p>先拉取1.4.1的镜像并启动：</p>
+<p>docker pull nacos&#x2F;nacos-server:1.4.1</p>
+<p>docker run –env MODE&#x3D;standalone –name nacos -d -p 8848:8848 nacos&#x2F;nacos-server:1.4.1</p>
+<p>进入nacos配置文件：</p>
+<p>docker exec -it nacos bash</p>
+<p>配置MySQL：</p>
+<p>spring.datasource.platform&#x3D;mysql</p>
+<p>db.num&#x3D;1</p>
+<p>db.url.0&#x3D;jdbc:mysql:&#x2F;&#x2F;xxxxxxxx:3306&#x2F;nacos?characterEncoding&#x3D;utf8&amp;connectTimeout&#x3D;1000&amp;socketTimeout&#x3D;3000&amp;autoReconnect&#x3D;true</p>
+<p>db.user&#x3D;root</p>
+<p>db.password&#x3D;123456</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-02-04 04:06:41" itemprop="dateModified" datetime="2024-02-04T04:06:41+08:00">2024-02-04</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/we.png" alt="Hepingan WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/qq2.png" alt="Hepingan Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Hepingan PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Hepingan <i class="ic i-at"><em>@</em></i>何平安
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%BA%8C%E3%80%91-%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3%E6%8E%A5%E5%8F%A3/" title="企业级微服务大项目实战《学成在线》【二】(课程相关接口)">http://example.com/2024/02/04/学成在线/企业级微服务大项目实战《学成在线》【二】-课程相关接口/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/02/04/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s11.ax1x.com&#x2F;2024&#x2F;02&#x2F;04&#x2F;pFlm5TA.jpg" title="Hadoop大数据基础学习笔记">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Hadoop大数据基础学习笔记</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%89%E3%80%91%EF%BC%88Nacos-Gateway-Minio%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picdm.sunbangyan.cn&#x2F;2024&#x2F;02&#x2F;04&#x2F;06a07f3df5c37c69daa7b156ec2e1891.jpeg" title="企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建）">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> 学成在线</span>
+  <h3>企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建）</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text">课程信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.1.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E8%81%94%E8%B0%83"><span class="toc-number">1.2.</span> <span class="toc-text">前后端联调</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.1.</span> <span class="toc-text">解决跨域问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E5%88%86%E7%B1%BB%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.</span> <span class="toc-text">课程分类查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E8%AF%BE%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text">新增课程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text">异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%AF%BE%E7%A8%8B"><span class="toc-number">1.6.</span> <span class="toc-text">修改课程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E8%AE%A1%E5%88%92"><span class="toc-number">2.</span> <span class="toc-text">课程计划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2-1"><span class="toc-number">2.1.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E-%E4%BF%AE%E6%94%B9"><span class="toc-number">2.2.</span> <span class="toc-text">新增&#x2F;修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%AF%BE%E7%A8%8B%E8%AE%A1%E5%88%92"><span class="toc-number">2.3.</span> <span class="toc-text">删除课程计划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E7%A7%BB%E5%8A%A8%E8%AF%BE%E7%A8%8B%E8%AE%A1%E5%88%92"><span class="toc-number">2.4.</span> <span class="toc-text">上下移动课程计划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%99%E5%B8%88%E7%AE%A1%E7%90%86"><span class="toc-number">2.5.</span> <span class="toc-text">教师管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%AF%BE%E7%A8%8B"><span class="toc-number">2.6.</span> <span class="toc-text">删除课程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nacos%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text">Nacos远程服务器搭建</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%80%E3%80%91-%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="bookmark" title="企业级微服务大项目实战《学成在线》【一】(项目环境搭建)">企业级微服务大项目实战《学成在线》【一】(项目环境搭建)</a></li><li class="active"><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%BA%8C%E3%80%91-%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3%E6%8E%A5%E5%8F%A3/" rel="bookmark" title="企业级微服务大项目实战《学成在线》【二】(课程相关接口)">企业级微服务大项目实战《学成在线》【二】(课程相关接口)</a></li><li><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%89%E3%80%91%EF%BC%88Nacos-Gateway-Minio%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%89/" rel="bookmark" title="企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建）">企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建）</a></li><li><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E5%9B%9B%E3%80%91%EF%BC%88%E5%AA%92%E8%B5%84%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97%EF%BC%89/" rel="bookmark" title="企业级微服务大项目实战《学成在线》【四】（媒资管理模块）">企业级微服务大项目实战《学成在线》【四】（媒资管理模块）</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Hepingan"
+      data-src="/images/a.jpg">
+  <p class="name" itemprop="name">Hepingan</p>
+  <div class="description" itemprop="description">欢迎来到何平安的个人博客~欢迎您的浏览</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">42</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">8</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlcGluZ2FuMTE=" title="https:&#x2F;&#x2F;github.com&#x2F;hepingan11"><i class="ic i-github"></i></span>
+      <span class="exturl item google" data-url="aHR0cHM6Ly9wbHVzLmdvb2dsZS5jb20v" title="https:&#x2F;&#x2F;plus.google.com&#x2F;"><i class="ic i-google"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTM0MzI3MDEyNA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;343270124"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjE2NDE2NDM2NTY2QHFxLmNvbQ==" title="mailto:16416436566@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/02/04/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%89%E3%80%91%EF%BC%88Nacos-Gateway-Minio%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%89/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/Javaweb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="Javaweb学习笔记（二）">Javaweb学习笔记（二）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E4%BF%AE%E5%A4%8D%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E9%97%AE%E9%A2%98/" title="修复域名访问问题">修复域名访问问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%EF%BC%82%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%EF%BC%82%EF%BC%88%E4%BA%8C%EF%BC%89/" title="企业级开发项目＂苍穹外卖＂（二）">企业级开发项目＂苍穹外卖＂（二）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/Javaweb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%91%EF%BC%88%E4%B8%89%EF%BC%89/" title="Javaweb学习笔记【项目实战】（三）">Javaweb学习笔记【项目实战】（三）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E9%98%BF%E9%87%8C%E4%BA%91%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%88%86%E4%BA%AB/" title="阿里云网站搭建分享">阿里云网站搭建分享</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/" title="In 学成在线">学成在线</a>
+</div>
+
+    <span><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E5%9B%9B%E3%80%91%EF%BC%88%E5%AA%92%E8%B5%84%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97%EF%BC%89/" title="企业级微服务大项目实战《学成在线》【四】（媒资管理模块）">企业级微服务大项目实战《学成在线》【四】（媒资管理模块）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/java/" title="In Java">Java</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/java/javaweb/" title="In Java web">Java web</a>
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/Javaweb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="Javaweb学习笔记（一）">Javaweb学习笔记（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E8%AF%B4%E8%AF%B4nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8CKong%E7%BD%91%E5%85%B3/" title="说说nginx反向代理和Kong网关">说说nginx反向代理和Kong网关</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/java/" title="In Java">Java</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/java/service/" title="In 微服务">微服务</a>
+</div>
+
+    <span><a href="/2024/02/04/Java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%90Feign-Gateway%E3%80%91/" title="SpringCloud微服务学习笔记（二）【Feign,Gateway】">SpringCloud微服务学习笔记（二）【Feign,Gateway】</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%E5%9F%BA%E7%A1%80/%E7%B2%BE%E9%80%9AJava%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%EF%BC%88%E4%B8%89%EF%BC%89/" title="精通Java学习之路（三）">精通Java学习之路（三）</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hepingan @ 练竹园</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/02/04/学成在线/企业级微服务大项目实战《学成在线》【二】-课程相关接口/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

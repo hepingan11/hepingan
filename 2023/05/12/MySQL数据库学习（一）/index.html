@@ -1,0 +1,547 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="何平安" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="何平安" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="何平安" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://example.com/2023/05/12/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+
+  <title>
+MySQL数据库学习（一） |
+练竹园 = 何平安 = 世界很大，代码连接世界</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">MySQL数据库学习（一）
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2023-05-12 07:40:24">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-05-12T07:40:24+08:00">2023-05-12</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">练竹园</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://picdl.sunbangyan.cn/2024/02/04/7b63011683b8fbe48aeb454069754742.jpeg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/UdwXvHnV.jpg"></li>
+          <li class="item" data-background-image="https://picdm.sunbangyan.cn/2024/02/04/641422acbb61718b3b3fa67c910c1a64.jpeg"></li>
+          <li class="item" data-background-image="https://picdl.sunbangyan.cn/2024/02/04/6f4e1c010336fd60947972ab6b6f1c94.jpeg"></li>
+          <li class="item" data-background-image="https://picst.sunbangyan.cn/2024/02/04/0a1fd33f2dc6a6b511ab77d7b39ba996.jpeg"></li>
+          <li class="item" data-background-image="https://picss.sunbangyan.cn/2024/02/04/2d5cecb0225cd054c125a4f77f5a49ec.jpeg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/12/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/a.jpg">
+    <meta itemprop="name" content="Hepingan">
+    <meta itemprop="description" content="世界很大，代码连接世界, 欢迎来到何平安的个人博客~欢迎您的浏览">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="何平安">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>以分号结尾加回车为一个命令</p>
+<p>show databases;&#x2F;&#x2F;展示所有数据库</p>
+<p>create database xxx;&#x2F;&#x2F;创建新的数据库</p>
+<p>create database if not exists xxx;&#x2F;&#x2F;检查是否创建XXX数据库，没有则创建，有则不创建</p>
+<p>create database default charset (字节大小);&#x2F;&#x2F;创建指定字节大小的数据库</p>
+<p>drop database xxx;&#x2F;&#x2F;删除数据库</p>
+<p>use xxx;&#x2F;&#x2F;使用xxx数据库</p>
+<p>select database();&#x2F;&#x2F;查询当前数据库</p>
+<p>show tables;&#x2F;&#x2F;查询当前数据库所有表</p>
+<p>desc xxx;&#x2F;&#x2F;查询当前所有表内的表名</p>
+<p>show create table xxx&#x2F;&#x2F;查询指定表的建表语句</p>
+<p>create table xxx (</p>
+<p>xxx 数据类型(int,varchar,double….) [comment ‘注释’],&#x2F;&#x2F;最后一个数据不加逗号！</p>
+<p>)[comment ‘注释’];</p>
+<p>&#x2F;&#x2F;在当前数据库创建xxx名字的表,在MYSQL中String&#x3D;varchar(字符串长度）</p>
+<p>eg:create table hepingan(</p>
+<p>id int comment ‘编号’,</p>
+<p>name varchar(50) comment ‘姓名’&#x2F;&#x2F;最后一个数据不加逗号</p>
+<p>)comment ‘何平安的表’;</p>
+<p>drop table [if exists]xxx;&#x2F;&#x2F;删除表[如果存在则删,不存在也不报错]</p>
+<p>truncate table xxx;&#x2F;&#x2F;删除表并重新创建</p>
+<hr>
+<p>MYSQL中数据</p>
+<p>Eg:grade double(4,1) unsigned&#x2F;&#x2F;创建最大长度为4，小数位数为1的无负数的名叫grade的数据类型（4位:100.0,999.9）</p>
+<p>name char(10);name2 varchar(10);&#x2F;&#x2F;定长char,变长varchar,区别：定长无论输多少都是10个字节性能好，变长输多少就是多少字节性能较差，超过括号内的字节就报错</p>
+<p>time date comment ‘日期’</p>
+<p>tips:数据库–&gt;表名–&gt;字段名</p>
+<hr>
+<p>alter table [表名] add [字段名] <a href="%E9%95%BF%E5%BA%A6">类型</a> (comment ‘ ‘);&#x2F;&#x2F;向[表名]中添加字段</p>
+<p>alter table [表名] modify [字段名] [新数据类型](comment ‘ ‘);&#x2F;&#x2F;修改字段名数据类型</p>
+<p>alter table [表名] change [原来的字段名] [新的字段名] <a href="%E9%95%BF%E5%BA%A6">类型</a> (comment ‘ ‘);&#x2F;&#x2F;修改指定字段名</p>
+<p>alter table [表名] drop [字段名];&#x2F;&#x2F;删除字段名</p>
+<p>alter table [表名] rename to [新的表名];&#x2F;&#x2F;修改表名</p>
+<p>insert into [表名] (字段名1，字段名2…) values(值1，值2…);&#x2F;&#x2F;给指定字段添加数据</p>
+<p>select *from [表名];&#x2F;&#x2F;查询表格数据</p>
+<p>select [字段名1],[字段名2] from [表名] where [字段名2] between [值1] and [值2];&#x2F;&#x2F;查询字段名2的值在值1和值2之间的字段名1</p>
+<p>Eg:select name money from employee where money between 1000 and 2000;&#x2F;&#x2F;查询money在1000到2000的雇员的名字</p>
+<p><strong>参考原文：</strong><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUyMDUwNzY5L2FydGljbGUvZGV0YWlscy8xMTgwOTUwMzQ=">Java连接mysql数据库方法及代码（jdbc）_jdbc连接数据库_先养只猫的博客-CSDN博客</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9qdW5iaWFvL2FydGljbGUvZGV0YWlscy84NjYyNjc0MQ==">JDBC数据库驱动的下载、安装与连接_jdbc驱动下载_pan_junbiao的博客-CSDN博客</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01vdWVyX18vYXJ0aWNsZS9kZXRhaWxzLzEyMDY0NzIxNw==">IDEA使用JDBC连接MySQL数据库详细教程_伊木子曦的博客-CSDN博客</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1JveWFsaWMvYXJ0aWNsZS9kZXRhaWxzLzExOTYwNDc2Mw==">超详细的Idea与MySQL的连接（从入门到精通）_idea 怎么加入mysql_原来如此呀的博客-CSDN博客</span></p>
+<hr>
+<p>IDEA连接数据库方法：先下载mysql官方的connection连接包（地址：<span class="exturl" data-url="aHR0cHM6Ly9kZXYubXlzcWwuY29tL2Rvd25sb2Fkcy9jb25uZWN0b3Ivai8/b3M9MjY=">MySQL :: Download Connector&#x2F;J</span>），选择Platform Independent下载，版本不一样驱动数据库的方式也不一样，但也只有两种代码。下载解压后选择jar文件，打开IDEA，选择文件–&gt;新建–&gt;数据库–&gt;mysql.</p>
+<p>输入用户（root）和密码后点击测试连接</p>
+<p>点击驱动程序选择Mysql,点击“+”选择刚刚下载好的jar文件，然后确定，就可以在项目栏看到外部库里多了mysql-connecter的文件，说明“硬件”上的就搞定了。</p>
+<p>接下来就是代码时间，也是研究了好久，直接上成品：</p>
+<h4 id="源代码："><a href="#源代码：" class="headerlink" title="源代码："></a><strong>源代码：</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;`</span><br><span class="line">`<span class="keyword">import</span> java.sql.DriverManager;`</span><br><span class="line">`<span class="keyword">import</span> java.sql.SQLException;``<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ceshi3</span> &#123; <span class="comment">// 创建类`</span></span><br><span class="line">`Connection con; <span class="comment">// 声明Connection对象`</span></span><br><span class="line">`<span class="keyword">public</span> <span class="keyword">static</span> String user;`</span><br><span class="line">`<span class="keyword">public</span> <span class="keyword">static</span> String password;`</span><br><span class="line">`<span class="keyword">public</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> &#123; <span class="comment">// 建立返回值为Connection的方法`</span></span><br><span class="line">`<span class="keyword">try</span> &#123; <span class="comment">// 加载数据库驱动类`</span></span><br><span class="line">`Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);`</span><br><span class="line">`System.out.println(<span class="string">&quot;数据库驱动加载成功&quot;</span>);`</span><br><span class="line">`&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;`</span><br><span class="line">`e.printStackTrace();`</span><br><span class="line">`&#125;`</span><br><span class="line">`user = <span class="string">&quot;root&quot;</span>;**<span class="comment">//数据库登录名**`</span></span><br><span class="line">`password = <span class="string">&quot;123456&quot;</span>;**<span class="comment">//密码**`</span></span><br><span class="line">`<span class="keyword">try</span> &#123; <span class="comment">// 通过访问数据库的URL获取数据库连接对象`</span></span><br><span class="line">`con = DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/hh?useSSL=true&quot;</span>, user, password);**<span class="comment">//这里非常强调！！！hh只是我的数据库名，要写自己的table！！！**</span></span><br><span class="line">System.out.println(<span class="string">&quot;数据库连接成功&quot;</span>);`</span><br><span class="line">`&#125; <span class="keyword">catch</span> (SQLException e) &#123;`</span><br><span class="line">`e.printStackTrace();`</span><br><span class="line">`&#125;`</span><br><span class="line">`<span class="keyword">return</span> con; <span class="comment">// 按方法要求返回一个Connection对象`</span></span><br><span class="line">`&#125;`</span><br><span class="line">`<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123; <span class="comment">// 主方法，测试连接`</span></span><br><span class="line">`<span class="type">ceshi3</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ceshi3</span>(); <span class="comment">// 创建本类对象`</span></span><br><span class="line">`c.getConnection(); <span class="comment">// 调用连接数据库的方法`</span></span><br><span class="line">`&#125;`</span><br><span class="line">`&#125;`</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-02-03 07:49:35" itemprop="dateModified" datetime="2024-02-03T07:49:35+08:00">2024-02-03</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/we.png" alt="Hepingan WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/qq2.png" alt="Hepingan Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Hepingan PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Hepingan <i class="ic i-at"><em>@</em></i>何平安
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2023/05/12/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" title="MySQL数据库学习（一）">http://example.com/2023/05/12/MySQL数据库学习（一）/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/02/03/html-css%E5%9F%BA%E7%A1%80/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picst.sunbangyan.cn&#x2F;2024&#x2F;02&#x2F;04&#x2F;d453f090e853c994bb22371766db430a.jpeg" title="html,css基础">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>html,css基础</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">源代码：</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Hepingan"
+      data-src="/images/a.jpg">
+  <p class="name" itemprop="name">Hepingan</p>
+  <div class="description" itemprop="description">欢迎来到何平安的个人博客~欢迎您的浏览</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">42</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">8</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlcGluZ2FuMTE=" title="https:&#x2F;&#x2F;github.com&#x2F;hepingan11"><i class="ic i-github"></i></span>
+      <span class="exturl item google" data-url="aHR0cHM6Ly9wbHVzLmdvb2dsZS5jb20v" title="https:&#x2F;&#x2F;plus.google.com&#x2F;"><i class="ic i-google"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTM0MzI3MDEyNA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;343270124"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjE2NDE2NDM2NTY2QHFxLmNvbQ==" title="mailto:16416436566@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/java/" title="In Java">Java</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/java/javase/" title="In Java基础">Java基础</a>
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%E5%9F%BA%E7%A1%80/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%AE%80%E5%8E%86%E4%B8%8A%E5%86%99%E4%B8%8A%E7%B2%BE%E9%80%9AJava%EF%BC%88%E7%AC%94%E8%AE%B0%E4%B8%80%EF%BC%89/" title="如何在简历上写上精通Java（笔记一）">如何在简历上写上精通Java（笔记一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/Javaweb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%91%EF%BC%88%E4%B8%89%EF%BC%89/" title="Javaweb学习笔记【项目实战】（三）">Javaweb学习笔记【项目实战】（三）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E9%98%BF%E9%87%8C%E4%BA%91%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E5%88%86%E4%BA%AB/" title="阿里云网站搭建分享">阿里云网站搭建分享</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Axios%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E5%AE%9E%E4%BE%8B/" title="Axios前后端交互实例">Axios前后端交互实例</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86-AOP%E8%AE%B0%E5%BD%95%E6%8A%80%E6%9C%AF/" title="事务管理+AOP记录技术">事务管理+AOP记录技术</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/mystory/" title="In 我的传奇">我的传奇</a>
+</div>
+
+    <span><a href="/2024/02/03/%E6%88%91%E7%9A%84%E4%BC%A0%E5%A5%87/%E6%88%91%E7%9A%84%E6%95%85%E4%BA%8B%EF%BC%88%E5%A4%A7%E4%B8%80%E4%B8%8B%EF%BC%89/" title="我的故事（大一下）">我的故事（大一下）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/03/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%94%AF%E6%8C%81%E6%88%91/" title="【置顶】介绍与支持我">【置顶】介绍与支持我</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/03/%E5%A4%A7%E4%B8%80%E4%B8%8Bjava%E6%9C%9F%E6%9C%AB%E8%AE%BE%E8%AE%A1%EF%BC%9A%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E8%8D%A3%E8%8E%B7%E7%8F%AD%E4%B8%8A%E7%AC%AC%E4%B8%80%EF%BC%89/" title="大一下java期末设计：学生信息管理系统（荣获班上第一）">大一下java期末设计：学生信息管理系统（荣获班上第一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/03/html-css%E5%9F%BA%E7%A1%80/" title="html,css基础">html,css基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%EF%BC%82%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%EF%BC%82%EF%BC%88%E4%BA%8C%EF%BC%89/" title="企业级开发项目＂苍穹外卖＂（二）">企业级开发项目＂苍穹外卖＂（二）</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hepingan @ 练竹园</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/05/12/MySQL数据库学习（一）/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

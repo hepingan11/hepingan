@@ -1,0 +1,545 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="何平安" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="何平安" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="何平安" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://example.com/2024/02/04/Python/%E6%9C%89C%E5%92%8CJava%E7%9A%84%E5%BA%95%E5%AD%90%E5%A6%82%E4%BD%95%E9%80%9F%E9%80%9APython%E8%AF%AD%E6%B3%95/">
+
+
+
+  <title>
+有C和Java的底子如何速通Python语法 - Python |
+练竹园 = 何平安 = 世界很大，代码连接世界</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">有C和Java的底子如何速通Python语法
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-02-04 03:51:23">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-02-04T03:51:23+08:00">2024-02-04</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">练竹园</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/I1e3e5ui.webp"></li>
+          <li class="item" data-background-image="https://picss.sunbangyan.cn/2024/02/04/1e86d9b5ab6a0f3c06aae5296f66dd67.jpeg"></li>
+          <li class="item" data-background-image="https://picss.sunbangyan.cn/2024/02/04/f6fa668d872e85ca35ba594d1cc31942.jpeg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/zGtbnCj2.jpg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2023/10/04/7nh1HUTd.png"></li>
+          <li class="item" data-background-image="https://picdm.sunbangyan.cn/2024/02/04/641422acbb61718b3b3fa67c910c1a64.jpeg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/python/" itemprop="item" rel="index" title="In Python"><span itemprop="name">Python</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/04/Python/%E6%9C%89C%E5%92%8CJava%E7%9A%84%E5%BA%95%E5%AD%90%E5%A6%82%E4%BD%95%E9%80%9F%E9%80%9APython%E8%AF%AD%E6%B3%95/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/a.jpg">
+    <meta itemprop="name" content="Hepingan">
+    <meta itemprop="description" content="世界很大，代码连接世界, 欢迎来到何平安的个人博客~欢迎您的浏览">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="何平安">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><strong>本人4小时速通python</strong>，为啥要学python,emmmm…我选的专业要学 。。。早点把它学了上课就可以打瞌睡了</p>
+<p><strong>由于java和C这两个我更精通java,所以直接拿Java做对比啦。因为python中不用用’;‘换行,所以就拿’;‘表示python中的换行啦~</strong></p>
+<hr>
+<p>&gt;在python中可以<strong>不用定义变量类型</strong>，比如直接输age&#x3D;18就行了；布尔类型True和False都要首字母大写</p>
+<p>&gt;<strong>input输入</strong>语法：xxx&#x3D;input(“请输入：”)默认为String类型，要想定义变量类型在input前面加个括号再输入变量类型,即int(input)。相当于java中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Scanner input =new Scanner(System.in);</span><br><span class="line">System.out.println(&quot;请输入:&quot;);</span><br><span class="line">String input_name=input.nextLine();</span><br></pre></td></tr></table></figure>
+
+<p>可以看出java中很麻烦，所以有句话叫人生苦短我用python….</p>
+<p>&gt;创建<strong>列表</strong>：List&#x3D;[“hh”,”hpa”,18,3.14],输出列表元素:for i in List: print(i);<strong>集合</strong>：jihe&#x3D;{1,”hh”,True}；集合有无序性和重复性。<strong>元组</strong>：yuanzu&#x3D;(1,”hh”)；元组里面的数据不能被修改。<strong>字典</strong>：zidian&#x3D;dict&#x3D;{‘n’&#x3D;1,’m’&#x3D;2};字典格式:{‘键’:值}</p>
+<p>&gt;多行<strong>注释</strong>：”””xxx”””或”’xxx”’,相当于java中的&#x2F;**xxx&#x2F;；普通注释：#xxx</p>
+<p>&gt;在语句中输出变量：print(f”balbal{a}”)或print(“balbal%d”%a)#a为变量</p>
+<p>&gt;a&#x3D;12;b&#x3D;float(a)#强制转换变量类型</p>
+<p>&gt;创建随机数:a&#x3D;random.randint(1,100)#1~100的随机一个数;b&#x3D;random.u</p>
+<p>&gt;**表示乘方，如果一个整数除不尽会自动变成小数</p>
+<p>&gt;python中字符串也能进行加乘！！</p>
+<p>&gt;if语句:if 条件: ;elif&#x3D;else if</p>
+<p>&gt;while,for循环语句条件不用打括号。举例好讲些：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">while a&lt;15:</span><br><span class="line">    a+=1</span><br><span class="line">for i in range(10):#range(x)表示从0到x，不包括x,包括0</span><br><span class="line">    print(i)</span><br><span class="line">arr = [1, 3, 5, 6]</span><br><span class="line">for i in arr:#自定义输出</span><br><span class="line">    print(i)</span><br><span class="line">f=&quot;hepingan&quot;#输出字符串</span><br><span class="line">for i in f:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<p>**&gt;字符串的截取:<br>**f&#x3D;”Hello World”<br>f&#x3D;f[2:6]#从下标2开始截取到下标4,即’llo W’;<br>f&#x3D;f[:6]#从下标0截取到5,即’Hello W’<br>f&#x3D;f[2:]#从2截完,即’llo World’<br>f&#x3D;f[::2]#每隔1个截取’HloWrd’<br>f&#x3D;f[::-1]#反向输出’dlroW olleH’<br>f&#x3D;f[-5:-1]#倒起数下标输出,’Worl’</p>
+<p><strong>&gt;字符串的一些方法：</strong></p>
+<p>g&#x3D;’my name is hpa’<br>g&#x3D;g.replace(‘hpa’,’hh’)#替换字符串中的部分内容<br>arr&#x3D;g.split(” “)#分割字符串的东西成列表，这里是空格<br>g&#x3D;”-“.join(arr)#将列表以”-“连接成字符串<br>字符串的其他方法：<br>title每个单词首字母大写，capitalize首个字母大写，lstrip删除左侧空白字符，rstrip删除右侧空白字符,strip删除两侧空白</p>
+<p><strong>&gt;多维列表：</strong><br>arr&#x3D;[[1,2,4],[2,5,7],[5,7,9]]#二维列表<br>print(arr[1][2])#输出7<br>print(arr[0])#输出[1,2,4]<br>arr&#x3D;[<br>[[1,2,3],[4,5,6],[7,8,9]],<br>[[a,b,’sss’],[9,8,7],[6,5,4]],<br>[[16,456,23],[False,12,543],[34,234,546]]<br>]#多维列表，还可以往上叠，这是三维的<br>print(arr[1][0][2])#输出sss</p>
+<p><strong>&gt;列表的查找,删除和排序:</strong><br>h1&#x3D;12<br>h&#x3D;[1,True,’hh’,h1,[1,’oo’,99]]<br>if 12 not in h:#判断12这个元素在不在h中<br>print(“…”)<br>else:<br>print(“^^^”)<br>h.append(“sadness”)#向列表末尾添加元素<br>h.insert(2,’happyness’)#向下标2添加元素<br>h.pop(0)#删除0号下标的元素<br>h.remove(True)#删除指定元素<br>print(h)<br>i&#x3D;[1,6,2,9,3]<br>i.sort()#自动排序方法<br>print(i)</p>
+<p><strong>&gt;方法的使用:</strong></p>
+<p>python中创建方法直接def xxx():</p>
+<p>def run():<br>print(“跑步”)<br>print(“继续跑”)<br>run()<br>def jisuan(i):<br>if i%2&#x3D;&#x3D;0:<br>print(“偶数”)<br>else:<br>print(“奇数”)</p>
+<p>num&#x3D;14<br>print(jisuan(num))#输出会有None，是因为没有返回值(return)<br>if <strong>name</strong> &#x3D;&#x3D;’__jisuan__’:<br>jisuan(23)<br>def j(n,age&#x3D;19,*args,<strong>kwargs):#一个*表示无限列表，两个</strong>就需要在数据前添加名称<br>if age&gt;&#x3D;18:<br>print(n)<br>for i in args:#输出可以无限元素的args的每个元素<br>print(i)<br>else:<br>print(‘no’)<br>print(kwargs[“hh”])#输出kwargs中名为’hh’的数据<br>j(5,20,1,5,4,2,hh&#x3D;12,ss&#x3D;43)#输出5,1,5,4,2,12</p>
+<hr>
+<p><strong>python基础语法学习时的代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">3</span>*<span class="number">1.23</span>)<span class="comment">#两种不同类型number型数可直接用</span></span><br><span class="line">str1=<span class="string">&quot;Hello World&quot;</span></span><br><span class="line"><span class="built_in">bool</span>=<span class="literal">True</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">s12332321</span></span><br><span class="line"><span class="string">123我是注释</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;我也是注释&quot;&quot;&quot;</span></span><br><span class="line"><span class="built_in">print</span>(str1.replace(<span class="string">&quot;World&quot;</span>,<span class="string">&quot;何平安&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(str1.upper())<span class="comment">#变大写</span></span><br><span class="line"><span class="built_in">print</span>(str1.lower())<span class="comment">#变小写</span></span><br><span class="line"><span class="type">List</span> =[<span class="string">&quot;hh&quot;</span>,<span class="string">&quot;hpa&quot;</span>,<span class="number">19</span>,<span class="literal">True</span>]<span class="comment">#集合</span></span><br><span class="line"><span class="built_in">print</span>(<span class="type">List</span>)</span><br><span class="line"><span class="type">List</span>.pop(<span class="number">0</span>)<span class="comment">#删除列表第1个元素</span></span><br><span class="line"><span class="type">List</span>.append(<span class="number">123</span>)<span class="comment">#列表添加元素</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="type">List</span>:<span class="comment">#输出列表元素</span></span><br><span class="line"><span class="built_in">print</span>(i)</span><br><span class="line">jihe=&#123;<span class="number">1</span>,<span class="string">&quot;hh&quot;</span>,<span class="literal">True</span>&#125;<span class="comment">#集合</span></span><br><span class="line">yuanzu=(str1,<span class="number">1</span>,<span class="string">&quot;hpa&quot;</span>)<span class="comment">#元组</span></span><br><span class="line"><span class="built_in">dict</span>=&#123;<span class="string">&#x27;n&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;m&#x27;</span>:<span class="number">2</span>&#125;<span class="comment">#字典</span></span><br><span class="line"></span><br><span class="line">a=<span class="number">12</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;balabala<span class="subst">&#123;a&#125;</span>&quot;</span>)<span class="comment">#在语句中输出变量</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;balabala%d&quot;</span>%a)</span><br><span class="line"></span><br><span class="line">b=<span class="built_in">float</span>(a)<span class="comment">#强制转换变量类型</span></span><br><span class="line"></span><br><span class="line">c=random.randint(<span class="number">1</span>,<span class="number">100</span>)<span class="comment">#创建随机数</span></span><br><span class="line">d=random.uniform(<span class="number">1</span>,<span class="number">100</span>)<span class="comment">#创建小数随机数</span></span><br><span class="line"><span class="built_in">print</span>(c,d)</span><br><span class="line">str2=<span class="string">&quot;aaa&quot;</span></span><br><span class="line"><span class="built_in">print</span>(str1+str2*<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">e=<span class="number">12</span>%<span class="number">5</span></span><br><span class="line"><span class="keyword">if</span> e==<span class="number">0</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;整除&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> e==<span class="number">2</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;余2&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;不能整除&quot;</span>)</span><br><span class="line"><span class="keyword">while</span> a&lt;<span class="number">15</span>:</span><br><span class="line">a+=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):<span class="comment">#range(x)表示从0到x，不包括x,包括0</span></span><br><span class="line"><span class="built_in">print</span>(i)</span><br><span class="line">arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> arr:<span class="comment">#自定义输出</span></span><br><span class="line"><span class="built_in">print</span>(i)</span><br><span class="line">f=<span class="string">&quot;hepingan&quot;</span><span class="comment">#输出字符串</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f:</span><br><span class="line"><span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="comment">#字符串的截取</span></span><br><span class="line">f=<span class="string">&quot;Hello World&quot;</span></span><br><span class="line">f=f[<span class="number">2</span>:<span class="number">6</span>]<span class="comment">#从下标2开始截取到下标4,即&#x27;llo W&#x27;;</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line">f=<span class="string">&quot;Hello World&quot;</span></span><br><span class="line">f=f[:<span class="number">6</span>]<span class="comment">#从下标0截取到5,&#x27;Hello W&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line">f=<span class="string">&quot;Hello World&quot;</span></span><br><span class="line">f=f[<span class="number">2</span>:]<span class="comment">#从2截完</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line">f=<span class="string">&quot;Hello World&quot;</span></span><br><span class="line">f=f[::<span class="number">2</span>]<span class="comment">#每隔1个截取</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line">f=<span class="string">&quot;Hello World&quot;</span></span><br><span class="line">f=f[::-<span class="number">1</span>]<span class="comment">#反向输出</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line">f=<span class="string">&quot;Hello World&quot;</span></span><br><span class="line">f=f[-<span class="number">5</span>:-<span class="number">1</span>]<span class="comment">#倒起数下标输出,&#x27;Worl&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line">g=<span class="string">&#x27;my name is hpa&#x27;</span></span><br><span class="line">g=g.replace(<span class="string">&#x27;hpa&#x27;</span>,<span class="string">&#x27;hh&#x27;</span>)<span class="comment">#替换字符串中的部分内容</span></span><br><span class="line"><span class="built_in">print</span>(g)</span><br><span class="line">arr=g.split(<span class="string">&quot; &quot;</span>)<span class="comment">#分割字符串的东西成列表，这里是空格</span></span><br><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line">g=<span class="string">&quot;-&quot;</span>.join(arr)<span class="comment">#将列表以&quot;-&quot;连接成字符串</span></span><br><span class="line"><span class="built_in">print</span>(g)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;字符串的其他方法：</span></span><br><span class="line"><span class="string">title每个单词首字母大写，capitalize首个字母大写，lstrip删除左侧空白字符，rstrip删除右侧空白字符,strip删除两侧空白</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">arr=[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>],[<span class="number">2</span>,<span class="number">5</span>,<span class="number">7</span>],[<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]]<span class="comment">#二维列表</span></span><br><span class="line"><span class="built_in">print</span>(arr[<span class="number">1</span>][<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(arr[<span class="number">0</span>])</span><br><span class="line">arr=[</span><br><span class="line">[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]],</span><br><span class="line">[[a,b,<span class="string">&#x27;sss&#x27;</span>],[<span class="number">9</span>,<span class="number">8</span>],[<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>]],</span><br><span class="line">[[<span class="number">16</span>,<span class="number">456</span>,<span class="number">23</span>,<span class="string">&#x27;ppp&#x27;</span>],[<span class="literal">False</span>,<span class="number">12</span>,<span class="number">543</span>],[<span class="number">34</span>,<span class="number">234</span>,<span class="number">546</span>]]</span><br><span class="line">]<span class="comment">#多维列表，还可以往上叠，这是三维的</span></span><br><span class="line"><span class="built_in">print</span>(arr[<span class="number">1</span>][<span class="number">0</span>][<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">h1=<span class="number">12</span></span><br><span class="line">h=[<span class="number">1</span>,<span class="literal">True</span>,<span class="string">&#x27;hh&#x27;</span>,h1,[<span class="number">1</span>,<span class="string">&#x27;oo&#x27;</span>,<span class="number">99</span>]]</span><br><span class="line"><span class="keyword">if</span> <span class="number">12</span> <span class="keyword">not</span> <span class="keyword">in</span> h:<span class="comment">#判断12这个元素在不在h中</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;...&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;^^^&quot;</span>)</span><br><span class="line">h.append(<span class="string">&quot;sadness&quot;</span>)<span class="comment">#向列表末尾添加元素</span></span><br><span class="line">h.insert(<span class="number">2</span>,<span class="string">&#x27;happyness&#x27;</span>)<span class="comment">#向下标2添加元素</span></span><br><span class="line">h.pop(<span class="number">0</span>)<span class="comment">#删除0号下标的元素</span></span><br><span class="line">h.remove(<span class="literal">True</span>)<span class="comment">#删除指定元素</span></span><br><span class="line"><span class="built_in">print</span>(h)</span><br><span class="line"></span><br><span class="line">i=[<span class="number">1</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">3</span>]</span><br><span class="line">i.sort()</span><br><span class="line"><span class="built_in">print</span>(i)<span class="comment">#排序</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span>=&#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&quot;hh&quot;</span>,<span class="string">&#x27;age&#x27;</span>:<span class="number">19</span>,<span class="string">&#x27;sex&#x27;</span>:<span class="literal">True</span>,<span class="string">&#x27;hobby&#x27;</span>:<span class="string">&#x27;basketball&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;age&#x27;</span>]=<span class="string">&#x27;AGE&#x27;</span><span class="comment">#修改键</span></span><br><span class="line"><span class="keyword">del</span> <span class="built_in">dict</span>[<span class="string">&#x27;hobby&#x27;</span>]<span class="comment">#删除键及其值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">dict</span>[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">dict</span>.items())<span class="comment">#以列表包围元组的形式展示</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">dict</span>.keys())<span class="comment">#获取所以键</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">dict</span>.values())<span class="comment">#获取所有值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>():</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;跑步&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;继续跑&quot;</span>)</span><br><span class="line">run()</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">jisuan</span>(<span class="params">i</span>):</span><br><span class="line"><span class="keyword">if</span> i%<span class="number">2</span>==<span class="number">0</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;偶数&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;奇数&quot;</span>)</span><br><span class="line"></span><br><span class="line">num=<span class="number">14</span></span><br><span class="line"><span class="built_in">print</span>(jisuan(num))<span class="comment">#输出会有None，是因为没有返回值(return)</span></span><br><span class="line"><span class="keyword">if</span> __name__ ==<span class="string">&#x27;__jisuan__&#x27;</span>:</span><br><span class="line">jisuan(<span class="number">23</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">j</span>(<span class="params">n,age=<span class="number">19</span>,*args,**kwargs</span>):<span class="comment">#一个*表示无限列表，两个**就需要在数据前添加名称</span></span><br><span class="line"><span class="keyword">if</span> age&gt;=<span class="number">18</span>:</span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> args:<span class="comment">#输出可以无限元素的args的每个元素</span></span><br><span class="line"><span class="built_in">print</span>(i)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;no&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(kwargs[<span class="string">&quot;hh&quot;</span>])<span class="comment">#输出kwargs中名为&#x27;hh&#x27;的数据</span></span><br><span class="line">j(<span class="number">5</span>,<span class="number">20</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">2</span>,hh=<span class="number">12</span>,ss=<span class="number">43</span>)<span class="comment">#输出5,1,5,4,2,12</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">input_name=<span class="built_in">input</span>(<span class="string">&quot;请输入你的名字：&quot;</span>)<span class="comment">#输入</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;你的名字是:&quot;</span>+input_name)</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-02-04 04:15:26" itemprop="dateModified" datetime="2024-02-04T04:15:26+08:00">2024-02-04</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/we.png" alt="Hepingan WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/qq2.png" alt="Hepingan Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Hepingan PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Hepingan <i class="ic i-at"><em>@</em></i>何平安
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2024/02/04/Python/%E6%9C%89C%E5%92%8CJava%E7%9A%84%E5%BA%95%E5%AD%90%E5%A6%82%E4%BD%95%E9%80%9F%E9%80%9APython%E8%AF%AD%E6%B3%95/" title="有C和Java的底子如何速通Python语法">http://example.com/2024/02/04/Python/有C和Java的底子如何速通Python语法/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/02/04/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;picdl.sunbangyan.cn&#x2F;2024&#x2F;02&#x2F;04&#x2F;6f4e1c010336fd60947972ab6b6f1c94.jpeg" title="MySQL数据库学习（二）">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>MySQL数据库学习（二）</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/02/04/Java/Java%20web/Javaweb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picst.sunbangyan.cn&#x2F;2024&#x2F;02&#x2F;04&#x2F;0a1fd33f2dc6a6b511ab77d7b39ba996.jpeg" title="Javaweb学习笔记（一）">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Java web</span>
+  <h3>Javaweb学习笔记（一）</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li class="active"><a href="/2024/02/04/Python/%E6%9C%89C%E5%92%8CJava%E7%9A%84%E5%BA%95%E5%AD%90%E5%A6%82%E4%BD%95%E9%80%9F%E9%80%9APython%E8%AF%AD%E6%B3%95/" rel="bookmark" title="有C和Java的底子如何速通Python语法">有C和Java的底子如何速通Python语法</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Hepingan"
+      data-src="/images/a.jpg">
+  <p class="name" itemprop="name">Hepingan</p>
+  <div class="description" itemprop="description">欢迎来到何平安的个人博客~欢迎您的浏览</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">42</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">8</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlcGluZ2FuMTE=" title="https:&#x2F;&#x2F;github.com&#x2F;hepingan11"><i class="ic i-github"></i></span>
+      <span class="exturl item google" data-url="aHR0cHM6Ly9wbHVzLmdvb2dsZS5jb20v" title="https:&#x2F;&#x2F;plus.google.com&#x2F;"><i class="ic i-google"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTM0MzI3MDEyNA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;343270124"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjE2NDE2NDM2NTY2QHFxLmNvbQ==" title="mailto:16416436566@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/02/04/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/02/04/Java/Java%20web/Javaweb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/Javaweb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%91%EF%BC%88%E5%9B%9B%EF%BC%89/" title="Javaweb学习笔记【项目实战】（四）">Javaweb学习笔记【项目实战】（四）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E8%AF%B4%E8%AF%B4nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8CKong%E7%BD%91%E5%85%B3/" title="说说nginx反向代理和Kong网关">说说nginx反向代理和Kong网关</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/03/%E5%A4%A7%E4%B8%80%E4%B8%8Bjava%E6%9C%9F%E6%9C%AB%E8%AE%BE%E8%AE%A1%EF%BC%9A%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E8%8D%A3%E8%8E%B7%E7%8F%AD%E4%B8%8A%E7%AC%AC%E4%B8%80%EF%BC%89/" title="大一下java期末设计：学生信息管理系统（荣获班上第一）">大一下java期末设计：学生信息管理系统（荣获班上第一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/" title="In 学成在线">学成在线</a>
+</div>
+
+    <span><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%89%E3%80%91%EF%BC%88Nacos-Gateway-Minio%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%89/" title="企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建）">企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%EF%BC%82%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%EF%BC%82%EF%BC%88%E4%BA%8C%EF%BC%89/" title="企业级开发项目＂苍穹外卖＂（二）">企业级开发项目＂苍穹外卖＂（二）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/03/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%94%AF%E6%8C%81%E6%88%91/" title="【置顶】介绍与支持我">【置顶】介绍与支持我</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/java/" title="In Java">Java</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/java/javase/" title="In Java基础">Java基础</a>
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%E5%9F%BA%E7%A1%80/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%AE%80%E5%8E%86%E4%B8%8A%E5%86%99%E4%B8%8A%E7%B2%BE%E9%80%9AJava%EF%BC%88%E7%AC%94%E8%AE%B0%E4%B8%80%EF%BC%89/" title="如何在简历上写上精通Java（笔记一）">如何在简历上写上精通Java（笔记一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Redis%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/" title="Redis数据库学习">Redis数据库学习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/Javaweb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="Javaweb学习笔记（二）">Javaweb学习笔记（二）</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hepingan @ 练竹园</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/02/04/Python/有C和Java的底子如何速通Python语法/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,719 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="何平安" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="何平安" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="何平安" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://example.com/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%89%E3%80%91%EF%BC%88Nacos-Gateway-Minio%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%89/">
+
+
+
+  <title>
+企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建） - 学成在线 |
+练竹园 = 何平安 = 世界很大，代码连接世界</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建）
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-02-04 03:58:31">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-02-04T03:58:31+08:00">2024-02-04</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">练竹园</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://picst.sunbangyan.cn/2024/02/04/0a1fd33f2dc6a6b511ab77d7b39ba996.jpeg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2023/10/04/IskM26R0.png"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/I1e3e5ui.webp"></li>
+          <li class="item" data-background-image="https://picdl.sunbangyan.cn/2024/02/04/6f4e1c010336fd60947972ab6b6f1c94.jpeg"></li>
+          <li class="item" data-background-image="https://img2.imgtp.com/2024/02/04/cHt7zXWV.jpg"></li>
+          <li class="item" data-background-image="https://s11.ax1x.com/2024/02/04/pFlmRyD.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/" itemprop="item" rel="index" title="In 学成在线"><span itemprop="name">学成在线</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%89%E3%80%91%EF%BC%88Nacos-Gateway-Minio%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%89/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/a.jpg">
+    <meta itemprop="name" content="Hepingan">
+    <meta itemprop="description" content="世界很大，代码连接世界, 欢迎来到何平安的个人博客~欢迎您的浏览">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="何平安">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="Nacos网关配置"><a href="#Nacos网关配置" class="headerlink" title="Nacos网关配置"></a>Nacos网关配置</h1><h2 id="服务器环境配置"><a href="#服务器环境配置" class="headerlink" title="服务器环境配置"></a>服务器环境配置</h2><p><strong>注意下面的环境配置是针对远程服务器或自己搭建的虚拟机的，默认资料的虚拟机可以不用看！！！</strong></p>
+<p>先拉取1.4.1的镜像并启动：</p>
+<p>docker pull nacos&#x2F;nacos-server:1.4.1</p>
+<p>docker run –env MODE&#x3D;standalone –name nacos -d -p 8848:8848 nacos&#x2F;nacos-server:1.4.1</p>
+<p>进入nacos配置文件：</p>
+<p>docker exec -it nacos bash</p>
+<p>配置MySQL：</p>
+<p>spring.datasource.platform&#x3D;mysql</p>
+<p>db.num&#x3D;1</p>
+<p>db.url.0&#x3D;jdbc:mysql:&#x2F;&#x2F;xxxxxxxx:3306&#x2F;nacos?characterEncoding&#x3D;utf8&amp;connectTimeout&#x3D;1000&amp;socketTimeout&#x3D;3000&amp;autoReconnect&#x3D;true</p>
+<p>db.user&#x3D;root</p>
+<p>db.password&#x3D;123456</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><strong>先总结下：配置的时候确实很麻烦，但是以后要修改的时候还是挺好修改的。</strong></p>
+<p>在内容管理模块的接口工程、系统管理模块的接口工程中添加如下依赖，还有需要调用http请求的模块也要引入，<strong>引入后记得刷新Maven！！</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>先登录并访问：<span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vbGluaz90YXJnZXQ9aHR0cDovL2lwOjg4NDgvbmFjb3Mv">http://ip:8848/nacos/</span></p>
+<p>账号密码：nacos&#x2F;nacos</p>
+<p>登录成功，点击左侧菜单“命名空间”进入命名空间管理界面，</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308162543252.png" alt="image-20230308162543252"></p>
+<p>点击“新建命名空间”，填写命名空间的相关信息。如下图：</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308162554064.png" alt="image-20230308162554064"></p>
+<p>使用相同的方法再创建“测试环境”、”生产环境”的命名空间。</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308162608472.png" alt="image-20230308162608472"></p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308162612150.png" alt="image-20230308162612150"></p>
+<p>在系统管理的接口工程的配置文件中配置如下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#微服务配置</span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: system-service</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      server-addr: 192.168.101.65:8848</span><br><span class="line">      discovery:</span><br><span class="line">        namespace: dev</span><br><span class="line">        group: xuecheng-plus-project</span><br></pre></td></tr></table></figure>
+
+<p>在内容管理的接口工程的配置文件中配置如下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: content-service</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      server-addr: 192.168.101.65:8848</span><br><span class="line">      discovery:</span><br><span class="line">        namespace: dev</span><br><span class="line">        group: xuecheng-plus-project</span><br></pre></td></tr></table></figure>
+
+<h3 id="content-api-content-service配置"><a href="#content-api-content-service配置" class="headerlink" title="content-api&#x2F;content-service配置"></a>content-api&#x2F;content-service配置</h3><p>在Nacos页面新建一个配置如下：</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202402/3018339-20240202003654551-1585881175.png" alt="img"></p>
+<p>再在pom坐标里引入config的依赖：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>再在content-api的yml里编写配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#微服务配置</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">content-api</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="number">47.109</span><span class="number">.74</span><span class="number">.83</span><span class="string">:8848</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">namespace:</span> <span class="string">dev</span></span><br><span class="line">        <span class="attr">group:</span> <span class="string">xuecheng-plus-project</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">namespace:</span> <span class="string">dev</span></span><br><span class="line">        <span class="attr">group:</span> <span class="string">xuecheng-plus-project</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yaml</span></span><br><span class="line">        <span class="attr">refresh-enabled:</span> <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">    <span class="attr">profiles:</span></span><br><span class="line">      <span class="attr">active:</span> <span class="string">dev</span> <span class="comment">#环境名</span></span><br></pre></td></tr></table></figure>
+
+<p>数据库的配置就可以去掉了，</p>
+<p>通过dataid找到具体的配置文件，dataid有三部分组成，</p>
+<p>比如：content-service-dev.yaml配置文件 由（content-service）-（dev）. (yaml)三部分组成</p>
+<p>content-service：第一部分，它是在application.yaml中配置的应用名，即spring.application.name的值。</p>
+<p>dev：第二部分，它是环境名，通过spring.profiles.active指定，</p>
+<p>Yaml: 第三部分，它是配置文件 的后缀，目前nacos支持properties、yaml等格式类型，本项目选择yaml格式类型。</p>
+<p>所以在content-service工程 的test目录中添加bootstrap.yaml进行单元测试，内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: content-service</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      server-addr: remote.centos.com:8848</span><br><span class="line">      discovery:</span><br><span class="line">        namespace: dev #命名空间，可随意取与spring.profile不一定一致</span><br><span class="line">        group: xuecheng-plus-project</span><br><span class="line">      config:</span><br><span class="line">        namespace: dev  #命名空间，可随意取与spring.profile不一定一致</span><br><span class="line">        group: xuecheng-plus-project</span><br><span class="line">        file-extension: yaml</span><br><span class="line">        refresh-enabled: true</span><br><span class="line"></span><br><span class="line">#profiles默认为dev</span><br><span class="line">  profiles:</span><br><span class="line">    active: dev</span><br></pre></td></tr></table></figure>
+
+<p>在内容管理模块的接口工程和service工程、系统管理的接口工程和service工程配置依赖：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>配置完成，运行content-service工程 的单元测试文件，能否正常测试。</p>
+<p>通过运行观察控制台打印出下边的信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[NacosRestTemplate.java:476] - HTTP method: POST, url: http://192.168.101.65:8848/nacos/v1/cs/configs/listener, body: &#123;Listening-Configs=content-service.yaml?xuecheng-plus-project??dev?content-service-dev.yaml?xuecheng-plus-project?88459b1483b8381eccc2ef462bd59182?dev?content-service?xuecheng-plus-project??dev?, tenant=dev&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>配置content-api</strong></p>
+<p>以相同的方法配置content-api工程的配置文件，在nacos中的开发环境中配置content-api-dev.yaml，内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  servlet:</span><br><span class="line">    context-path: /content # 服务访问根路径</span><br><span class="line">  port: 63040</span><br><span class="line"># 日志文件配置路径</span><br><span class="line">logging:</span><br><span class="line">  config: classpath:log4j2-dev.xml</span><br><span class="line"># swagger 文档配置</span><br><span class="line">swagger:</span><br><span class="line">  title: &quot;学成在线内容管理系统&quot;</span><br><span class="line">  description: &quot;内容系统管理系统对课程相关信息进行业务管理数据&quot;</span><br><span class="line">  base-package: com.xuecheng.content</span><br><span class="line">  enabled: true</span><br><span class="line">  version: 1.0.0</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308214237689.png" alt="image-20230308214237689"></p>
+<p>在content-api工程 的本地配置bootstrap.yaml，内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#微服务配置</span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: content-api</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      server-addr: remote.centos.com:8848</span><br><span class="line">      discovery:</span><br><span class="line">        namespace: dev #命名空间 (与profile.active有区别配置文件的拉取不是根据命名空间来拼接的)</span><br><span class="line">        group: xuecheng-plus-project</span><br><span class="line">      config:</span><br><span class="line">        namespace: dev</span><br><span class="line">        group: xuecheng-plus-project</span><br><span class="line">        file-extension: yaml</span><br><span class="line">        refresh-enabled: true</span><br><span class="line">        extension-configs:</span><br><span class="line">          - data-id: content-service-$&#123;spring.profiles.active&#125;.yaml</span><br><span class="line">            group: xuecheng-plus-project</span><br><span class="line">            refresh: true</span><br><span class="line">  profiles:</span><br><span class="line">    active: dev</span><br></pre></td></tr></table></figure>
+
+<p>注意：因为api接口工程依赖了service工程 的jar，所以这里使用extension-configs扩展配置文件 的方式引用service工程所用到的配置文件。</p>
+<p>如果添加多个扩展文件，继续在下添加即可，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">extension-configs:</span><br><span class="line">          - data-id: content-service-$&#123;spring.profiles.active&#125;.yaml</span><br><span class="line">            group: xuecheng-plus-project</span><br><span class="line">            refresh: true</span><br><span class="line">          - data-id: 填写文件 dataid</span><br><span class="line">            group: xuecheng-plus-project</span><br><span class="line">            refresh: true        </span><br></pre></td></tr></table></figure>
+
+<p>启动content-api工程，查询控制台是否打印出了请求nacos的日志，如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[NacosRestTemplate.java:476] - HTTP method: POST, url: http://192.168.101.65:8848/nacos/v1/cs/configs/listener</span><br></pre></td></tr></table></figure>
+
+<p>并使用Httpclient测试课程查询接口是否可以正常查询。</p>
+<p><strong>公用配置</strong></p>
+<p>还有一个优化的点是如何在nacos中配置项目的公用配置呢？</p>
+<p>nacos提供了shared-configs可以引入公用配置。</p>
+<p>在content-api中配置了swagger，所有的接口工程 都需要配置swagger，这里就可以将swagger的配置定义为一个公用配置，哪个项目用引入即可。</p>
+<p>单独在xuecheng-plus-common分组下创建xuecheng-plus的公用配置，进入nacos的开发环境，添加swagger-dev.yaml公用配置</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308215015982.png" alt="image-20230308215015982"></p>
+<p>删除<code>content-api-dev.yaml</code>中对swagger的配置。</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230308215550366.png" alt="image-20230308215550366"></p>
+<p>项目使用shared-configs可以引入公用配置。在接口工程的本地配置文件 中引入公用配置(其他配置类似,这里忽略了log4j的配置过程)，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#微服务配置</span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: content-api</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      server-addr: remote.centos.com:8848</span><br><span class="line">      discovery:</span><br><span class="line">        namespace: dev #命名空间 (与profile.active有区别配置文件的拉取不是根据命名空间来拼接的)</span><br><span class="line">        group: xuecheng-plus-project</span><br><span class="line">      config:</span><br><span class="line">        namespace: dev</span><br><span class="line">        group: xuecheng-plus-project</span><br><span class="line">        file-extension: yaml</span><br><span class="line">        refresh-enabled: true</span><br><span class="line">        extension-configs:</span><br><span class="line">          - data-id: content-service-$&#123;spring.profiles.active&#125;.yaml</span><br><span class="line">            group: xuecheng-plus-project</span><br><span class="line">            refresh: true</span><br><span class="line">        shared-configs:</span><br><span class="line">          - data-id: swagger-$&#123;spring.profiles.active&#125;.yaml</span><br><span class="line">            group: xuecheng-plus-common</span><br><span class="line">            refresh: true</span><br><span class="line">          - data-id: logging-$&#123;spring.profiles.active&#125;.yaml</span><br><span class="line">            group: xuecheng-plus-common</span><br><span class="line">            refresh: true</span><br><span class="line"></span><br><span class="line">  profiles:</span><br><span class="line">    active: dev</span><br></pre></td></tr></table></figure>
+
+<p>配置完成，重启content-api接口工程，访问<span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vbGluaz90YXJnZXQ9aHR0cDovL2xvY2FsaG9zdDo2MzA0MC9jb250ZW50L3N3YWdnZXItdWkuaHRtbA==">http://localhost:63040/content/swagger-ui.html</span> 查看swagger接口文档是否可以正常访问，查看控制台log4j2日志输出是否正常。</p>
+<h5 id="配置优先级"><a href="#配置优先级" class="headerlink" title="配置优先级"></a>配置优先级</h5><p>到目前为止已将所有微服务的配置统一在nacos进行配置，用到的配置文件有本地的配置文件 bootstrap.yaml和nacos上的配置文件，引入配置文件的形式有：</p>
+<p>1、通过dataid方式引入</p>
+<p>2、以扩展配置文件方式引入</p>
+<p>3、以共享配置文件 方式引入</p>
+<p>下边测试这几种配置文件方式的优先级。</p>
+<p>我们使用内容管理服务中的配置文件，首先在共享配置文件 swagger-dev.yaml中配置四个配置项，如下：</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309134210974.png" alt="image-20230309134210974"></p>
+<p>配置完成发布。</p>
+<p>下边在content-api工程的启动类中添加如下代码读取这四个配置项的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class ContentApplication &#123;</span><br><span class="line"></span><br><span class="line">   @Value(&quot;$&#123;test_config.a&#125;&quot;)</span><br><span class="line">   String a;</span><br><span class="line">   @Value(&quot;$&#123;test_config.b&#125;&quot;)</span><br><span class="line">   String b;</span><br><span class="line">   @Value(&quot;$&#123;test_config.c&#125;&quot;)</span><br><span class="line">   String c;</span><br><span class="line">   @Value(&quot;$&#123;test_config.d&#125;&quot;)</span><br><span class="line">   String d;</span><br><span class="line"></span><br><span class="line">   @Bean</span><br><span class="line">   public Integer getTest()&#123;</span><br><span class="line">      System.out.println(&quot;a=&quot;+a);</span><br><span class="line">      System.out.println(&quot;b=&quot;+b);</span><br><span class="line">      System.out.println(&quot;c=&quot;+c);</span><br><span class="line">      System.out.println(&quot;d=&quot;+d);</span><br><span class="line">      return new Integer(1);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      SpringApplication.run(ContentApplication.class, args);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动content-api工程，在return new Integer(1);处打断点，运行到断点处，如下：</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309134251802.png" alt="image-20230309134251802"></p>
+<p>这说明已经成功读取到 四个配置项的值。</p>
+<p>下边在content-api工程的扩展配置文件 conent-service-dev.yaml中配置三个配置项，如下：</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309135407678.png" alt="image-20230309135407678"></p>
+<p>再次重启content-api工程，在return new Integer(1);处打断点，运行到断点处，如下：</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309135419829.png" alt="image-20230309135419829"></p>
+<p>从结果可以看出，扩展配置文件比共享配置文件优先级高。</p>
+<p>下边继续content-api-dev.yaml中配置两个配置项，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test_config:</span><br><span class="line">  a: 4a</span><br><span class="line">  b: 4b</span><br><span class="line">  c: 4c</span><br><span class="line">  d: 4d</span><br></pre></td></tr></table></figure>
+
+<p>再次重启内容管理接口工程，在return new Integer(1);处打断点，运行到断点处，如下：</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309135654218.png" alt="image-20230309135654218"></p>
+<p>这说明本地配置文件配置的内容没有起作用，原因是nacos配置文件中的相同的配置项覆盖了本地的配置项。</p>
+<p>到这可以总结各各配置文件 的优先级：项目应用名配置文件 &gt; 扩展配置文件 &gt; 共享配置文件 &gt; 本地配置文件。</p>
+<p>有时候我们在测试程序时直接在本地加一个配置进行测试，这时我们想让本地最优先，可以在nacos配置文件 中配置如下即可实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line"> cloud:</span><br><span class="line">  config:</span><br><span class="line">    override-none: true</span><br></pre></td></tr></table></figure>
+
+<p>再次重启content-api工程，在return new Integer(1);处打断点，运行到断点处，如下：</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309135741633.png" alt="image-20230309135741633"></p>
+<p>可以看出此时本地配置最优先</p>
+<p>除此之外,我们一般不会带本地配置写入到bootstrap.yml中而是通过jvm参数</p>
+<p>如我们要启动两个服务进行调试,那么端口号就不能一致,因此我们可以通过添加jvm参数指定端口号:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Dserver.port=8088</span><br></pre></td></tr></table></figure>
+
+<p>如我们现在向启动两个content服务</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309145108805.png" alt="image-20230309145108805"></p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309145353006.png" alt="image-20230309145353006"></p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309145419800.png" alt="image-20230309145419800"></p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309145613692.png" alt="image-20230309145613692"></p>
+<h5 id="4-2-2-6-导入配置文件"><a href="#4-2-2-6-导入配置文件" class="headerlink" title="4.2.2.6 导入配置文件"></a>4.2.2.6 导入配置文件</h5><p>课程资料中提供了系统用的所有配置文件nacos_config_export.zip，下边将nacos_config_export.zip导入nacos。</p>
+<p>进入具体的命名空间，点击“导入配置”</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309140250256.png" alt="image-20230309140250256"></p>
+<p>打开导入窗口</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309140325306.png" alt="image-20230309140325306"></p>
+<p>相同的配置跳过覆盖配置。</p>
+<p>点击“上传文件”选择nacos_config_export.zip开始导入。</p>
+<p> <strong>远程服务器</strong>的记得修改rabbitmq-dev的ip地址~</p>
+<h2 id="搭建Gateway"><a href="#搭建Gateway" class="headerlink" title="搭建Gateway"></a>搭建Gateway</h2><p>本项目使用Spring Cloud Gateway作为网关，下边创建网关工程。</p>
+<p>新建一个网关工程。</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309141037907.png" alt="image-20230309141037907"></p>
+<p>项目结构如下</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309141934603.png" alt="image-20230309141934603"></p>
+<p>添加依赖：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;!--网关--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-starter-gateway&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;!--服务发现中心--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">     &lt;!-- 排除 Spring Boot 依赖的日志包冲突 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">        &lt;exclusions&gt;</span><br><span class="line">            &lt;exclusion&gt;</span><br><span class="line">                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;</span><br><span class="line">            &lt;/exclusion&gt;</span><br><span class="line">        &lt;/exclusions&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Spring Boot 集成 log4j2 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<p>配置网关的bootstrap.yaml配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#微服务配置</span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: gateway</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      server-addr: 192.168.101.65:8848</span><br><span class="line">      discovery:</span><br><span class="line">        namespace: $&#123;spring.profiles.active&#125;</span><br><span class="line">        group: xuecheng-plus-project</span><br><span class="line">      config:</span><br><span class="line">        namespace: $&#123;spring.profiles.active&#125;</span><br><span class="line">        group: xuecheng-plus-project</span><br><span class="line">        file-extension: yaml</span><br><span class="line">        refresh-enabled: true</span><br><span class="line">        shared-configs:</span><br><span class="line">          - data-id: logging-$&#123;spring.profiles.active&#125;.yaml</span><br><span class="line">            group: xuecheng-plus-common</span><br><span class="line">            refresh: true</span><br><span class="line">  profiles:</span><br><span class="line">    active: dev</span><br></pre></td></tr></table></figure>
+
+<p>在nacos上配置网关路由策略：</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309141606145.png" alt="image-20230309141606145"></p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="minio"><a href="#minio" class="headerlink" title="minio"></a>minio</h1><p>一个分布式存储数据的东西啦，如果学过大数据的话就应该知道Hadoop，里面的底层就是HDFS,模式为主从结构，而minio则是相反的去中心化模式，下面是官方点的介绍：</p>
+<h5 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h5><p>本项目采用MinIO构建分布式文件系统，MinIO 是一个非常轻量的服务,可以很简单的和其他应用的结合使用，它兼容亚马逊 S3 云存储服务接口，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等。</p>
+<p>它一大特点就是轻量，使用简单，功能强大，支持各种平台，单个文件最大5TB，兼容 Amazon S3接口，提供了 Java、Python、GO等多版本SDK支持。</p>
+<p>官网：<span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vbGluaz90YXJnZXQ9aHR0cHM6Ly9taW4uaW8=">https://min.io</span></p>
+<p>中文：<span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vbGluaz90YXJnZXQ9aHR0cHM6Ly93d3cubWluaW8ub3JnLmNuLyVFRiVCQyU4Q2h0dHA6Ly9kb2NzLm1pbmlvLm9yZy5jbi9kb2NzLw==">https://www.minio.org.cn/，http://docs.minio.org.cn/docs/</span></p>
+<p>MinIO集群采用去中心化共享架构，每个结点是对等关系，通过Nginx可对MinIO进行负载均衡访问。</p>
+<p>去中心化有什么好处？</p>
+<p>在大数据领域，通常的设计理念都是无中心和分布式。Minio分布式模式可以帮助你搭建一个高可用的对象存储服务，你可以使用这些存储设备，而不用考虑其真实物理位置。</p>
+<p>它将分布在不同服务器上的多块硬盘组成一个对象存储服务。由于硬盘分布在不同的节点上，分布式Minio避免了单点故障。如下图：</p>
+<p><img data-src="https://woldier-pic-repo-1309997478.cos.ap-chengdu.myqcloud.com/image-20230309164159781.png" alt="image-20230309164159781"></p>
+<p>Minio使用纠删码技术来保护数据，它是一种恢复丢失和损坏数据的数学算法，它将数据分块冗余的分散存储在各各节点的磁盘上，所有的可用磁盘组成一个集合，上图由8块硬盘组成一个集合，当上传一个文件时会通过纠删码算法计算对文件进行分块存储，除了将文件本身分成4个数据块，还会生成4个校验块，数据块和校验块会分散的存储在这8块硬盘上。</p>
+<p>使用纠删码的好处是即便丢失一半数量（N&#x2F;2）的硬盘，仍然可以恢复数据。 比如上边集合中有4个以内的硬盘损害仍可保证数据恢复，不影响上传和下载，如果多于一半的硬盘坏了则无法恢复。</p>
+<h2 id="远程服务器部署minio"><a href="#远程服务器部署minio" class="headerlink" title="远程服务器部署minio"></a><strong>远程服务器部署minio</strong></h2><p><strong>老师默认的虚拟是有minio环境的，这里是其它服务器或自搭虚拟机的方法~</strong></p>
+<p>先拉取镜像，可以在后面加上版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull minio/minio</span><br></pre></td></tr></table></figure>
+
+<p>二、创建挂载目录</p>
+<p>1 宿主机与容器挂载映射</p>
+<table>
+<thead>
+<tr>
+<th>宿主机位置</th>
+<th>容器位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;data&#x2F;minio&#x2F;config</td>
+<td>&#x2F;data</td>
+</tr>
+<tr>
+<td>&#x2F;data&#x2F;minio&#x2F;data</td>
+<td>&#x2F;root&#x2F;.minio</td>
+</tr>
+</tbody></table>
+<p>2 挂载命令执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/minio/config</span><br><span class="line">mkdir -p /data/minio/data</span><br></pre></td></tr></table></figure>
+
+<p>三、运行MinIO</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9000:9000 -p 9090:9090 --name minio \</span><br><span class="line">-d --restart=always \</span><br><span class="line">-e &quot;MINIO_ACCESS_KEY=admin&quot; \</span><br><span class="line">-e &quot;MINIO_SECRET_KEY=admin123456&quot; \</span><br><span class="line">-v /data/minio/data:/data \</span><br><span class="line">-v /data/minio/config:/root/.minio \minio/minio \</span><br><span class="line">server /data --console-address &quot;:9090&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>命令参数解释：<br>-d :后台启动<br>-p :端口映射<br>-name :为这个容器取一个名字<br>-e :设置环境变量<br>-v :文件挂载位置<br>–console-address “:9090” :选择静态端口号，这里注意下控制台端口号不能和静态端口号一样</p>
+</blockquote>
+<p>目前的docker容器：</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202402/3018339-20240202055724430-392625930.png" alt="img"></p>
+<p>四、查看MinIO是否启动成功</p>
+<ul>
+<li>打开 <code>http://ip:9090</code></li>
+<li>密码为上面设置的admin admin123456</li>
+</ul>
+<h2 id="项目文件配置"><a href="#项目文件配置" class="headerlink" title="项目文件配置"></a>项目文件配置</h2><p>在media-service的pom里添加依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.minio<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>minio<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.4.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.squareup.okhttp3<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>okhttp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>登进去网页直接创建一个bucket，然后将其访问仅限改成public，不然等下测试类访问不到：</p>
+<p><img data-src="https://img2024.cnblogs.com/blog/3018339/202402/3018339-20240202060911339-1759773817.png" alt="img"></p>
+<p>直接搞个测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Mr.M</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 测试minio的sdk</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2023/2/17 11:55</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MinioTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">MinioClient</span> <span class="variable">minioClient</span> <span class="operator">=</span></span><br><span class="line">            MinioClient.builder()</span><br><span class="line">                    .endpoint(<span class="string">&quot;http://xx.xx.xx.xx:9000&quot;</span>)</span><br><span class="line">                    .credentials(<span class="string">&quot;admin&quot;</span>, <span class="string">&quot;admin123456&quot;</span>)</span><br><span class="line">                    .build();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test_upload</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//通过扩展名得到媒体资源类型 mimeType</span></span><br><span class="line">        <span class="comment">//根据扩展名取出mimeType</span></span><br><span class="line">        <span class="type">ContentInfo</span> <span class="variable">extensionMatch</span> <span class="operator">=</span> ContentInfoUtil.findExtensionMatch(<span class="string">&quot;.mp4&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">mimeType</span> <span class="operator">=</span> MediaType.APPLICATION_OCTET_STREAM_VALUE;<span class="comment">//通用mimeType，字节流</span></span><br><span class="line">        <span class="keyword">if</span>(extensionMatch!=<span class="literal">null</span>)&#123;</span><br><span class="line">            mimeType = extensionMatch.getMimeType();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//上传文件的参数信息</span></span><br><span class="line">        <span class="type">UploadObjectArgs</span> <span class="variable">uploadObjectArgs</span> <span class="operator">=</span> UploadObjectArgs.builder()</span><br><span class="line">                .bucket(<span class="string">&quot;testbucket&quot;</span>)<span class="comment">//桶</span></span><br><span class="line">                .filename(<span class="string">&quot;D:\\develop\\upload\\1.mp4&quot;</span>) <span class="comment">//指定本地文件路径</span></span><br><span class="line"><span class="comment">//                .object(&quot;1.mp4&quot;)//对象名 在桶下存储该文件</span></span><br><span class="line">                .object(<span class="string">&quot;test/01/1.mp4&quot;</span>)<span class="comment">//对象名 放在子目录下</span></span><br><span class="line">                .contentType(mimeType)<span class="comment">//设置媒体文件类型</span></span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//上传文件</span></span><br><span class="line">        minioClient.uploadObject(uploadObjectArgs);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//删除文件</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test_delete</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//RemoveObjectArgs</span></span><br><span class="line">        <span class="type">RemoveObjectArgs</span> <span class="variable">removeObjectArgs</span> <span class="operator">=</span> RemoveObjectArgs.builder().bucket(<span class="string">&quot;testbucket&quot;</span>).object(<span class="string">&quot;1.mp4&quot;</span>).build();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//删除文件</span></span><br><span class="line">        minioClient.removeObject(removeObjectArgs);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询文件 从minio中下载</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test_getFile</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">GetObjectArgs</span> <span class="variable">getObjectArgs</span> <span class="operator">=</span> GetObjectArgs.builder().bucket(<span class="string">&quot;testbucket&quot;</span>).object(<span class="string">&quot;test/01/1.mp4&quot;</span>).build();</span><br><span class="line">        <span class="comment">//查询远程服务获取到一个流对象</span></span><br><span class="line">        <span class="type">FilterInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> minioClient.getObject(getObjectArgs);</span><br><span class="line">        <span class="comment">//指定输出流</span></span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;D:\\develop\\upload\\1a.mp4&quot;</span>));</span><br><span class="line">        IOUtils.copy(inputStream,outputStream);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//校验文件的完整性对文件的内容进行md5</span></span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">fileInputStream1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;D:\\develop\\upload\\1.mp4&quot;</span>));</span><br><span class="line">        <span class="type">String</span> <span class="variable">source_md5</span> <span class="operator">=</span> DigestUtils.md5Hex(fileInputStream1);</span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">fileInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;D:\\develop\\upload\\1a.mp4&quot;</span>));</span><br><span class="line">        <span class="type">String</span> <span class="variable">local_md5</span> <span class="operator">=</span> DigestUtils.md5Hex(fileInputStream);</span><br><span class="line">        <span class="keyword">if</span>(source_md5.equals(local_md5))&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;下载成功&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>看注释就看得懂了，可以修改下一些参数然后自己测试下，是没问题的。</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-02-04 04:07:53" itemprop="dateModified" datetime="2024-02-04T04:07:53+08:00">2024-02-04</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/we.png" alt="Hepingan WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/qq2.png" alt="Hepingan Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Hepingan PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Hepingan <i class="ic i-at"><em>@</em></i>何平安
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%89%E3%80%91%EF%BC%88Nacos-Gateway-Minio%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%89/" title="企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建）">http://example.com/2024/02/04/学成在线/企业级微服务大项目实战《学成在线》【三】（Nacos-Gateway-Minio环境搭建）/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%BA%8C%E3%80%91-%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3%E6%8E%A5%E5%8F%A3/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img2.imgtp.com&#x2F;2024&#x2F;02&#x2F;04&#x2F;aqpk7vZD.webp" title="企业级微服务大项目实战《学成在线》【二】(课程相关接口)">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> 学成在线</span>
+  <h3>企业级微服务大项目实战《学成在线》【二】(课程相关接口)</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E5%9B%9B%E3%80%91%EF%BC%88%E5%AA%92%E8%B5%84%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picst.sunbangyan.cn&#x2F;2024&#x2F;02&#x2F;04&#x2F;d453f090e853c994bb22371766db430a.jpeg" title="企业级微服务大项目实战《学成在线》【四】（媒资管理模块）">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> 学成在线</span>
+  <h3>企业级微服务大项目实战《学成在线》【四】（媒资管理模块）</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nacos%E7%BD%91%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">Nacos网关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">服务器环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#content-api-content-service%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">content-api&#x2F;content-service配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text">配置优先级</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-2-6-%E5%AF%BC%E5%85%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.1.0.2.</span> <span class="toc-text">4.2.2.6 导入配置文件</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAGateway"><span class="toc-number">1.3.</span> <span class="toc-text">搭建Gateway</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#minio"><span class="toc-number">3.</span> <span class="toc-text">minio</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.0.0.0.1.</span> <span class="toc-text">介绍</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2minio"><span class="toc-number">3.1.</span> <span class="toc-text">远程服务器部署minio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">项目文件配置</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%80%E3%80%91-%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="bookmark" title="企业级微服务大项目实战《学成在线》【一】(项目环境搭建)">企业级微服务大项目实战《学成在线》【一】(项目环境搭建)</a></li><li><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%BA%8C%E3%80%91-%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3%E6%8E%A5%E5%8F%A3/" rel="bookmark" title="企业级微服务大项目实战《学成在线》【二】(课程相关接口)">企业级微服务大项目实战《学成在线》【二】(课程相关接口)</a></li><li class="active"><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%B8%89%E3%80%91%EF%BC%88Nacos-Gateway-Minio%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%89/" rel="bookmark" title="企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建）">企业级微服务大项目实战《学成在线》【三】（Nacos,Gateway,Minio环境搭建）</a></li><li><a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E5%9B%9B%E3%80%91%EF%BC%88%E5%AA%92%E8%B5%84%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97%EF%BC%89/" rel="bookmark" title="企业级微服务大项目实战《学成在线》【四】（媒资管理模块）">企业级微服务大项目实战《学成在线》【四】（媒资管理模块）</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Hepingan"
+      data-src="/images/a.jpg">
+  <p class="name" itemprop="name">Hepingan</p>
+  <div class="description" itemprop="description">欢迎来到何平安的个人博客~欢迎您的浏览</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">42</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">8</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlcGluZ2FuMTE=" title="https:&#x2F;&#x2F;github.com&#x2F;hepingan11"><i class="ic i-github"></i></span>
+      <span class="exturl item google" data-url="aHR0cHM6Ly9wbHVzLmdvb2dsZS5jb20v" title="https:&#x2F;&#x2F;plus.google.com&#x2F;"><i class="ic i-google"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTM0MzI3MDEyNA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;343270124"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjE2NDE2NDM2NTY2QHFxLmNvbQ==" title="mailto:16416436566@qq.com"><i class="ic i-envelope"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E4%BA%8C%E3%80%91-%E8%AF%BE%E7%A8%8B%E7%9B%B8%E5%85%B3%E6%8E%A5%E5%8F%A3/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/02/04/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%A4%A7%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%8A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E3%80%8B%E3%80%90%E5%9B%9B%E3%80%91%EF%BC%88%E5%AA%92%E8%B5%84%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97%EF%BC%89/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/%E9%80%9A%E8%BF%87Maven%E5%B0%86%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8OSS/" title="通过Maven将文件上传到阿里云对象存储OSS">通过Maven将文件上传到阿里云对象存储OSS</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Java/Java%20web/Javaweb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E3%80%91%EF%BC%88%E5%9B%9B%EF%BC%89/" title="Javaweb学习笔记【项目实战】（四）">Javaweb学习笔记【项目实战】（四）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/" title="In 苍穹外卖">苍穹外卖</a>
+</div>
+
+    <span><a href="/2024/02/04/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E3%80%8B-%E4%B8%80/" title="企业级开发项目《苍穹外卖》(一)">企业级开发项目《苍穹外卖》(一)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E8%AF%B4%E8%AF%B4nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8CKong%E7%BD%91%E5%85%B3/" title="说说nginx反向代理和Kong网关">说说nginx反向代理和Kong网关</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="微信小程序开发学习笔记">微信小程序开发学习笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E4%BF%AE%E5%A4%8D%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E9%97%AE%E9%A2%98/" title="修复域名访问问题">修复域名访问问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/Python/Python%E8%B0%83%E7%94%A8ChatGPT%E6%8E%A5%E5%8F%A3-2023/" title="Python调用ChatGPT接口(2023)">Python调用ChatGPT接口(2023)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2024/02/04/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%EF%BC%82%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%EF%BC%82%EF%BC%88%E4%BA%8C%EF%BC%89/" title="企业级开发项目＂苍穹外卖＂（二）">企业级开发项目＂苍穹外卖＂（二）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/java/" title="In Java">Java</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/java/service/" title="In 微服务">微服务</a>
+</div>
+
+    <span><a href="/2024/02/04/Java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%90Feign-Gateway%E3%80%91/" title="SpringCloud微服务学习笔记（二）【Feign,Gateway】">SpringCloud微服务学习笔记（二）【Feign,Gateway】</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/mystory/" title="In 我的传奇">我的传奇</a>
+</div>
+
+    <span><a href="/2024/02/03/%E6%88%91%E7%9A%84%E4%BC%A0%E5%A5%87/%E6%88%91%E7%9A%84%E6%95%85%E4%BA%8B%EF%BC%88%E5%A4%A7%E4%B8%80%E4%B8%8A%EF%BC%89/" title="我的故事（大一上）">我的故事（大一上）</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hepingan @ 练竹园</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/02/04/学成在线/企业级微服务大项目实战《学成在线》【三】（Nacos-Gateway-Minio环境搭建）/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
