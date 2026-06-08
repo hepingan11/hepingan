@@ -400,7 +400,6 @@ p {
   width: 100%;
   aspect-ratio: 16 / 6.8;
   overflow: hidden;
-  border: 3px solid rgba(32, 35, 31, 0.86);
   border-radius: var(--inner-radius);
   background: #fffaf0;
 }

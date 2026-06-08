@@ -81,12 +81,7 @@ const homepage = {
       summary: '技术博客和我的一些总结，以及你想了解我的更多',
       accent: '#2f8f72',
       // Replace image with any custom URL, imported asset, or generated data URL.
-      image: makeSiteImage({
-        title: 'Blog',
-        accent: '#2f8f72',
-        secondary: '#dff2e8',
-        pattern: 'notes',
-      }),
+      image: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/20260608172722731.png'
     },
     {
       name: '开源数字员工',
