@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   CodeXml,
+  Eye,
   Globe2,
   Mail,
   MessageCircle,
@@ -51,13 +52,14 @@ const homepage = {
     {
       name: '何平安',
       role: 'Hepingan',
-      motto: '用代码铸造自己的赛博乌托邦',
+      motto: '泪水打湿猪脚饭，又打湿了回锅肉',
       avatar: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/avatar.jpg',
       avatarText: '平',
       accent: '#2f8f72',
       contacts: [
         { label: 'Email', value: '1641436566@qq.com', href: 'mailto:1641436566@qq.com', icon: Mail },
         { label: 'GitHub', value: 'Github @hepingan11', href: 'https://github.com/hepingan11', icon: CodeXml },
+        { label: 'BiliBili', value: 'BiliBili @何平安啦', href: 'https://space.bilibili.com/443081814?spm_id_from=333.1007.0.0', icon: Globe2 },
       ],
     },
     {
@@ -70,6 +72,7 @@ const homepage = {
       contacts: [
         { label: 'Email', value: '1973016127@qq.com', href: 'mailto:1973016127@qq.com', icon: Mail },
         { label: 'Telegram', value: 'Telegram @guiwuli11', href: 'https://t.me/guiwuli11', icon: MessageCircle },
+        { label: '抖音', value: '抖音 @鬼雾离', href: 'https://www.douyin.com/user/MS4wLjABAAAA9RXamoTuzrO-3k9dPbQgKieXaEaT-ZHXaJqMfXHp4vUMGedg6dw7o_nJKO39FPFj?from_tab_name=main', icon: Globe2 }
       ],
     },
   ],
@@ -89,58 +92,97 @@ const homepage = {
       href: 'https://github.com/hepingan11/Workflow-Chat',
       summary: 'Openclaw与Dify、Codex的结合升级，多角色协作与LLM节点自动编排---下一代开源数字人系统，让每个人都能当老板',
       accent: '#d65f46',
-      image: makeSiteImage({
-        title: 'Workflow Chat',
-        accent: '#d65f46',
-        secondary: '#ffe4d8',
-        pattern: 'apps',
-      }),
+      image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260531034731.png'
     },
     {
       name: 'API中转站',
       url: 'https://api.hepingan.top',
       href: 'https://api.hepingan.top',
-      summary: '平时各种捣鼓+卡bug,GPT倍率限时0.001x',
+      summary: '平时各种捣鼓+卡bug,GPT倍率低至0.1x,总能保持中转站持续使用，累计用户400+',
       accent: '#3f6fb5',
-      image: makeSiteImage({
-        title: 'Guiwuli API',
-        accent: '#3f6fb5',
-        secondary: '#e3ecff',
-        pattern: 'code',
-      }),
+      image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260608180759.png'
     },
     {
       name: '鸡窝',
-      url: 'http://clash.hepingan.top',
-      href: 'http://clash.hepingan.top',
-      summary: '服务器太多了，用哪吒监控搭个鸡窝',
+      url: 'http://clash.hepingan.top:8008',
+      href: 'http://clash.hepingan.top:8008',
+      summary: '服务器太多了，用哪吒监控搭个鸡窝,里面都是我的服务器',
       accent: '#b53fb3',
-      image: makeSiteImage({
-        title: 'Clash Dashboard',
-        accent: '#b53fa7',
-        secondary: '#e3ecff',
-        pattern: 'code',
-      }),
+      image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260608180910.png'
     },
     {
-      name: '模智盒',
+      name: '模智盒(已下线)',
       url: 'http://8.137.103.102:9090/',
       href: 'http://8.137.103.102:9090/',
       summary: '时代的眼泪，2023年基于SpringAI、SpringCloud Ablibaba搭建的AI对话系统，Github源码:https://github.com/hepingan11/ModelBox',
       accent: '#b53fb3',
-      image: makeSiteImage({
-        title: 'ModelBox',
-        accent: '#b53fa7',
-        secondary: '#e3ecff',
-        pattern: 'code',
-      }),
+      image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260525003936.png'
     }
+  ],
+  notes: [
+    { text: '什么？这两个人竟然是同一个人吗？', side: 'right' },
+    { text: '梦想是研发出自己的产品，因为我只信得过自己...', side: 'left' },
+    { text: '我曾自己开发过全能AIGC平台——《模智盒》(2024)、社区论坛类APP——《SuperPass》(2025.4)、创业社区小程序——《众创搭》(2025.11).....', side: 'left' },
+    { text: '但是，好像都没有成功....', side: 'left' },
+    { text: '上面的项目都已经开源，在hepingan11 Github里哦~', side: 'right' },
+    { text: '有没有尝试往这两年很火的Agent方向发展？', side: 'right' },
+    { type: 'sticker', src: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/eyes.gif', alt: 'eyes', side: 'right' },
+    { text: '有的呀，我在2025.6就开始学习了，从SpringAI/MCP/RAG到LangChain/Skill/Dify等，上面的开源数字员工和客服辅助AI不就是嘛，还有个自动简历匹配项目FastPosition', side: 'left' },
+    { text: '不过有些项目是拿来面试用的哈哈哈', side: 'left' },
+    { text: '听你说："一日外包人，终身外包情"，你经常接外包吗？', side: 'right' },
+    { text: '大三下的时候就开始接了，第一批吃上vibe coding红利的人，当时单还太多了接不过来，我就自己开了家公司然后当外包中介去了，当时工作室有五六十号人呢~加上我自己之前的总营业额(一学期+暑假)快接近六七万吧', side: 'left' },
+    { text: '不算特别多但至少不用找家里人要钱了', side: 'left' },
+    { text: '最近才接完一两个合作，都是大单子的项目，都是一条龙服务，从设计到上线', side: 'left' },
+    { text: '干外包最怕的是什么？', side: 'right' },
+    { text: '最怕的就是做一半中途改需求呀！！！我缺个产品经理帮我敲定和对接需求', side: 'left' },
+    { text: '中转站搞得怎么样', side: 'left' },
+    { text: '中转站是我2026.5做的，一开始是想自己拿来反代的，随便宣传一下没想到用户还起来了，虽然收入就三位数', side: 'right' },
+    { text: '天天研究怎么更省Token，还创了个OpenAI爆破小组，什么卡Plus试用、Bug Team、Business Team优惠码都搞过，最高峰一天蹬了1B token', side: 'right' },
+    { type: 'sticker', src: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260623020333.png', alt: 'eyes', side: 'right' },
+    { text: '我看你抖音天天发些AI相关的，看来是真的想省Token'},
+    { text: 'AI用得这么厉害，那你谈谈对码农的看法'},
+    { type: 'sticker', src: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/973f2455cfe86d04f85cc86978f08355.jpg', alt: 'eyes', side: 'left' },
+    { text: '我认为AI时代Coding更看重的是Coding review、Debug、业务逻辑理解，当然最重要的还是一个好的Idea和行动力', side: 'right' },
+    { text: '...', side: 'right' },
   ],
 }
 
 const iconToHtml = (Icon, className = 'icon') => {
   const element = createElement(Icon, { class: className, 'aria-hidden': 'true' })
   return element.outerHTML
+}
+
+const formatViewCount = (count) => Number(count).toLocaleString('zh-CN')
+
+const updateViewCount = async () => {
+  const counter = document.querySelector('.view-counter')
+  const counterText = counter?.querySelector('span')
+
+  if (!counter || !counterText) return
+
+  try {
+    const response = await fetch('/api/views', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      cache: 'no-store',
+    })
+
+    if (!response.ok) throw new Error(`View counter request failed: ${response.status}`)
+
+    const data = await response.json()
+    const count = Number.parseInt(data.count, 10)
+
+    if (!Number.isFinite(count)) throw new Error('Invalid view counter response')
+
+    counter.setAttribute('aria-label', `访问 IP 数量 ${formatViewCount(count)}`)
+    counterText.textContent = `浏览 ${formatViewCount(count)} 次`
+  } catch (error) {
+    console.error(error)
+    counter.setAttribute('aria-label', '浏览次数暂不可用')
+    counterText.textContent = '浏览 -- 次'
+  }
 }
 
 const avatarMarkup = (person) =>
@@ -153,7 +195,7 @@ const avatarMarkup = (person) =>
 
 const personCardMarkup = (person) => `
   <article class="person-card reveal tilt-card" style="--person-accent: ${person.accent}">
-    <a class="avatar-wrap magnetic" href="${person.contacts[0].href}" aria-label="${person.name} 的头像">
+    <a class="avatar-wrap magnetic" href="${person.contacts[0].href}" target="_blank" rel="noreferrer" aria-label="${person.name} 的头像">
       ${avatarMarkup(person)}
     </a>
     <div class="person-copy">
@@ -165,7 +207,7 @@ const personCardMarkup = (person) => `
       ${person.contacts
         .map(
           (item) => `
-            <a class="mini-contact magnetic" href="${item.href}" aria-label="${item.label}: ${item.value}">
+            <a class="mini-contact magnetic" href="${item.href}" target="_blank" rel="noreferrer" aria-label="${item.label}: ${item.value}">
               ${iconToHtml(item.icon)}
               <span>${item.value}</span>
             </a>
@@ -176,12 +218,79 @@ const personCardMarkup = (person) => `
   </article>
 `
 
+const normalizeMessage = (note) => {
+  const message = typeof note === 'string' ? { text: note } : note
+  const side = message.side === 'right' ? 'right' : 'left'
+  const defaultPersonIndex = side === 'right' ? 1 : 0
+  const personIndex = message.personIndex ?? defaultPersonIndex
+
+  return {
+    ...message,
+    side,
+    personIndex,
+  }
+}
+
+const noteMessageMarkup = (message, index, messages) => {
+  const person = homepage.people[message.personIndex] ?? homepage.people[0]
+  const nextMessage = messages[index + 1]
+  const isGroupEnd = !nextMessage || nextMessage.side !== message.side || nextMessage.personIndex !== message.personIndex
+  const isImageMessage = message.type === 'image'
+  const isStickerMessage = message.type === 'sticker'
+  const bubbleClassName =
+    isStickerMessage
+      ? 'message-bubble message-sticker-bubble'
+      : isImageMessage
+        ? 'message-bubble message-image-bubble'
+        : 'message-bubble'
+  const bubbleContent = isImageMessage || isStickerMessage
+    ? `<img class="${isStickerMessage ? 'message-sticker' : 'message-image'}" src="${message.src}" alt="${message.alt ?? '消息图片'}" loading="lazy" />`
+    : message.text
+
+  return `
+    <li class="message-item message-${message.side} ${isGroupEnd ? 'message-group-end' : 'message-group-middle'}" style="--message-accent: ${person.accent}">
+      ${
+        isGroupEnd
+          ? `<img class="message-avatar" src="${person.avatar}" alt="${person.name} 的头像" loading="lazy" />`
+          : '<span class="message-avatar-spacer" aria-hidden="true"></span>'
+      }
+      <span class="${bubbleClassName}">${bubbleContent}</span>
+    </li>
+  `
+}
+
+const notesMarkup = homepage.notes.map(normalizeMessage).map(noteMessageMarkup).join('')
+
+const splashMarkup = () => `
+  <div class="splash-screen" aria-hidden="true">
+    <span class="splash-gate splash-gate-left"></span>
+    <span class="splash-gate splash-gate-right"></span>
+    <div class="splash-grid"></div>
+    <div class="splash-core">
+      <p class="splash-kicker">Personal Home</p>
+      <div class="splash-logo">
+        <img class="splash-avatar" src="${homepage.people[0].avatar}" alt="" />
+        <i></i>
+        <img class="splash-avatar" src="${homepage.people[1].avatar}" alt="" />
+      </div>
+      <h2>Hepingan / Guiwuli</h2>
+      <div class="splash-progress"><span></span></div>
+    </div>
+  </div>
+`
+
 document.querySelector('#app').innerHTML = `
+  ${splashMarkup()}
   <main class="home-shell">
     <div class="ambient" aria-hidden="true">
       <span class="beam beam-one"></span>
       <span class="beam beam-two"></span>
       <span class="grid-plane"></span>
+    </div>
+
+    <div class="view-counter reveal" aria-label="浏览次数加载中">
+      ${iconToHtml(Eye)}
+      <span>浏览 -- 次</span>
     </div>
 
     <section class="people-stage" aria-label="双人简介">
@@ -217,6 +326,12 @@ document.querySelector('#app').innerHTML = `
         ${iconToHtml(ArrowRight)}
       </button>
     </section>
+
+    <section class="plain-list-stage reveal" aria-label="补充说明">
+      <ul>
+        ${notesMarkup}
+      </ul>
+    </section>
   </main>
 `
 
@@ -226,6 +341,23 @@ const siteRail = document.querySelector('.site-rail')
 const sitesStage = document.querySelector('.sites-stage')
 let wheelVelocity = 0
 let wheelFrame = null
+
+const animateMessages = () => {
+  if (reduceMotion) return
+
+  gsap.from('.plain-list-stage li', {
+    autoAlpha: 0,
+    x: (index, element) => (element.classList.contains('message-left') ? -42 : 42),
+    y: 18,
+    scale: 0.84,
+    rotate: (index, element) => (element.classList.contains('message-left') ? -2 : 2),
+    duration: 0.42,
+    stagger: 0.18,
+    delay: 0.18,
+    ease: 'back.out(1.7)',
+    clearProps: 'opacity,visibility,transform',
+  })
+}
 
 gsap.defaults({
   duration: reduceMotion ? 0 : 0.78,
@@ -381,13 +513,49 @@ document.querySelectorAll('.avatar-wrap').forEach((avatar) => {
 })
 
 if (!reduceMotion) {
-  gsap.from('.reveal', {
-    autoAlpha: 0,
-    y: 24,
-    scale: 0.985,
-    stagger: 0.07,
-    clearProps: 'transform,visibility',
-  })
+  const splashScreen = document.querySelector('.splash-screen')
+
+  if (splashScreen) {
+    gsap.set('.home-shell', { autoAlpha: 0, scale: 0.985 })
+
+    gsap
+      .timeline({
+        defaults: { ease: 'power3.out' },
+        onComplete: () => splashScreen.remove(),
+      })
+      .from('.splash-grid', { autoAlpha: 0, scale: 1.08, duration: 0.7 })
+      .from('.splash-kicker', { autoAlpha: 0, y: 14, duration: 0.45 }, '-=0.34')
+      .from('.splash-avatar', { autoAlpha: 0, y: 34, scale: 0.78, rotateY: 34, stagger: 0.11, duration: 0.64 }, '-=0.18')
+      .from('.splash-logo i', { scaleX: 0, duration: 0.48, transformOrigin: 'center' }, '-=0.28')
+      .from('.splash-core h2', { autoAlpha: 0, y: 12, duration: 0.42 }, '-=0.24')
+      .to('.splash-progress span', { scaleX: 1, duration: 0.82, ease: 'power2.inOut' }, 0.22)
+      .to('.splash-core', { scale: 0.96, autoAlpha: 0, duration: 0.38, ease: 'power2.in' }, '+=0.08')
+      .to('.splash-gate-left', { xPercent: -106, duration: 0.68, ease: 'power4.inOut' }, '-=0.08')
+      .to('.splash-gate-right', { xPercent: 106, duration: 0.68, ease: 'power4.inOut' }, '<')
+      .to(splashScreen, { autoAlpha: 0, duration: 0.28 }, '-=0.18')
+      .to('.home-shell', { autoAlpha: 1, scale: 1, duration: 0.56, clearProps: 'opacity,visibility,transform' }, '-=0.46')
+      .from(
+        '.reveal',
+        {
+          autoAlpha: 0,
+          y: 24,
+          scale: 0.985,
+          stagger: 0.07,
+          clearProps: 'transform,visibility',
+        },
+        '-=0.22',
+      )
+      .call(animateMessages, null, '-=0.18')
+  } else {
+    gsap.from('.reveal', {
+      autoAlpha: 0,
+      y: 24,
+      scale: 0.985,
+      stagger: 0.07,
+      clearProps: 'transform,visibility',
+      onComplete: animateMessages,
+    })
+  }
 
   gsap.to('.beam-one', {
     x: 46,
@@ -418,6 +586,8 @@ if (!reduceMotion) {
       ease: 'sine.inOut',
     })
   }
+} else {
+  document.querySelector('.splash-screen')?.remove()
 }
 
 document.querySelectorAll('.magnetic:not(.nav-arrow):not(.avatar-wrap)').forEach((element) => {
@@ -480,3 +650,5 @@ window.addEventListener('pointermove', (event) => {
     overwrite: 'auto',
   })
 })
+
+updateViewCount()
