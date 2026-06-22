@@ -327,7 +327,7 @@ document.querySelector('#app').innerHTML = `
       </button>
     </section>
 
-    <section class="plain-list-stage reveal" aria-label="补充说明">
+    <section class="plain-list-stage" aria-label="补充说明">
       <ul>
         ${notesMarkup}
       </ul>
@@ -342,21 +342,61 @@ const sitesStage = document.querySelector('.sites-stage')
 let wheelVelocity = 0
 let wheelFrame = null
 
-const animateMessages = () => {
-  if (reduceMotion) return
+const animateMessage = (message) => {
+  if (!message || message.dataset.messageAnimated === 'true') return
+  message.dataset.messageAnimated = 'true'
 
-  gsap.from('.plain-list-stage li', {
+  if (reduceMotion) {
+    gsap.set(message, { autoAlpha: 1, clearProps: 'visibility' })
+    return
+  }
+
+  gsap.fromTo(message, {
     autoAlpha: 0,
-    x: (index, element) => (element.classList.contains('message-left') ? -42 : 42),
+    x: message.classList.contains('message-left') ? -42 : 42,
     y: 18,
     scale: 0.84,
-    rotate: (index, element) => (element.classList.contains('message-left') ? -2 : 2),
+    rotate: message.classList.contains('message-left') ? -2 : 2,
+  }, {
+    autoAlpha: 1,
+    x: 0,
+    y: 0,
+    scale: 1,
+    rotate: 0,
     duration: 0.42,
-    stagger: 0.18,
-    delay: 0.18,
     ease: 'back.out(1.7)',
     clearProps: 'opacity,visibility,transform',
   })
+}
+
+const observeMessages = () => {
+  const messages = [...document.querySelectorAll('.plain-list-stage li')]
+
+  if (messages.length === 0) return
+
+  gsap.set(messages, { autoAlpha: 0 })
+
+  if (!('IntersectionObserver' in window)) {
+    messages.forEach(animateMessage)
+    return
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+
+        animateMessage(entry.target)
+        observer.unobserve(entry.target)
+      })
+    },
+    {
+      threshold: 0.36,
+      rootMargin: '0px 0px -8% 0px',
+    },
+  )
+
+  messages.forEach((message) => observer.observe(message))
 }
 
 gsap.defaults({
@@ -545,7 +585,7 @@ if (!reduceMotion) {
         },
         '-=0.22',
       )
-      .call(animateMessages, null, '-=0.18')
+      .call(observeMessages)
   } else {
     gsap.from('.reveal', {
       autoAlpha: 0,
@@ -553,7 +593,7 @@ if (!reduceMotion) {
       scale: 0.985,
       stagger: 0.07,
       clearProps: 'transform,visibility',
-      onComplete: animateMessages,
+      onComplete: observeMessages,
     })
   }
 
@@ -588,6 +628,7 @@ if (!reduceMotion) {
   }
 } else {
   document.querySelector('.splash-screen')?.remove()
+  observeMessages()
 }
 
 document.querySelectorAll('.magnetic:not(.nav-arrow):not(.avatar-wrap)').forEach((element) => {
