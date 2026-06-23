@@ -2,8 +2,6 @@ import './style.css'
 import { gsap } from 'gsap'
 import createElement from 'lucide/dist/esm/createElement.mjs'
 import {
-  ArrowLeft,
-  ArrowRight,
   ArrowUpRight,
   CodeXml,
   Eye,
@@ -87,14 +85,6 @@ const homepage = {
       image: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/20260608172722731.png'
     },
     {
-      name: '开源数字员工',
-      url: 'https://github.com/hepingan11/Workflow-Chat',
-      href: 'https://github.com/hepingan11/Workflow-Chat',
-      summary: 'Openclaw与Dify、Codex的结合升级，多角色协作与LLM节点自动编排---下一代开源数字人系统，让每个人都能当老板',
-      accent: '#d65f46',
-      image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260531034731.png'
-    },
-    {
       name: 'API中转站',
       url: 'https://api.hepingan.top',
       href: 'https://api.hepingan.top',
@@ -103,16 +93,23 @@ const homepage = {
       image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260608180759.png'
     },
     {
+      name: '开源数字员工',
+      url: 'https://github.com/hepingan11/Workflow-Chat',
+      href: 'https://github.com/hepingan11/Workflow-Chat',
+      summary: 'Openclaw与Dify、Codex的结合升级，多角色协作与LLM节点自动编排---下一代开源数字人系统，让每个人都能当老板',
+      accent: '#d65f46',
+      image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260531034731.png'
+    },
+    {
       name: '鸡窝',
       url: 'http://clash.hepingan.top:8008',
       href: 'http://clash.hepingan.top:8008',
       summary: '服务器太多了，用哪吒监控搭个鸡窝,里面都是我的服务器',
-      accent: '#b53fb3',
+      accent: '#5d6dc4',
       image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260608180910.png'
     },
     {
       name: '模智盒(已下线)',
-      url: 'http://8.137.103.102:9090/',
       href: 'http://8.137.103.102:9090/',
       summary: '时代的眼泪，2023年基于SpringAI、SpringCloud Ablibaba搭建的AI对话系统，Github源码:https://github.com/hepingan11/ModelBox',
       accent: '#b53fb3',
@@ -313,33 +310,24 @@ document.querySelector('#app').innerHTML = `
     </section>
 
     <section class="sites-stage" aria-label="共享网站列表">
-      <button class="nav-arrow nav-prev magnetic" type="button" aria-label="上一个网站">
-        ${iconToHtml(ArrowLeft)}
-      </button>
-      <div class="site-rail">
+      <div class="site-grid">
         ${homepage.sites
           .map(
             (site, index) => `
-              <a class="site-card reveal tilt-card magnetic ${index === 0 ? 'is-active' : ''}" data-site-index="${index}" href="${site.href}" target="_blank" rel="noreferrer" style="--accent: ${site.accent}">
+              <a class="site-card reveal tilt-card magnetic ${index < 2 ? 'site-card-featured' : 'site-card-compact'}" data-site-index="${index}" href="${site.href}" target="_blank" rel="noreferrer" style="--accent: ${site.accent}">
                 <span class="site-image-frame">
                   <img class="site-image" src="${site.image}" alt="${site.name} 预览图" />
                 </span>
-                <span class="site-index">0${index + 1}</span>
-                <strong>${site.name}</strong>
-                <p>${site.summary}</p>
-                <span class="site-link">
-                  ${iconToHtml(Globe2)}
-                  ${site.url}
-                  ${iconToHtml(ArrowUpRight, 'icon arrow')}
+                <span class="site-copy">
+                  <strong>${site.name}</strong>
+                  <p>${site.summary}</p>
+                  
                 </span>
               </a>
             `,
           )
           .join('')}
       </div>
-      <button class="nav-arrow nav-next magnetic" type="button" aria-label="下一个网站">
-        ${iconToHtml(ArrowRight)}
-      </button>
     </section>
 
     <section class="plain-list-stage" aria-label="补充说明">
@@ -355,11 +343,6 @@ document.querySelector('#app').innerHTML = `
 `
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-let activeSite = 0
-const siteRail = document.querySelector('.site-rail')
-const sitesStage = document.querySelector('.sites-stage')
-let wheelVelocity = 0
-let wheelFrame = null
 
 const animateMessage = (message) => {
   if (!message || message.dataset.messageAnimated === 'true') return
@@ -452,138 +435,6 @@ window.addEventListener('keydown', (event) => {
 gsap.defaults({
   duration: reduceMotion ? 0 : 0.78,
   ease: 'power3.out',
-})
-
-const setActiveSite = (nextIndex) => {
-  const cards = [...document.querySelectorAll('.site-card')]
-  activeSite = (nextIndex + cards.length) % cards.length
-  cards.forEach((card, index) => card.classList.toggle('is-active', index === activeSite))
-
-  const target = cards[activeSite]
-  const targetLeft = target.offsetLeft - (siteRail.clientWidth - target.clientWidth) / 2
-
-  if (!reduceMotion) {
-    gsap.to(siteRail, {
-      scrollLeft: targetLeft,
-      duration: 0.62,
-      ease: 'power3.inOut',
-      overwrite: 'auto',
-    })
-    gsap.fromTo(
-      target,
-      { y: 12, scale: 0.985 },
-      { y: 0, scale: 1, duration: 0.42, overwrite: 'auto' },
-    )
-  } else {
-    siteRail.scrollLeft = targetLeft
-  }
-}
-
-document.querySelector('.nav-prev').addEventListener('click', () => setActiveSite(activeSite - 1))
-document.querySelector('.nav-next').addEventListener('click', () => setActiveSite(activeSite + 1))
-
-siteRail.addEventListener('scroll', () => {
-  const cards = [...document.querySelectorAll('.site-card')]
-  const railCenter = siteRail.scrollLeft + siteRail.clientWidth / 2
-  const closestIndex = cards.reduce((bestIndex, card, index) => {
-    const bestCard = cards[bestIndex]
-    const cardCenter = card.offsetLeft + card.clientWidth / 2
-    const bestCenter = bestCard.offsetLeft + bestCard.clientWidth / 2
-    return Math.abs(cardCenter - railCenter) < Math.abs(bestCenter - railCenter) ? index : bestIndex
-  }, 0)
-
-  activeSite = closestIndex
-  cards.forEach((card, index) => card.classList.toggle('is-active', index === activeSite))
-})
-
-const tickWheelScroll = () => {
-  if (Math.abs(wheelVelocity) < 0.35) {
-    wheelVelocity = 0
-    wheelFrame = null
-    return
-  }
-
-  const maxScrollLeft = siteRail.scrollWidth - siteRail.clientWidth
-  const nextScrollLeft = Math.max(0, Math.min(maxScrollLeft, siteRail.scrollLeft + wheelVelocity))
-  siteRail.scrollLeft = nextScrollLeft
-  wheelVelocity *= nextScrollLeft === 0 || nextScrollLeft === maxScrollLeft ? 0.38 : 0.86
-  wheelFrame = requestAnimationFrame(tickWheelScroll)
-}
-
-sitesStage.addEventListener(
-  'wheel',
-  (event) => {
-    if (siteRail.scrollWidth <= siteRail.clientWidth) return
-
-    const rawDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY
-    const modeMultiplier = event.deltaMode === 1 ? 18 : event.deltaMode === 2 ? siteRail.clientWidth : 1
-    const delta = rawDelta * modeMultiplier
-    const maxScrollLeft = siteRail.scrollWidth - siteRail.clientWidth
-    const canScrollLeft = delta < 0 && siteRail.scrollLeft > 0
-    const canScrollRight = delta > 0 && siteRail.scrollLeft < maxScrollLeft
-
-    if (!canScrollLeft && !canScrollRight) return
-    event.preventDefault()
-
-    if (reduceMotion) {
-      siteRail.scrollLeft = Math.max(0, Math.min(maxScrollLeft, siteRail.scrollLeft + delta))
-      return
-    }
-
-    wheelVelocity += delta * 0.72
-    wheelVelocity = Math.max(-92, Math.min(92, wheelVelocity))
-
-    if (!wheelFrame) {
-      wheelFrame = requestAnimationFrame(tickWheelScroll)
-    }
-  },
-  { passive: false },
-)
-
-document.querySelectorAll('.nav-arrow').forEach((button) => {
-  const direction = button.classList.contains('nav-prev') ? -1 : 1
-
-  button.addEventListener('pointerenter', () => {
-    if (reduceMotion) return
-    gsap.to(button, {
-      x: direction * 8,
-      scale: 1.08,
-      duration: 0.32,
-      ease: 'power3.out',
-      overwrite: 'auto',
-    })
-    gsap.to(button.querySelector('.icon'), {
-      x: direction * 3,
-      duration: 0.32,
-      ease: 'power3.out',
-      overwrite: 'auto',
-    })
-  })
-
-  button.addEventListener('pointerleave', () => {
-    gsap.to(button, {
-      x: 0,
-      scale: 1,
-      duration: 0.48,
-      ease: 'elastic.out(1, 0.42)',
-      overwrite: 'auto',
-    })
-    gsap.to(button.querySelector('.icon'), {
-      x: 0,
-      duration: 0.42,
-      ease: 'power3.out',
-      overwrite: 'auto',
-    })
-  })
-
-  button.addEventListener('click', () => {
-    if (reduceMotion) return
-    gsap.fromTo(
-      button,
-      { scale: 0.94 },
-      { scale: 1.08, duration: 0.34, ease: 'elastic.out(1, 0.35)', overwrite: 'auto' },
-    )
-  })
 })
 
 document.querySelectorAll('.avatar-wrap').forEach((avatar) => {
@@ -681,7 +532,7 @@ if (!reduceMotion) {
   observeMessages()
 }
 
-document.querySelectorAll('.magnetic:not(.nav-arrow):not(.avatar-wrap)').forEach((element) => {
+document.querySelectorAll('.magnetic:not(.avatar-wrap)').forEach((element) => {
   element.addEventListener('pointermove', (event) => {
     if (reduceMotion) return
     const rect = element.getBoundingClientRect()
