@@ -137,13 +137,26 @@ const homepage = {
     { text: '最怕的就是做一半中途改需求呀！！！我缺个产品经理帮我敲定和对接需求', side: 'left' },
     { text: '中转站搞得怎么样', side: 'left' },
     { text: '中转站是我2026.5做的，一开始是想自己拿来反代的，随便宣传一下没想到用户还起来了，虽然收入就三位数', side: 'right' },
-    { text: '天天研究怎么更省Token，还创了个OpenAI爆破小组，什么卡Plus试用、Bug Team、Business Team优惠码都搞过，最高峰一天蹬了1B token', side: 'right' },
+    { text: '天天研究怎么更省Token，还创了个OpenAI爆破小组，什么pp渠道卡Plus试用、Bug Team、Business Team优惠码、upi都搞过，最高峰一天蹬了1B token', side: 'right' },
     { type: 'sticker', src: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260623020333.png', alt: 'eyes', side: 'right' },
     { text: '我看你抖音天天发些AI相关的，看来是真的想省Token'},
     { text: 'AI用得这么厉害，那你谈谈对码农的看法'},
     { type: 'sticker', src: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/973f2455cfe86d04f85cc86978f08355.jpg', alt: 'eyes', side: 'left' },
     { text: '我认为AI时代Coding更看重的是Coding review、Debug、业务逻辑理解，当然最重要的还是一个好的Idea和行动力', side: 'right' },
-    { text: '...', side: 'right' },
+    { text: '另外我自己平时没事的时候会去参加一些黑客松或比赛活动，比如我参加过的Monad Web3 Agent、Lets vision、MuShanghai Bittensor、Atomcode Agent Hackathon...', side: 'right' },
+    { type: 'image', src: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/155c3a3f403f9c5b4b1e19bde88c72bb_720.jpg', alt: 'eyes', side: 'right' },
+    { text: '一方面参加这些可以得奖得钱，另一方面也能结识很多志同道合的朋友和增长自己的见识', side: 'right' },
+    { text: '可以呀，那你平时除了计算机相关的还有什么兴趣爱好呢？', side: 'left' },
+    { text: '我看你头像是流萤，你喜欢动漫吗？', side: 'left' },
+    { text: '我喜欢在一个闲暇的周末出去旅游，想去远处，用相机去记录 | 光影无声 岁月如歌 |', side: 'right' },
+    { text: '哈哈哈其实我不怎么看动漫就玩玩二游，我只是喜欢可爱的事物和人，二次元比较符合我的审美，喜欢撸猫撸狗', side: 'right' },
+    { text: '毕竟代码和项目需求已经够冰冷了，还是希望有些可爱的事物和人来感化我', side: 'right' },
+    { type: 'sticker', src: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/142f1f665e1e1cfe828d36cc97285562.jpg', alt: 'eyes', side: 'right' },
+    { text: '其实我是真不想宅，我喜欢去吃好吃的，去玩好玩的，去打卡没去过的地方，奈何一个人在外地上班没多少朋友，再加上有时候在干外包', side: 'right' },
+    { text: '平时上班活也不多，摸鱼的时候就捣鼓这些AI了', side: 'right' },
+    { text: 'How about you?', side: 'right' },
+    { text: 'AI/IT research too', side: 'left' },
+    { text: '关注一些理财、Web3、虚拟货币、嵌入式(机器人方向)、爱捣鼓爱折腾我好奇的事物', side: 'left' },
   ],
 }
 
@@ -243,9 +256,11 @@ const noteMessageMarkup = (message, index, messages) => {
       : isImageMessage
         ? 'message-bubble message-image-bubble'
         : 'message-bubble'
-  const bubbleContent = isImageMessage || isStickerMessage
-    ? `<img class="${isStickerMessage ? 'message-sticker' : 'message-image'}" src="${message.src}" alt="${message.alt ?? '消息图片'}" loading="lazy" />`
-    : message.text
+  const bubbleContent = isStickerMessage
+    ? `<img class="message-sticker" src="${message.src}" alt="${message.alt ?? '消息图片'}" loading="lazy" />`
+    : isImageMessage
+      ? `<button class="message-image-button" type="button" aria-label="放大查看图片"><img class="message-image" src="${message.src}" alt="${message.alt ?? '消息图片'}" loading="lazy" /></button>`
+      : message.text
 
   return `
     <li class="message-item message-${message.side} ${isGroupEnd ? 'message-group-end' : 'message-group-middle'}" style="--message-accent: ${person.accent}">
@@ -333,6 +348,10 @@ document.querySelector('#app').innerHTML = `
       </ul>
     </section>
   </main>
+  <div class="image-preview" aria-hidden="true">
+    <button class="image-preview-backdrop" type="button" aria-label="关闭图片预览"></button>
+    <img class="image-preview-img" src="" alt="" />
+  </div>
 `
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -398,6 +417,37 @@ const observeMessages = () => {
 
   messages.forEach((message) => observer.observe(message))
 }
+
+const imagePreview = document.querySelector('.image-preview')
+const imagePreviewImage = document.querySelector('.image-preview-img')
+
+const closeImagePreview = () => {
+  if (!imagePreview || !imagePreviewImage) return
+
+  imagePreview.classList.remove('is-open')
+  imagePreview.setAttribute('aria-hidden', 'true')
+  imagePreviewImage.removeAttribute('src')
+  imagePreviewImage.alt = ''
+}
+
+document.querySelectorAll('.message-image-button').forEach((button) => {
+  button.addEventListener('click', () => {
+    const image = button.querySelector('.message-image')
+
+    if (!imagePreview || !imagePreviewImage || !image) return
+
+    imagePreviewImage.src = image.currentSrc || image.src
+    imagePreviewImage.alt = image.alt
+    imagePreview.classList.add('is-open')
+    imagePreview.setAttribute('aria-hidden', 'false')
+  })
+})
+
+document.querySelector('.image-preview-backdrop')?.addEventListener('click', closeImagePreview)
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeImagePreview()
+})
 
 gsap.defaults({
   duration: reduceMotion ? 0 : 0.78,

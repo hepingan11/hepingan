@@ -1,0 +1,19 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - paragraph [ref=e6]: 后台登录
+    - heading "管理员认证" [level=2] [ref=e7]
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]: 用户名
+      - textbox "用户名" [ref=e11]:
+        - /placeholder: 请输入用户名
+        - text: admin001
+    - generic [ref=e12]:
+      - generic [ref=e13]: 密码
+      - textbox "密码" [ref=e14]:
+        - /placeholder: 请输入密码
+        - text: Admin@123456
+    - button "进入后台" [ref=e15] [cursor=pointer]
+  - generic [ref=e16]:
+    - generic [ref=e17]: 联调账号：admin001
+    - generic [ref=e18]: 联调密码：Admin@123456
