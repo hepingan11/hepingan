@@ -98,7 +98,7 @@ const homepage = {
       href: 'https://github.com/hepingan11/Workflow-Chat',
       summary: 'Openclaw与Dify、Codex的结合升级，多角色协作与LLM节点自动编排---下一代开源数字人系统，让每个人都能当老板',
       accent: '#d65f46',
-      image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260531034731.png'
+      image: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/digital.png'
     },
     {
       name: '鸡窝',
@@ -106,14 +106,14 @@ const homepage = {
       href: 'http://clash.hepingan.top:8008',
       summary: '服务器太多了，用哪吒监控搭个鸡窝,里面都是我的服务器',
       accent: '#5d6dc4',
-      image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260608180910.png'
+      image: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/server.png'
     },
     {
       name: '模智盒(已下线)',
       href: 'http://8.137.103.102:9090/',
       summary: '时代的眼泪，2023年基于SpringAI、SpringCloud Ablibaba搭建的AI对话系统，Github源码:https://github.com/hepingan11/ModelBox',
       accent: '#b53fb3',
-      image: 'https://img2-hepinan.oss-cn-beijing.aliyuncs.com/picgo/20260525003936.png'
+      image: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/logo%20(1).png'
     }
   ],
   notes: [
@@ -143,7 +143,8 @@ const homepage = {
     { text: '另外我自己平时没事的时候会去参加一些黑客松或比赛活动，比如我参加过的Monad Web3 Agent、Lets vision、MuShanghai Bittensor、Atomcode Agent Hackathon...', side: 'right' },
     { type: 'image', src: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/155c3a3f403f9c5b4b1e19bde88c72bb_720.jpg', alt: 'eyes', side: 'right' },
     { text: '一方面参加这些可以得奖得钱，另一方面也能结识很多志同道合的朋友和增长自己的见识', side: 'right' },
-    { text: '可以呀，那你平时除了计算机相关的还有什么兴趣爱好呢？', side: 'left' },
+    { text: '我在校期间拿我那个模智盒参加了2024中国大学生计算机大赛拿了省二国三、还有蓝桥杯Java组省二、还有个打着玩的挑战杯省三', side: 'left' },
+    { text: '那你平时除了计算机相关的还有什么兴趣爱好呢？', side: 'left' },
     { text: '我看你头像是流萤，你喜欢动漫吗？', side: 'left' },
     { text: '我喜欢在一个闲暇的周末出去旅游，想去远处，用相机去记录 | 光影无声 岁月如歌 |', side: 'right' },
     { text: '哈哈哈其实我不怎么看动漫就玩玩二游，我只是喜欢可爱的事物和人，二次元比较符合我的审美，喜欢撸猫撸狗', side: 'right' },
@@ -154,6 +155,16 @@ const homepage = {
     { text: 'How about you?', side: 'right' },
     { text: 'AI/IT research too', side: 'left' },
     { text: '关注一些理财、Web3、虚拟货币、嵌入式(机器人方向)、爱捣鼓爱折腾我好奇的事物', side: 'left' },
+    { text: '是不是感觉这些很嘉豪，但我是真的很喜欢去尝试这些新鲜事物，而且我认为被人说是嘉豪也是一种认可QWQ', side: 'left' },
+    { text: '话说我们的中转站是怎么达到0.1x甚至有时候0.01x倍率的？'},
+    { type: 'sticker', src: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/9123b84d960c01517d3081088b1a5f41.jpg', alt: 'eyes', side: 'left' },
+    { text: '中转站最难的就是维护和找渠道，我现在上班天天没事就捣鼓这些，所以才有稳定和低价的号池，你看我加了好多交流群' , side: 'right' },
+    { type: 'image', src: 'https://img-hepingan.oss-cn-hangzhou.aliyuncs.com/page1/20260624150716105.png', alt: 'eyes', side: 'right' },
+    { text: '如果你有兴趣可以来我创建的《豆包交流群》,QQ 799128896', side: 'right' },
+    { text: '此"豆包"非真豆包', side: 'left' },
+    { text: '看看你的技术栈有多丰富', side: 'right' },
+    { text: '技术栈详见我博客，我只能说你耳熟知道的我都会，之前主要是后端开发方向，之后是全栈方向，再到现在是AI应用全栈开发+运维+网络工程师', side: 'left' },
+    { text: '现在学新技能不要傻傻的把每个细节都搞懂了，直接从项目中学习', side: 'left' },
   ],
 }
 

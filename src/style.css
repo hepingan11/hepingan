@@ -549,7 +549,7 @@ p {
 .site-card-compact {
   grid-column: span 2;
   min-height: 104px;
-  grid-template-columns: clamp(54px, 5.6vw, 74px) minmax(0, 1fr);
+  grid-template-columns: clamp(46px, 4.8vw, 62px) minmax(0, 1fr);
   align-items: center;
   gap: 14px;
   padding: 14px;
@@ -560,8 +560,7 @@ p {
   display: block;
   width: 100%;
   overflow: hidden;
-  border-radius: var(--inner-radius);
-  background: #fffaf0;
+  
 }
 
 .site-card-featured .site-image-frame {
@@ -569,13 +568,11 @@ p {
 }
 
 .site-card-compact .site-image-frame {
-  width: clamp(54px, 5.6vw, 74px);
+  width: clamp(46px, 4.8vw, 62px);
   aspect-ratio: 1;
-  border-radius: 50%;
-  border: 4px solid color-mix(in srgb, var(--accent), #f0a81f 36%);
-  box-shadow:
-    inset 0 0 0 3px rgba(255, 255, 255, 0.52),
-    0 12px 28px color-mix(in srgb, var(--accent), transparent 78%);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--accent), transparent 78%);
 }
 
 .site-image-frame::after {
@@ -584,12 +581,7 @@ p {
   inset: auto 0 0;
   height: 44%;
   pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 252, 244, 0),
-    rgba(255, 252, 244, 0.72) 62%,
-    rgba(255, 252, 244, 0.96)
-  );
+ 
 }
 
 .site-card-compact .site-image-frame::after {
@@ -601,6 +593,11 @@ p {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.site-card-compact .site-image {
+  object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .site-copy {
@@ -653,8 +650,9 @@ p {
   margin-block: 5px 7px;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   font-size: 0.76rem;
+  min-height: calc(0.76rem * 1.42 * 2);
 }
 
 .site-link {
